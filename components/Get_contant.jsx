@@ -1,0 +1,137 @@
+'use client'
+import { FaPhone } from "react-icons/fa6";
+import { FaAddressBook } from "react-icons/fa6";
+import { IoLocationOutline } from "react-icons/io5";
+
+// import "react-phone-input-2/lib/style.css"
+// import PhoneInput from "react-phone-input-2"
+
+import Footer from "./Footer";
+import { useEffect, useState } from "react";
+import Success from "./Success";
+import Form from "./Form";
+
+const initialValues ={
+  fname: '',
+  lname: '',
+  email: '',
+  visitDate: '',
+  travellars : '',
+  destination :'',
+  phone:'',
+  gender: '',
+  comment: '',
+
+}
+
+
+
+export default function Contact(){
+  const [formData, setFormData] = useState(initialValues)
+  const [error, setError] = useState()
+  const [success,setSuccess] = useState(false)
+  
+  
+ 
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setSuccess(false)
+    }, 40000)
+  })
+
+  
+  
+    return(
+        <div className="h-screen">
+
+            <div style={{
+            width:'100%',
+            height: '60vh',
+            backgroundImage: "url('/images/picture1.jpeg')",
+            backgroundPosition:'center',
+            backgroundSize: 'fixed'
+        }}>
+        </div>
+            <div className="flex items-center justify-center mt-20">
+                <div className="flex flex-col">
+                     <h1 className="text-4xl font-bold text-center">Get In Touch</h1>
+                     <p className="text-center text-xl">Have questions about our adventures? Want to plan a custom
+                         trip? Our team is here to<br/> help you every step of the way.</p>
+
+
+                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mt-5 p-4">
+                          <div>
+                            <h1 className="text-xl font-semibold">Contact Information</h1>
+                              <div className="flex items-center gap-3 mt-8">
+                                <span className="bg-amber-100 p-4 rounded-2xl"><FaPhone  size={30} className="text-yellow-400"/></span>
+                                <div>
+                                  <h1 className="text-xl font-bold">Phone</h1>
+                                  <p className="text-gray-400">+255 752598821/+255 653944565/+255 684005668</p>
+                                  <span className="text-gray-400">Mon-Fri 9am-6pm EST</span>
+                                </div>
+
+                                
+                              </div>
+                               <div className="flex items-center gap-3 mt-8">
+                                <span className="bg-amber-100 p-4 rounded-2xl"><FaAddressBook  size={30} className="text-yellow-400"/></span>
+                                <div>
+                                  <h1 className="text-xl font-bold">Address</h1>
+                                  <p className="text-gray-400">P.O BOX 2084</p>
+                                  
+                                </div>
+
+                                
+                              </div>
+                               <div className="flex items-center gap-3 mt-8">
+                                <span className="bg-amber-100 p-4 rounded-2xl"><IoLocationOutline  size={30} className="text-yellow-400"/></span>
+                                <div>
+                                  <h1 className="text-xl font-bold">Location</h1>
+                                  <p className="text-gray-400">ARUSHA TANZANIA</p>
+                                  
+                                </div>
+
+                                
+                              </div>
+
+                                 <h1 className="mt-5 text-gray-500">Follow us for adventure inspiration, travel tips, and exclusive member updates</h1>
+                               
+                            </div>
+                         
+                             
+                        <Form error={error} 
+                        formData={formData} setFormData={setFormData} 
+                        setError={setError} setSuccess={setSuccess} initialValues={initialValues}/>
+
+                           {success &&(
+                               <Success/>
+                              )}
+                         </div>
+
+                        
+
+
+                         <div className="bg-amber-300 mt-5">
+                           <div className="p-4">
+                             <h1 className="text-2xl">Office Hours</h1>
+                             <div className="flex items-center justify-between mt-5">
+                                <span className="text-xl">Monday - Friday</span>
+                                <small>9:00 AM - 6:00 PM EST</small>
+                             </div>
+                             <div className="flex items-center justify-between mt-5">
+                                <span className="text-xl">Saturday</span>
+                                <small>10:00 AM - 4:00 PM EST</small>
+                             </div>
+                              <div className="flex items-center justify-between mt-5">
+                                <span className="text-xl">Sunday</span>
+                                <small>Closed</small>
+                             </div>
+                           </div>
+                         </div>
+                </div>
+               
+            </div>
+            <Footer/>
+        </div>
+    )
+}
