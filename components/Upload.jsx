@@ -43,7 +43,7 @@ export default function Upload(){
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700 mt-4">Description</label>
                     <textarea id="description" name="description" placeholder="Enter destination description" 
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500
-                     focus:ring-indigo-500 sm:text-sm p-4" required
+                     focus:ring-indigo-500 sm:text-sm p-4" 
                      
                     value={formData.description}
                      onChange={(e)=> setFormData({...formData,description:e.target.value})}
