@@ -1,7 +1,7 @@
 import NavBar from "@/components/NavBar";
 import Contact from "../../components/Get_contant";
 import { FetchAllDestinationdAction } from "../Actions";
-export default async function Contact_page(){
+export default async function Contact(){
  
     const FetchDestination = await FetchAllDestinationdAction()
 
