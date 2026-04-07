@@ -4,7 +4,7 @@ import { FetchCreateUserSystemProfileAction, GetDestinationByIdAction, } from '.
 import { getUserIdentifier, requireSessionUser } from '../../lib/auth'
 import DestinationById from '../../../components/DestinationById'
 
-export default async function Page({params}){
+export default async function Destination({params}){
 
 
 
