@@ -2,7 +2,7 @@
 import { CgProfile } from "react-icons/cg";
 import { DeleteApproveVisitorAction } from "../app/Actions";
 import { redirect } from "next/navigation";
-export default function Profile({ProfileInfo, FetchApproveVisitorById}){
+export default function Profile({sessionUser, FetchApproveVisitorById}){
 
     async function HandleDelete(currentId) {
 
@@ -34,7 +34,7 @@ export default function Profile({ProfileInfo, FetchApproveVisitorById}){
           <div  className=" h-screen w-[80%] px-10">
             <div className="border-b border-gray-400 p-4 lg:flex items-center justify-between"> 
                <h1 className="text-2xl font-bold">Profile Details</h1>
-               {ProfileInfo?.userInfo?.role === 'Admin' &&(
+               {sessionUser?.role === 'Admin' &&(
                 <button onClick={()=> HandleDelete(FetchApproveVisitorById?._id)} 
                className="bg-red-400 p-2 text-white font-bold cursor-pointer ">Remove Visitor</button>
 
@@ -85,7 +85,7 @@ export default function Profile({ProfileInfo, FetchApproveVisitorById}){
             <div className="mt-8 border-b border-gray-400 lg:flex items-center justify-between p-2">
                 <h1 className="font-semibold">Destination</h1>
                 <span className="flex items-center gap-2">
-                <h1 className="font-semibold">{FetchApproveVisitorById?.destination}</h1></span>
+                <h1 className="font-semibold">{FetchApproveVisitorById?.destination.join(', ')}</h1></span>
                
             </div>
              <div className="mt-8 border-b border-gray-400 lg:flex items-center justify-between p-2">

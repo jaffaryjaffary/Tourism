@@ -1,10 +1,10 @@
 // import Cards from "../../../components/Cards";
-import { currentUser } from "@clerk/nextjs/server";
 import GetUser from "../../../components/GetUser";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
 import {   FetchCreateUserSystemProfileAction, GetUserDetailByIdAction } from "../../Actions";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
+import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
 
 
 
@@ -14,22 +14,21 @@ import { redirect } from "next/dist/server/api-utils";
 export default async function View({params}){
 const { id } = await params;
 
-
-    
-   const user = await currentUser()
+   const sessionUser = await requireSessionUser();
+   const identifier = getUserIdentifier(sessionUser);
     const  GetUserDetailsById = await GetUserDetailByIdAction(id)   
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(user?.id)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
     
     
     
     
     return(
          <div>
-        {ProfileInfo ?
+        
         <div className="flex items-center">
           
 
-                 <div className="hidden h-screen  bg-blue-400  w-[15%] lg:flex">
+                 <div className="hidden h-screen  bg-blue-400  w-[20%] lg:flex">
                <Menu/>
 
            </div>
@@ -37,20 +36,19 @@ const { id } = await params;
             
           
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo}/>
+                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
                 {/* <Cards FetchUserInfo={FetchUserInfo}/> */}
                 
                <GetUser GetUserDetailsById={GetUserDetailsById} 
-                ProfileInfo={ProfileInfo}
+                 ProfileInfo={ProfileInfo}
                
                />
 
                
              </div>
         </div>
-   :
-     redirect('/Add_User')
-        }
+  
+        
         </div>
     
     )

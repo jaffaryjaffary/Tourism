@@ -16,15 +16,23 @@ import mongoose from 'mongoose'
 
 
 
-export const  connectToDb = async()=>{
-   const  connectionString = 'mongodb+srv://jaffary:jaffary@cluster0.dcamm9d.mongodb.net/';
-   mongoose.connect(connectionString)
-   .then(()=>{
-    console.log("Database connection successfully")
-   }).catch((error)=>{
-    console.log(error)
-   })
-}
+export const connectToDb = async () => {
+  const connectionString = process.env.MONGODB_URI;
+  if (!connectionString) {
+    throw new Error("Missing MONGODB_URI environment variable");
+  }
+
+  if (mongoose.connection.readyState === 1) {
+    return;
+  }
+
+  try {
+    await mongoose.connect(connectionString);
+    console.log("Database connection successfully");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
 // const userSchema = new mongoose.Schema({
@@ -71,7 +79,4 @@ export const  connectToDb = async()=>{
 // app.listen(PORT, ()=>{
 //    console.log("server running on port",PORT)
 // })
-
-
-
-export default connectToDb();
+export default connectToDb;

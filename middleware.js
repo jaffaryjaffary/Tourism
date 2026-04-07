@@ -15,22 +15,47 @@
 //   matcher: ["/Admin_Dashboard/:path*"]
 // };
 
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from "next/server";
 
-const isProtectedRoute = createRouteMatcher(['/Admin_Dashboard(.*)', '/Add_Visitor(.*)','/Add_User(.*)',
-  '/1234567(.*)','/Approved_Visitor(.*)','/ViewUserDetails(.*)','/12345(.*)','/1234567(.*)','/123456789(.*)'])
+const protectedMatchers = [
+  "/Admin_Dashboard",
+  "/Add_Visitor",
+  "/Add_User",
+  "/Approved_Visitor",
+  "/Contact_Visitor",
+  "/ViewUserDetails",
+  "/User_Table",
+  "/12345",
+  "/1234567",
+  "/123456789",
+  "/12345UploadImg",
+  "/Help&Support",
+  "Success",
+  "Register_Error",
+  "Upload_Success",
+  "12345VdstId", 
+];
 
-export default clerkMiddleware(async (auth, req) => {
-  if (isProtectedRoute(req)) await auth.protect()
-})
+function isProtected(pathname) {
+  return protectedMatchers.some((path) => pathname.startsWith(path));
+}
 
+export function middleware(request) {
+  const { pathname } = request.nextUrl;
+  if (!isProtected(pathname)) return NextResponse.next();
 
+  const hasSession = request.cookies.get("tourisim_admin_session")?.value;
+  if (!hasSession) {
+    const loginUrl = new URL("/Login_page", request.url);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  return NextResponse.next();
+}
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/(api|trpc)(.*)",
   ],
-}
+};

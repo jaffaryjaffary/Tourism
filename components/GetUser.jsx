@@ -11,7 +11,7 @@ import { FcApprove } from "react-icons/fc";
 
 
 
-export default function GetView({GetUserDetailsById,ProfileInfo}){
+export default function GetView({GetUserDetailsById,   ProfileInfo}){
     const [notify, setNotify] = useState(false)
    
     
@@ -28,8 +28,8 @@ export default function GetView({GetUserDetailsById,ProfileInfo}){
             destination:GetUserDetailsById?.destination,
             gender:GetUserDetailsById?.gender,
             visitDate:GetUserDetailsById?.visitDate,
-            approvedByFname:ProfileInfo?.userInfo?.fname,
-            approvedBylname:ProfileInfo?.userInfo?.lname,
+            approvedByFname: ProfileInfo?.fname,
+            approvedBylname: ProfileInfo?.lname,
 
            
             
@@ -120,8 +120,8 @@ useEffect(()=>{
             </div>
              <div className="p-3 border-b border-gray-400 lg:flex items-center justify-between  hover:bg-gray-400">
                 <div> <h1 className="text-xl">Destination</h1></div>
-               <div>
-                 <span className="text-xl text-gray-500 font-semibold">{GetUserDetailsById?.destination}</span>
+               <div className="flex flex-col">
+                 <span className="text-xl text-gray-500 font-semibold">{GetUserDetailsById?.destination?.join(', ')}</span>
                </div>
                 
             </div>

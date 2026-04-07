@@ -34,7 +34,9 @@ export default function AboutUs(){
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-5">
         <div className="flex items-center justify-center">
-                <Image src={images[current]} alt="" width={700} height={100} className="rounded-2xl" /> 
+                <div className="">
+                  <Image src={images[current]} alt="" width={600} height={300}   className="rounded-lg"/> 
+                </div>
         </div>
                 
                 <div>
@@ -52,6 +54,25 @@ Every safari trip we design reflects our commitment to authentic
  We are not just tour operators—we are your partners in exploration.</p>
                 </div>
     
+            </div>
+
+            <div className="flex items-center justify-center mt-5 bg-white">
+                <div className="flex flex-col">
+                    <div className="flex items-center justify-center mt-5">  <Image src={'/images/picture44.jpeg'} alt="" width={200} height={100} className="rounded-full"/></div>
+                  
+                    <p className="text-xl p-4 rounded-2x font-serif text-center">
+                        Smiling hours african adventures is a family owned  local Tour operator based in Arusha Tanzania.
+                         Founded by  Kassim Ally/ Junga  very experienced Tour  guide.
+                          and Operator  with 20 years in Tourism industry in Tanzania. Our guides
+                           speaks english ,french,spanish are resourse and we are proud of  them becouse 
+                            of their knowleges ,guiding skills  they 
+                        provide valuable support  to the clients after understanding 
+                        clients expectations and their interests.</p>
+                        <div className="flex items-center justify-center mt-5">
+                                 <Image src={'/images/picture36.jpeg'} alt="" width={200} height={100} className=""/>
+                        </div>
+                         
+                </div>
             </div>
 
             <div className="flex items-center justify-center mt-10 bg-[#F8F7FA]">

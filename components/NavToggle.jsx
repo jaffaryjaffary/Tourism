@@ -1,12 +1,13 @@
 import { IoHome } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa";
-// import { FaUserPlus } from "react-icons/fa6";
+ import { FaUserPlus } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
+import { IoCloudUploadOutline } from "react-icons/io5";
+import { FaPhone } from "react-icons/fa6";
 
-import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
-export default function NavToggle(){
+export default function NavToggle({ sessionUser }){
     const menu =[
     {
          id:1,
@@ -15,27 +16,39 @@ export default function NavToggle(){
         icon: <IoHome />
     },
         {     id:2,
+            label: 'Contact Visitors',
+            path: '/Contact_Visitor',
+          
+              icon: <FaPhone />
+        },
+          {     id:3,
             label: 'Add Visitor',
             path: '/Add_Visitor',
-            icon: <FaPlus />
+               icon: <FaPlus />
         },
-        //  {   
-        //      id:3, 
-        //     label: 'Add User',
-        //     path: '/Add_User',
-        //     icon: <FaUserPlus />,
+         {   
+             id:4, 
+            label: 'Added User',
+            path: '/12345',
+            icon: <FaUserPlus />,
             
-        // },
+        },
     
-        {     id:4,
+        {     id:5,
             label: 'Approved Visitor',
             path: '/Approved_Visitor',
             icon: <MdVerified />
         },
+
+        {         id:6,
+                label: 'Upload Destination',
+                path: '/12345UploadImg',
+                icon: <IoCloudUploadOutline />
+            },
    
 ]
     return(
-        <div className="bg-white fixed shadow-lg p-4 w-full border-t border-gray-400 lg:hidden">
+        <div className="bg-white   shadow-lg p-4 w-full border-t border-gray-200 lg:hidden">
             <div>
                 {menu.map(item => 
                     <ul key={item.id} className="p-2">
@@ -44,7 +57,12 @@ export default function NavToggle(){
                     </ul>
                 )}
             </div>
-            <UserButton/>,
+            <div className="mt-4 flex items-center justify-between rounded-xl bg-gray-50 p-3 text-xs">
+                <span>{sessionUser?.email || sessionUser?.username}</span>
+                <Link className="font-semibold text-[color:var(--accent-dark)]" href="/logout">
+                  Logout
+                </Link>
+            </div>
         </div>
     )
 }

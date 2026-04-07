@@ -1,27 +1,23 @@
 
-import { currentUser } from "@clerk/nextjs/server";
 import AddedUser from "../../components/AddedUser";
 import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 
-import { FetchAllCreatUserSystemAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchUserInfoAction} from "../Actions";
+import { FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchHelpAction, FetchUserInfoAction} from "../Actions";
 import { redirect } from "next/navigation";
+import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
  
 
   
 export default async function Add_User(){
 
-    const user = await currentUser()
+    const sessionUser = await requireSessionUser();
+    const identifier = getUserIdentifier(sessionUser);
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
 
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(user?.id)
-
-    if(ProfileInfo?._id){
-        if(ProfileInfo)
-            redirect('/Admin_Dashboard')
-        else redirect('/Add_user')
-    }
+    
   
    
    
@@ -31,30 +27,48 @@ export default async function Add_User(){
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
     const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
+     const FetchAllDestination = await FetchAllDestinationdAction(identifier)
+      const FetchHelp = await FetchHelpAction()
    
     
     
     return(
        
-        <div className="flex items-center">
-            {ProfileInfo &&(
-                     <div className="hidden h-screen  bg-blue-400  w-[15%] lg:flex">
+          <div>
+
+
+
+                             {ProfileInfo?.role === 'Admin' ?
+
+                                   <div className="flex items-center">
+
+        
+                     <div className="hidden h-screen  bg-blue-400  w-[20%] lg:flex">
                <Menu/>
 
            </div>
-            )}
+        
           
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo}/>
+                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
                 <Cards FetchUserInfo={FetchUserInfo} FetchApprovedUser={FetchApprovedUser} 
                 ProfileInfo={ProfileInfo} FetctAllCreateUserSystem={FetctAllCreateUserSystem}
+                FetchAllDestination={FetchAllDestination} FetchHelp={FetchHelp}
                 />
                
         
-                 <AddedUser ProfileInfo ={ProfileInfo }/>        
+                 <AddedUser ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>        
                
              </div>
         </div>
     
+                
+            :
+            redirect('/Admin_Dashboard')
+
+                             }
+               
+     
+     </div> 
     )
 }

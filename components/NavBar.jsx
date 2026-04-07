@@ -8,13 +8,14 @@ import { IoHome } from "react-icons/io5";
 import { FaServicestack } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdPeopleAlt } from "react-icons/md";
-import { IoMdSend } from "react-icons/io";
 import { FaCrown } from "react-icons/fa6";
+import { FaHandPointRight } from "react-icons/fa";
+import { IoMdLogIn } from "react-icons/io";
 import { usePathname, useRouter } from 'next/navigation';
 const menu=[
     {
         label: 'Home',
-        path: '/',
+        path: '/Home',
         icon: <IoHome />
     },
     {
@@ -25,7 +26,7 @@ const menu=[
     {
         label: 'Destinations',
         path: '/Destination',
-        icon:<IoMdSend />
+        icon:<FaHandPointRight />
     },
      {
         label: 'About Us',
@@ -37,6 +38,11 @@ const menu=[
         path: '/Contact',
         icon:<FaPhoneAlt />
     },
+     {
+        label: 'Admin Login',
+        path: '/Login_page',
+        icon:<IoMdLogIn />
+    },
 
 ]
 export default function NavBar(){
@@ -47,7 +53,7 @@ export default function NavBar(){
 
 <div>
 
- <div className="flex items-center justify-between fixed  bg-white  w-full shadow-lg">
+ <div className="flex items-center fixed justify-between   bg-white  w-full shadow-lg">
     <div className='p-4'>
         <Image src={'/images/picture36.jpeg'} alt='' width={50} height={50}  className="rounded-2xl"/>
      </div>
@@ -88,9 +94,10 @@ export default function NavBar(){
 
                
                <button onClick={()=> router.push('/Contact')}
-               className='hidden lg:flex m-5 bg-amber-500 p-2 rounded-2xl text-white font-semibold cursor-pointer  gap-2 items-center '>
+               className='hidden lg:flex m-5 bg-amber-500 p-2 rounded-2xl text-white font-semibold cursor-pointer  gap-2 items-center 
+               hover:bg-amber-700'>
                 <FaCrown />
-                Get Booking</button>
+                Get YourBooking</button>
            
         </div>
         
@@ -98,7 +105,7 @@ export default function NavBar(){
 
         {openToogle && (
 
-             <div className='fixed bottom-0 left-0 right-0 top-15 bg-white h-80 border-t border-gray-400 shadow-lg  lg:hidden'>
+             <div className='fixed bottom-0 left-0 right-0  w-full top-15 bg-white h-90 border-t border-gray-400 shadow-lg  lg:hidden'>
 
              {menu.map(item =>
                     <ul key={item.label} className='m-5'>

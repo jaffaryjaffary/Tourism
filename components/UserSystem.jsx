@@ -2,13 +2,13 @@
 import { RxEyeOpen } from "react-icons/rx";
 // import { FaTrashAlt } from "react-icons/fa";
 import { useState, useEffect, useTransition } from "react"
-// import { FaPlus } from "react-icons/fa";;
+ import { FaPlus } from "react-icons/fa";;
 import {SearchCreateUserSystem} from "../app/Actions";
 import { useRouter } from "next/navigation";
 
 
 
-export default function LiveSearchTablePagination() {
+export default function LiveSearchTablePagination({sessionUser}) {
   const [keyword, setKeyword] = useState("");
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
@@ -48,9 +48,9 @@ export default function LiveSearchTablePagination() {
   return (
     <div className="overflow-auto">
 
-        <div className="mt-5 lg:flex justify-between items-center p-4">
+        <div className="mt-0 lg:flex justify-between items-center p-4">
 
-            <h2 className="text-xl font-bold">Approved Visitors Information</h2>
+            <h2 className="text-xl font-bold">System User Management</h2>
        <div>
                   <input
         type="text"
@@ -74,7 +74,6 @@ export default function LiveSearchTablePagination() {
             <th >FirstName</th>
             <th>LastName</th>
              <th>Email</th>
-             <th>Phone</th>
               <th>Role</th>
              <th>Gender</th>
               <th>Action</th>
@@ -93,13 +92,12 @@ export default function LiveSearchTablePagination() {
               <tr key={user._id} className="border-b border-gray-400 mb-5 text-center">
                 <td className="p-2">{(page - 1) * 5 + index + 1}</td>
             
-                  <td>{user.userInfo.fname}</td>
+                  <td>{user?.fname}</td>
               
-              <td>{user.userInfo.lname}</td>
-              <td>{user.userInfo.email}</td>
-                <td>{user.userInfo.phone}</td>
-                  <td>{user.userInfo.role}</td>
-                  <td>{user.userInfo.gender}</td>
+              <td>{user?.lname}</td>
+              <td>{user?.email}</td>
+                  <td>{user?.role}</td>
+                  <td>{user?.gender}</td>
                
                 
                   <td className="">
@@ -138,11 +136,13 @@ export default function LiveSearchTablePagination() {
 
       </div>
 
-    
-        {/* <div className="flex items-center justify-center">
+       {sessionUser?.role === 'Admin' &&(
+          <div className="flex items-center justify-center">
             <button onClick={()=> router.push('/Add_User')}
             className="bg-gray-400 p-4 cursor-pointer rounded-2xl"><FaPlus  size={25} color="white"/></button>
-        </div> */}
+        </div>
+       )}
+        
 
       
        

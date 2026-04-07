@@ -10,7 +10,11 @@ const userSchema = new mongoose.Schema({
     visitDate:String,
     travellars:String,
     gender:String,
-    destination:String,
+    destination: {
+    type: [String],
+    default: [], // 🔥 muhimu sana
+  },
+       
     approvedByFname:String,
     approvedBylname:String,
 

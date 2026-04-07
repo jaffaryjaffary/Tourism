@@ -5,7 +5,7 @@ import { FaUsers } from "react-icons/fa";
 // import { useRouter } from "next/navigation";
 import { FaHandPointer } from "react-icons/fa";
 
-export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUserSystem}){
+export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUserSystem,FetchAllDestination,FetchHelp}){
     // const router = useRouter()
     return(
 
@@ -13,44 +13,53 @@ export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUse
               
 
                   <div className="mt-10 px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="bg-blue-400 p-4   w-80 cursor-pointer">
-                <h1 className="text-xl font-semibold text-white">Contact Visitors</h1>
-                <div className="flex items-center  gap-5">
-                      <span> <FaPeopleGroup   size={50} color="white" className="mt-5"/></span>
-                      <h1 className="text-xl font-semibold text-white">{FetchUserInfo?.length} Total</h1>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
+            <div className="glass-card rounded-3xl p-5">
+                <p className="text-sm uppercase tracking-wide text-[color:var(--muted)]">Contact Visitors</p>
+                <div className="mt-4 flex items-center gap-4">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--accent)]/10 text-[color:var(--accent-dark)]"> <FaPeopleGroup size={26} /></span>
+                      <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchUserInfo?.length} Total</h1>
                 </div>
                
             </div>
-            <div className="bg-green-400 p-4  w-80">
-                <h1 className="text-xl font-semibold text-white">Approved Visitors</h1>
-                <div className="flex items-center  gap-5">
-                    <FcApprove size={50} color="white" className="mt-5" />
-                    <h1 className="text-xl font-semibold text-white">{FetchApprovedUser?.length} Total</h1>
+            <div className="glass-card rounded-3xl p-5">
+                <p className="text-sm uppercase tracking-wide text-[color:var(--muted)]">Approved Visitors</p>
+                <div className="mt-4 flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+                      <FcApprove size={26} />
+                    </span>
+                    <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchApprovedUser?.length} Total</h1>
                 </div>
             </div>
-            <div className="bg-purple-400 p-4  w-80">
-                <h1 className="text-xl font-semibold text-white">Added System User</h1>
-                <div className="flex items-center gap-5">
-                    <FaUsers  size={50} color="white" className="mt-5" />
-                    <h1 className="text-xl font-semibold text-white">{FetctAllCreateUserSystem.length} Total</h1>
+            <div className="glass-card rounded-3xl p-5">
+                <p className="text-sm uppercase tracking-wide text-[color:var(--muted)]">Added System User</p>
+                <div className="mt-4 flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-700">
+                      <FaUsers size={24} />
+                    </span>
+                    <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetctAllCreateUserSystem.length} Total</h1>
                         
-                             {/* <div className="">
-                             <button onClick={()=> router.push('/12345')}
-                             className="bg-white p-2 rounded-2xl cursor-pointer font-bold">View</button>
-                             </div>
-                    
-                        */}
+                           
                        
-                    
-                   
                 </div>
             </div>
-             <div className="bg-orange-300 p-4  w-80">
-                <h1 className="text-xl font-semibold text-white">Destinations</h1>
-                <div className="flex items-center  gap-5">
-                    <FaHandPointer  size={50} color="white" className="mt-5" />
-                    <h1 className="text-xl font-semibold text-white">6 Total</h1>
+             <div className="glass-card rounded-3xl p-5">
+                <p className="text-sm uppercase tracking-wide text-[color:var(--muted)]">Destinations</p>
+                <div className="mt-4 flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                      <FaHandPointer size={24} />
+                    </span>
+                    <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchAllDestination?.length} Total</h1>
+                </div>
+            </div>
+
+             <div className="glass-card rounded-3xl p-5">
+                <p className="text-sm uppercase tracking-wide text-[color:var(--muted)]">Help && Support</p>
+                <div className="mt-4 flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                      <FaHandPointer size={24} />
+                    </span>
+                    <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchHelp?.length} Total</h1>
                 </div>
             </div>
 

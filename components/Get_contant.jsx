@@ -2,7 +2,8 @@
 import { FaPhone } from "react-icons/fa6";
 import { FaAddressBook } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
-
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
 // import "react-phone-input-2/lib/style.css"
 // import PhoneInput from "react-phone-input-2"
 
@@ -10,6 +11,7 @@ import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import Success from "./Success";
 import Form from "./Form";
+import { GetHelpAction } from "../app/Actions";
 
 const initialValues ={
   fname: '',
@@ -24,14 +26,38 @@ const initialValues ={
 
 }
 
+const InitialNumber={
+  number:''
+}
 
 
-export default function Contact(){
+
+export default function Contact({ FetchDestination}){
   const [formData, setFormData] = useState(initialValues)
   const [error, setError] = useState()
   const [success,setSuccess] = useState(false)
-  
-  
+  const [getPhone, setGetPhone] = useState(false)
+  const [getNumber,setNumber] = useState(InitialNumber)
+  const [errr, setErrr] = useState(false)
+  const [successMessage, setSuccessMessage] = useState(false)
+
+
+  async function HandleSubmit(e) {
+    e.preventDefault()
+
+    if(!getNumber.number){
+      setErrr('Please enter your phone number')
+      return
+    } 
+
+    await GetHelpAction(getNumber,'/Contact')
+    setNumber(InitialNumber)
+    setSuccessMessage('Your request has been submitted successfully, we will contact you soon')
+    setError(false)
+    
+    
+    
+  }
  
 
   useEffect(()=>{
@@ -47,10 +73,10 @@ export default function Contact(){
 
             <div style={{
             width:'100%',
-            height: '60vh',
+            height: '100vh',
             backgroundImage: "url('/images/picture1.jpeg')",
             backgroundPosition:'center',
-            backgroundSize: 'fixed'
+            backgroundSize: 'cover'
         }}>
         </div>
             <div className="flex items-center justify-center mt-20">
@@ -94,14 +120,58 @@ export default function Contact(){
                                 
                               </div>
 
-                                 <h1 className="mt-5 text-gray-500">Follow us for adventure inspiration, travel tips, and exclusive member updates</h1>
+                               <div className="flex items-center gap-3 mt-8">
+                                <span className="bg-amber-100 p-4 rounded-2xl"><AiOutlineWhatsApp  size={30} className="text-green-500"/></span>
+                                <div>
+                                  
+                                  <p className="text-gray-400">+255 752598821/+255 653944565</p>
+                                  
+                                </div>
+
+                                
+                              </div>
+
+                                 <h1 className="mt-5 text-gray-500">Follow us for adventure inspiration, 
+                                  travel tips, and exclusive member updates</h1>
+
+                                <div><button onClick={()=> setGetPhone(true)}
+                                className="bg-amber-500 text-white py-2 px-4 rounded-2xl cursor-pointer mt-5 hover:bg-amber-700">
+                                  Ask a Question && Get any Help</button>
+                                
+                                </div>
+                                 {getPhone && (
+
+
+                                  <div className="mt-5 bg-white p-5 rounded-lg shadow-lg">
+                                    <span className="" onClick={() => setGetPhone(false)}>
+                                      <IoMdClose  className="cursor-pointer" /></span>
+                                      {errr && <p className="text-red-500 mt-3">{errr}</p>}
+                                      {successMessage && <p className="text-green-500 mt-3">{successMessage}</p>}
+                                  <form action={HandleSubmit} className="mt-5">
+                                    <label htmlFor="">Enter Phone Number</label>
+                                    <input type="text" name="number" placeholder="Enter Your Phone Number" 
+                                    className="mt-1 block w-full rounded-md
+                                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4" 
+                                     value={getNumber.number}
+                                     onChange={(e)=>setNumber({...getNumber,number:e.target.value})}
+                                    
+                                     />
+                                     <button type="submit" onClick={HandleSubmit}
+                                     className="bg-amber-500 text-white py-2 px-4 rounded-2xl cursor-pointer mt-5 hover:bg-amber-700">
+                                       Submit
+                                     </button>
+                                  </form>
+                                </div>
+
+                                 )}
+                                
                                
                             </div>
                          
                              
                         <Form error={error} 
                         formData={formData} setFormData={setFormData} 
-                        setError={setError} setSuccess={setSuccess} initialValues={initialValues}/>
+                        setError={setError} setSuccess={setSuccess} initialValues={initialValues}  FetchDestination={ FetchDestination}/>
 
                            {success &&(
                                <Success/>
@@ -116,15 +186,15 @@ export default function Contact(){
                              <h1 className="text-2xl">Office Hours</h1>
                              <div className="flex items-center justify-between mt-5">
                                 <span className="text-xl">Monday - Friday</span>
-                                <small>9:00 AM - 6:00 PM EST</small>
+                                <small>24 Hours</small>
                              </div>
                              <div className="flex items-center justify-between mt-5">
                                 <span className="text-xl">Saturday</span>
-                                <small>10:00 AM - 4:00 PM EST</small>
+                                <small>24 Hours</small>
                              </div>
                               <div className="flex items-center justify-between mt-5">
                                 <span className="text-xl">Sunday</span>
-                                <small>Closed</small>
+                                <small>24 Hours</small>
                              </div>
                            </div>
                          </div>

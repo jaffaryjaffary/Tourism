@@ -17,6 +17,7 @@ export default function ImageSlider() {
         "/images/picture19.jpeg",
          "/images/picture41.jpg",
            "/images/picture42.jpg",
+             "/images/picture14.jpeg",
        
   ];
 
@@ -35,12 +36,12 @@ export default function ImageSlider() {
 
     <div
       style={{
-        height: "95vh",
+        height: "100vh",
         width: "100%",
         backgroundImage: `url(${images[current]})`,
         backgroundPosition:'center',   
         transition: "background-image 1s ease-in-out",
-        backgroundSize:'fixed'
+        backgroundSize:'cover'
       }}
     >
       <div
@@ -48,7 +49,6 @@ export default function ImageSlider() {
           color: "white",
           textAlign: "center",
           paddingTop: "200px",
-        
           height: "100%"
         }}
       >   
@@ -56,10 +56,10 @@ export default function ImageSlider() {
 
          <div className="flex flex-col">
           <h1 className="text-5xl font-bold text-center">Adventure Awaits, Smiles<br/> Guaranteed</h1>
-        <p className="text-center text-4xl mt-5">Discover the world with personalized adventures designed to create lasting memories</p>
+        <p className="text-center text-4xl mt-2 font-serif">Discover the world with personalized adventures designed to create lasting memories</p>
 
           
-        <div className="mt-5 flex items-center justify-center gap-5 p-3">
+        <div className="mt-0 flex items-center justify-center gap-5 p-3">
           <button onClick={()=> router.push('/Contact')}
           className="bg-amber-400 p-2 text-white  font-bold cursor-pointer rounded-2xl hover:bg-transparent border lg:p-4">GET START WITH SMILING</button>
           <button onClick={()=> router.push('/Destination')}
@@ -74,10 +74,18 @@ export default function ImageSlider() {
         <div className="flex flex-col">
 
            <h1 className="text-center text-2xl font-bold text-amber-300">DISCOVER & SHARE</h1>
-         <p className="text-center text-xl">Smiling Hours African Adventures is your gateway to extraordinary safari 
-        experiences<br/> across Tanzania. We curate personalized journeys that connect you with 
-        authentic wildlife,<br/> breathtaking landscapes, and unforgettable moments. With expert planning and passionate<br/> 
-        guides, we transform travel into life-changing African adventures.</p>
+         <p className="font-serif">Smiling Hours African Adventures is your gateway to extraordinary safari 
+        experiences across Tanzania. We curate personalized journeys that connect you with 
+        authentic wildlife, breathtaking landscapes, and unforgettable moments. With expert planning and passionate
+        guides, we transform travel into life-changing African adventures.
+        The success of your trip ultimately lies in the hands of our professional guides, who are dedicated to turning your dreams into reality. Our team shares a deep passion for Tanzania—each member having been born, raised, and having worked extensively on the ground.
+
+             Adventure awaits you in breathtaking landscapes filled with abundant wildlife and rich culture. Experience the very essence of Tanzania, from the vast plains of the Serengeti to the majestic Mount Kilimanjaro, and the stunning coastline of Zanzibar.
+
+            We want you to discover the true spirit of adventure in Tanzania and share unforgettable moments with us. We pride ourselves on our in-depth local knowledge, giving you access to hidden gems and authentic experiences.
+
+             Our specialty lies in guiding you beyond the well-worn paths, offering a unique and truly immersive journey.
+        </p>
 
          
 

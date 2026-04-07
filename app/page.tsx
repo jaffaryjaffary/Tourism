@@ -1,8 +1,16 @@
-import NavBar from "@/components/NavBar";
-import Image_slide from '../components/Image_slide'
+'use client'
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
 
 
-export default async function Home() {
+
+export default  function Page() {
+  
+  useEffect(()=>{
+    setTimeout(()=>{
+      redirect('/Home')
+    },3000)
+  })
   
           
         
@@ -10,11 +18,14 @@ export default async function Home() {
         
   
   return (
-    <div>
-      <NavBar/>
-       <Image_slide/>
-    </div>
-     
+    
+  <div>
+    <div className="bg-[url('/images/picture36.jpeg')] bg-fixed bg-center h-screen">
 
+</div>
+</div>
+    
+     
+ 
   );
 }

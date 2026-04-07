@@ -15,7 +15,7 @@ const initialValue ={
     travellars:'',
     destination:''
 }
-export default function VisitorForm({ProfileInfo }){
+export default function VisitorForm({ProfileInfo,FetchDestination }){
 
     const [formData, setFormData] = useState(initialValue)
     // const [error, setError] = useState(false)
@@ -80,7 +80,9 @@ export default function VisitorForm({ProfileInfo }){
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div className="flex flex-col">
                         <label htmlFor="" className="font-bold">FirstName</label>
-                        <input type="text" name='fname' placeholder="Enter FirstName" className="border p-2"
+                        <input type="text" name='fname' placeholder="Enter FirstName" className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //  value={formData.fname}
                          onChange={(e)=>setFormData({...formData, fname:e.target.value})}
 
@@ -101,7 +103,9 @@ export default function VisitorForm({ProfileInfo }){
                     </div>
                      <div className="flex flex-col">
                         <label htmlFor="" className="font-bold">LastName</label>
-                        <input type="text" name='fname' placeholder="Enter LastName" className="border p-2"
+                        <input type="text" name='fname' placeholder="Enter LastName" className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //   value={formData.lname}
                          onChange={(e)=>setFormData({...formData, lname:e.target.value})}
                           {...register("lname", {
@@ -117,7 +121,9 @@ export default function VisitorForm({ProfileInfo }){
                     </div>
                      <div className="flex flex-col">
                         <label htmlFor=""  className="font-bold">Email</label>
-                        <input type="email" name='email' placeholder="Enter Email" className="border p-2"
+                        <input type="email" name='email' placeholder="Enter Email" className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //  value={formData.email}
                          onChange={(e)=>setFormData({...formData, email:e.target.value})}
 
@@ -135,7 +141,9 @@ export default function VisitorForm({ProfileInfo }){
                     </div>
                      <div className="flex flex-col">
                         <label htmlFor=""  className="font-bold">Phone</label>
-                        <input type="tel" name='phone' placeholder="Enter Phone Number" className="border p-2"
+                        <input type="tel" name='phone' placeholder="Enter Phone Number" className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //   value={formData.phone}
                          onChange={(e)=>setFormData({...formData, phone:e.target.value})}
                           {...register("phone", {
@@ -153,7 +161,9 @@ export default function VisitorForm({ProfileInfo }){
                      <div className="flex flex-col">
                         <label htmlFor=""  className="font-bold">Travellars</label>
                         <input type="text" name='travellars' placeholder="Enter Number of Travellars eg 2 adult or 2 childrens" 
-                        className="border p-2"
+                        className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //   value={formData.travellars}
                          onChange={(e)=>setFormData({...formData, travellars:e.target.value})}
                          {...register("travellars", {
@@ -169,7 +179,9 @@ export default function VisitorForm({ProfileInfo }){
                     </div>
                      <div className="flex flex-col">
                         <label htmlFor=""  className="font-bold">Visit-Date</label>
-                        <input type="date" name='visitDate'  className="border p-2"
+                        <input type="date" name='visitDate' className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //   value={formData.visitDate}
                         onChange={(e)=>setFormData({...formData, visitDate:e.target.value})}
                          {...register("visitDate", {
@@ -186,7 +198,9 @@ export default function VisitorForm({ProfileInfo }){
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor=""  className="font-bold">Select Gender</label>
-                       <select name="gender" id="" className="border p-2" 
+                       <select name="gender" id="" className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //  value={formData.gender}
                          onChange={(e)=>setFormData({...formData, gender:e.target.value})}
                           {...register("gender", {
@@ -208,20 +222,22 @@ export default function VisitorForm({ProfileInfo }){
                     </div>
                     <div className="flex flex-col">
                         <label htmlFor=""  className="font-bold">Select Destination</label>
-                       <select name="dastination" id="" className="border p-2"
+                       <select name="dastination" id="" className="mt-1 block w-full 
+                    rounded-md
+                     border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                         //  value={formData.destination}
                          onChange={(e)=>setFormData({...formData, destination:e.target.value})}
                         {...register("destination", {
                          required: "Destination  is required",
                             })}
                        >
-                        <option value="">Select Destination</option>
-                         <option value="Serengeti">Serengeti</option>
-                          <option value="Mikumi">Mikumi</option>
-                           <option value="Tarangire">Tarangire</option>
-                            <option value="Kilimanjaro">Kilimanjaro</option>
-                             <option value="Ngorongoro">Ngorongoro</option>
-                              <option value="Zanzibar">Zanzibar</option>
+                        
+                       
+                        {FetchDestination.map(dest =>(
+                         <option key={dest._id} value={dest.name}>{dest.name}</option>
+                        ))}
+                    
+                      
                        </select>
                         {errors.destination && (
                          <p className="text-red-500 text-sm">
@@ -233,7 +249,8 @@ export default function VisitorForm({ProfileInfo }){
                 </div>
                 <div className="mt-5">
                    
-                    <button type="submit" onClick={handleSubmit} className="bg-blue-400 text-white p-2 cursor-pointer flex items-center gap-2">
+                    <button type="submit" onClick={handleSubmit} className="bg-blue-400 text-white p-2 cursor-pointer 
+                    flex items-center gap-2 hover:bg-blue-500">
                         <span><FaPlus /></span> 
                         Add Visitor</button>
                 </div>

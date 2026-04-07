@@ -1,39 +1,42 @@
-import { currentUser } from "@clerk/nextjs/server";
 import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from '../../components/Table'
-import { FetchAllCreatUserSystemAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchUserInfoAction } from "../Actions";
-import { redirect } from "next/navigation";
+import { FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchHelpAction, FetchUserInfoAction } from "../Actions";
+import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 
  
 
 
 export default async function Contact_Visitor(){
-    const user = await currentUser()
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(user?.id)
+    const sessionUser = await requireSessionUser();
+    const identifier = getUserIdentifier(sessionUser);
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
     
 const FetchUserInfo = await FetchUserInfoAction()
  
    const FetchApprovedUser = await FetchApprovedUserAction()
    const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
+    const FetchAllDestination = await FetchAllDestinationdAction(identifier)
+    const FetchHelp = await FetchHelpAction()
 
 
     
     
     return(
        <div>
-        {ProfileInfo  ? 
+        
         <div className="flex items-center">
-           <div className="hidden h-screen  bg-blue-400  w-[15%] lg:flex">
+           <div className="hidden h-screen  bg-blue-400  w-[20%] lg:flex">
                <Menu/>
 
            </div>
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo}/>
+                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
                 <Cards FetchUserInfo={FetchUserInfo}  FetchApprovedUser={ FetchApprovedUser} 
                 FetctAllCreateUserSystem={FetctAllCreateUserSystem}
+                FetchAllDestination={FetchAllDestination} FetchHelp={FetchHelp}
                 />
                 <Table/>
         
@@ -42,9 +45,7 @@ const FetchUserInfo = await FetchUserInfoAction()
              </div>
         </div>
  
- :
-    redirect('/Add_User')
-        }
+ 
         </div>
     
     )
