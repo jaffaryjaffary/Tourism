@@ -47,7 +47,7 @@ export default function Destination({FetchDestination}){
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 p-4">
                             {FetchDestination && FetchDestination.length > 0 ? (
                                 FetchDestination.map((item) => (
-                                    <div key={item._id} className=" rounded-lg text-white shadow-md p-4 cursor-pointer" onClick={() => router.push(`/Destination/${item.id}`)}>
+                                    <div key={item._id} className=" rounded-lg text-white shadow-md p-4 cursor-pointer">
                                         <Image
                                             src={item?.imageUrl}
                                             alt={item?.name}
@@ -58,7 +58,12 @@ export default function Destination({FetchDestination}){
                                         <h2 className="text-2xl font-bold mt-2">{item.name}</h2>
                                         <p className="text-gray-300">{item.description}</p>
 
-
+                                       <div className="">
+                                             <button onClick={()=> router.push('/Contact')}
+                                             className="bg-amber-400 text-white font-bold cursor-pointer p-3 
+                                             rounded-2xl mt-2 text-xl hover:bg-amber-600">Get started</button>
+                           
+                        </div>
                                         
                         
                                     </div>
@@ -71,12 +76,7 @@ export default function Destination({FetchDestination}){
                                 </div>
                             )}
                                
-                                {/* <div className="">
-                                             <button onClick={()=> router.push('/Contact')}
-                                             className="bg-amber-400 text-white font-bold cursor-pointer p-3 
-                                             rounded-2xl mt-2 text-xl">Get started</button>
-                           
-                        </div> */}
+                                
                      </div>
 
                    

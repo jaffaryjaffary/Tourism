@@ -71,7 +71,7 @@ export default function LiveSearchTablePagination() {
              <th>Phone</th>
            
              <th>Visit-Date</th>
-             <th>travellars</th>
+           
              <th>Gender</th>
               <th>Action</th>
           </tr>
@@ -94,7 +94,7 @@ export default function LiveSearchTablePagination() {
                 <td>{user.phone}</td>
                
                   <td>{user.visitDate}</td>
-                   <td>{user.travellars}</td>
+                   
                   <td>{user.gender}</td>
                
                 

@@ -37,7 +37,7 @@ export default function Footer(){
                       <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.TripAdvisor.com.com</li>
                        <li className=" text-gray-500 mt-3  flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safarigo.com</li>
                         <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safarisource</li>
-                         <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><AiOutlineGlobal size={20} color="white"/></span>www.smilinghoursafricanandventure.com</li>
+                         <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><AiOutlineGlobal size={20} color="white"/></span>www.smilinghoursafricanadventure.com</li>
                           <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><BsEnvelopeAt size={20} color="white" /></span>info@smilinghoursadventures.com</li>
                     </ul>
                    

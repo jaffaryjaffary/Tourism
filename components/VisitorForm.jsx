@@ -32,8 +32,8 @@ export default function VisitorForm({ProfileInfo,FetchDestination }){
    const result = await UserApprovedAction({...
             
             formData,
-              approvedByFname:ProfileInfo ?.userInfo?.fname,
-            approvedBylname:ProfileInfo ?.userInfo?.lname,
+            approvedByFname:ProfileInfo ?.fname,
+            approvedBylname:ProfileInfo ?.lname,
         },'/Add_Visitor')
        
         // setError(false)

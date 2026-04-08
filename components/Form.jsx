@@ -3,32 +3,7 @@
 import { CreateUserInfoAction } from "../app/Actions";
 export default function Form({FetchDestination}){
   
-  //    async function HandleSubmit() {
-    
-  //       if(!formData.fname || !formData.lname || !formData.email || !formData.visitDate || 
-  //         !formData.travellars || !formData.destination || !formData.gender || !formData.phone){
-  //             setError('Please fill all the required fields')
-  //         }else{
-  //          await CreateUserInfoAction({
-  //           formData,
-  //           destination:[formData.destination]
-            
-          
-  //           } ,'Contact')
-          
-    
-           
-  //          setSuccess(true)
-  //          setFormData(initialValues)
-  //          setError(false)
-      
-  //         }
-        
-  //     }
-  //     const HandleForm = (e)=>{
-  //   e.preventDefault()
-
-  // }
+  
  
 
   

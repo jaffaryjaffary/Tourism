@@ -16,7 +16,7 @@ export async function CreateUserInfoAction(formData) {
 
     await connectToDb();
 
-    try {
+    
     const data = {
       fname: formData.get("fname"),
       lname: formData.get("lname"),
@@ -29,14 +29,15 @@ export async function CreateUserInfoAction(formData) {
       comment: formData.get("comment"),
     };
 
-    await Profile.create(data);
+   const res = await Profile.create(data);
 
-    console.log("User saved successfully");
+   if(res){
+      redirect('/Booking_Success')
+    } 
+
+   
     
-  } catch (error) {
-    console.log(error);
-  }
-     
+  
     
 }
 

@@ -2,11 +2,11 @@
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FcApprove } from "react-icons/fc";
 import { FaUsers } from "react-icons/fa";
-// import { useRouter } from "next/navigation";
+ import { useRouter } from "next/navigation";
 import { FaHandPointer } from "react-icons/fa";
 
 export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUserSystem,FetchAllDestination,FetchHelp}){
-    // const router = useRouter()
+     const router = useRouter()
     return(
 
         <div>
@@ -19,6 +19,8 @@ export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUse
                 <div className="mt-4 flex items-center gap-4">
                       <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--accent)]/10 text-[color:var(--accent-dark)]"> <FaPeopleGroup size={26} /></span>
                       <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchUserInfo?.length} Total</h1>
+                      <button onClick={()=>router.push('/Contact_Visitor')}
+                      className="text-sm font-medium cursor-pointer text-[color:var(--accent-dark)] hover:text-[color:var(--accent)]">View Details</button>
                 </div>
                
             </div>
@@ -29,6 +31,8 @@ export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUse
                       <FcApprove size={26} />
                     </span>
                     <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchApprovedUser?.length} Total</h1>
+                    <button onClick={()=>router.push('/Approved_Visitor')}
+                      className="text-sm font-medium cursor-pointer text-[color:var(--accent-dark)] hover:text-[color:var(--accent)]">View Details</button>
                 </div>
             </div>
             <div className="glass-card rounded-3xl p-5">
@@ -39,7 +43,8 @@ export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUse
                     </span>
                     <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetctAllCreateUserSystem.length} Total</h1>
                         
-                           
+                  <button onClick={()=>router.push('/12345')}
+                      className="text-sm font-medium cursor-pointer text-[color:var(--accent-dark)] hover:text-[color:var(--accent)]">View Details</button>         
                        
                 </div>
             </div>
@@ -50,6 +55,8 @@ export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUse
                       <FaHandPointer size={24} />
                     </span>
                     <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchAllDestination?.length} Total</h1>
+                    <button onClick={()=>router.push('/Admin_Dashboard')}
+                      className="text-sm font-medium cursor-pointer text-[color:var(--accent-dark)] hover:text-[color:var(--accent)]">View Details</button>
                 </div>
             </div>
 
@@ -60,6 +67,8 @@ export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUse
                       <FaHandPointer size={24} />
                     </span>
                     <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchHelp?.length} Total</h1>
+                    <button onClick={()=>router.push('/Help&Support')}
+                      className="text-sm font-medium cursor-pointer text-[color:var(--accent-dark)] hover:text-[color:var(--accent)]">View Details</button>
                 </div>
             </div>
 
