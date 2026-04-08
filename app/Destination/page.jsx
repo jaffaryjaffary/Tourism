@@ -1,4 +1,4 @@
-import NavBar from "@/components/NavBar";
+import NavBar from '../../components/NavBar'
 import Destination_Banner from '../../components/Destination_Banner'
 import { FetchAllDestinationdAction } from "../Actions";
 
