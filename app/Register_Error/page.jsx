@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 
-export  async function RegisterError({searchParams}){
+export default async function RegisterError({searchParams}){
     const params = await searchParams;
     const hasError = params?.error;
     return(

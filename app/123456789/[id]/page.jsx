@@ -4,7 +4,7 @@ import UserSystemProfile from '../../../components/UserSystemProfile'
 import { FetchCreateUserSystemProfileAction, GetCreatedUserSystemByIdAction } from '../../Actions'
 import { getUserIdentifier, requireSessionUser } from '../../lib/auth'
 
-export  async function Pages({params}){
+export default async function Pages({params}){
 
 
 

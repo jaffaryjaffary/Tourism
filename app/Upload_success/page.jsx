@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export  function UploadSuccessPage() {
+export default function UploadSuccessPage() {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="flex flex-col">

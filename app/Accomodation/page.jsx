@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
 import Description from "../../components/Description";
-export  async function AccomodationPage(){
+
+export default async function AccomodationPage(){
 
     
     

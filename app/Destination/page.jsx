@@ -3,7 +3,7 @@ import Destination_Banner from '../../components/Destination_Banner'
 import { FetchAllDestinationdAction } from "../Actions";
 
 
-export  async function DestinationPage() {
+export default async function DestinationPage() {
 
   const FetchDestination  = await FetchAllDestinationdAction()
   

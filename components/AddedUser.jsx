@@ -3,23 +3,11 @@
 
 import { IoMdCheckmark } from "react-icons/io";
 import { RegisterAction } from "../app/Add_User/Actions";
-// import { RegisterUserAction } from "../app/Actions";
-//  import { useForm } from "react-hook-form";
 
-//  import { IoShield } from "react-icons/io5";
-// const initialValue={
-//     fname:'',
-//     lname:'',
-//     email:'',
-//     role:'',
-//     gender:'',
-//     password:''
-
-// }
 
  export default function AddedUserPage(){
 
-//     // const [formData, setFormData] = useState(initialValue)
+
          const [success, setSuccess] = useState(false)
    const HandleSubmit=()=>{
 

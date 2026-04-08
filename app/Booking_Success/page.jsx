@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation"
 
-export  function BookingSuccess(){
+export default function BookingSuccess(){
     const router = useRouter()
     return(
         <div className="h-screen w-full flex items-center justify-center">
