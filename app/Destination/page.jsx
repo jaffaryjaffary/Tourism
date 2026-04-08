@@ -1,22 +1,20 @@
 import NavBar from '../../components/NavBar'
-import Destination_Banner from '../../components/Destination_Banner'
+import DestinationBanner from '../../components/DestinationBanner'
 import { FetchAllDestinationdAction } from "../Actions";
-import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 
 export default async function DestinationPage() {
 
-  const sessionUser = await requireSessionUser();
-     const identifier = getUserIdentifier(sessionUser);
+ 
 
-  const FetchDestination  = await FetchAllDestinationdAction( identifier)
+  const FetchDestination  = await FetchAllDestinationdAction() || []
   
   
   return (
     <div>
       <NavBar/>
 
-      <Destination_Banner FetchDestination={FetchDestination}/>
+      <DestinationBanner FetchDestination={FetchDestination}/>
       
     </div>
 

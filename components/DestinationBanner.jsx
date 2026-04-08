@@ -46,17 +46,18 @@ export default function DestinationPage({FetchDestination}){
 
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 p-4">
                             {FetchDestination && FetchDestination.length > 0 ? (
-                                FetchDestination.map((item) => (
-                                    <div key={item._id} className=" rounded-lg text-white shadow-md p-4 cursor-pointer">
+                                FetchDestination.map(item => (
+                                    <div key={item?._id} className=" rounded-lg text-white shadow-md p-4 
+                                    cursor-pointer">
                                         <Image
-                                            src={item?.imageUrl}
-                                            alt={item?.name}
+                                            src={item?.imageUrl || "/fallback.jpg"} // ✅ FIX
+                                            alt={item?.name || "destination"}
                                             width={700}
                                             height={300}
                                             className="rounded-lg"
                                         />
                                         <h2 className="text-2xl font-bold mt-2">{item.name}</h2>
-                                        <p className="text-gray-300">{item.description}</p>
+                                        <p className="text-gray-300">{item?.description}</p>
 
                                        <div className="">
                                              <button onClick={()=> router.push('/Contact')}
