@@ -1,7 +1,7 @@
 'use client'
 // import { IoMdClose } from "react-icons/io";
 import { CreateUserInfoAction } from "../app/Actions";
-export default function Form({FetchDestination}){
+export default function FormPage({FetchDestination}){
   
   
  
