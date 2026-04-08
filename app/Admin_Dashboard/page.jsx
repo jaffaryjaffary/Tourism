@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
