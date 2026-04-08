@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 
-export default function Destination({FetchDestination}){
+export default function DestinationPage({FetchDestination}){
     const router = useRouter()
      const images = [
         "/images/picture37.jpeg",
