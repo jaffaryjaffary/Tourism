@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 
-export default function DestinationPage({FetchDestination}){
+export default function DestinationPage({FetchDestination =[]}){
     const router = useRouter()
      const images = [
         "/images/picture37.jpeg",
@@ -21,7 +21,7 @@ export default function DestinationPage({FetchDestination}){
           }, 3000);
       
           return () => clearInterval(slide);
-        }, );
+        }, [images.length]);
     return(
     <div className='h-screen pt-0'>
         <div style={{
