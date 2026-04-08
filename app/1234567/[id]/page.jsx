@@ -10,7 +10,7 @@ import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
  
 
 
-export default async function Admin({params}){
+export  async function Admin({params}){
 
     const {id} = await params
     const sessionUser = await requireSessionUser();

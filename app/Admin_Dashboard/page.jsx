@@ -12,7 +12,7 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
  
 
 
-export default async function AdminDashboard(){
+export  async function AdminDashboard(){
     
    const sessionUser = await requireSessionUser();
    const identifier = getUserIdentifier(sessionUser);

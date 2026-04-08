@@ -5,7 +5,7 @@ import Table from "../../components/Table";
 import {FetchCreateUserSystemProfileAction, FetchUserInfoAction } from "../Actions";
 import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
-export default async function UserTablePage(){
+export  async function UserTablePage(){
     const sessionUser = await requireSessionUser();
     const identifier = getUserIdentifier(sessionUser);
     const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)

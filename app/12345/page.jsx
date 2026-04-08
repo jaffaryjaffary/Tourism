@@ -12,7 +12,7 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
  
 
 
-export default async function Admin(){
+export  async function Admin(){
     
    
 
