@@ -10,7 +10,7 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
  
 
 
-export default async function Add_Visitor(){
+export default async function AddVisitorPage(){
 
     const sessionUser = await requireSessionUser();
     const identifier = getUserIdentifier(sessionUser);

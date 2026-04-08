@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import Footer from '../components/Footer'
 import Image from "next/image";
-export default function Description(){
+export default function DescriptionPage(){
    const router = useRouter()
     return(
 

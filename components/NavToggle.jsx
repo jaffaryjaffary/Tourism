@@ -7,7 +7,7 @@ import { FaPhone } from "react-icons/fa6";
 
 import Link from "next/link";
 
-export default function NavToggle({ sessionUser }){
+export default function NavTogglePage({ sessionUser }){
     const menu =[
     {
          id:1,

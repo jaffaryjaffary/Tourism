@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default async function Regester_success({searchParams}){
+export default async function RegesterSuccess({searchParams}){
     const params = await searchParams;
     const hasSuccess = params?.success;
     return(

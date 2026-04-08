@@ -2,7 +2,7 @@
 
 
 
-export default function ViewDestination({FetchHelp}){
+export default function HelpPage({FetchHelp}){
   
    
     return(

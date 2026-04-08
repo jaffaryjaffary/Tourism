@@ -5,7 +5,7 @@ import { IoShieldOutline } from "react-icons/io5";
 import { SlPeople } from "react-icons/sl";
 import Adventure from '../components/Adventure'
 
-export default function Banner(){
+export default function BannerPage(){
     return(
     <div className="">
     <div className="flex items-center justify-center">

@@ -5,7 +5,7 @@ import { FaUsers } from "react-icons/fa";
  import { useRouter } from "next/navigation";
 import { FaHandPointer } from "react-icons/fa";
 
-export default function Cards({FetchUserInfo,FetchApprovedUser,FetctAllCreateUserSystem,FetchAllDestination,FetchHelp}){
+export default function CardsPage({FetchUserInfo,FetchApprovedUser,FetctAllCreateUserSystem,FetchAllDestination,FetchHelp}){
      const router = useRouter()
     return(
 

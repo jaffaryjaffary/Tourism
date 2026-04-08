@@ -11,7 +11,7 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
  
 
   
-export default async function Add_User(){
+export default async function AddUserPage(){
 
     const sessionUser = await requireSessionUser();
     const identifier = getUserIdentifier(sessionUser);

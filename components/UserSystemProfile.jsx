@@ -6,7 +6,7 @@ import {  DeleteCreateUserSystemAction, UpdateCreateUserSystemAction } from "../
 import { redirect } from "next/navigation";
 
 
-export default function Profile({FetctAllCreateUserSystemById, ProfileInfo}){
+export default function SystemPage({FetctAllCreateUserSystemById, ProfileInfo}){
   
 
 

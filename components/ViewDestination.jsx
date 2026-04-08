@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation"
 
-export default function ViewDestination({FetchAllDestination}){
+export default function ViewDestinationPage({FetchAllDestination}){
      const router = useRouter()
 
     const HandleView =(GetCurrentId)=>{

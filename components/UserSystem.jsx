@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 
 
-export default function LiveSearchTablePagination({sessionUser}) {
+export default function LiveSearchTablePaginationPages({sessionUser}) {
   const [keyword, setKeyword] = useState("");
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);

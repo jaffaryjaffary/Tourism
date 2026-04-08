@@ -6,7 +6,7 @@ import { AiOutlineGlobal } from "react-icons/ai";
 import Link from "next/link";
 
 
-export default function Footer(){
+export default function FooterPage(){
     return(
         <div className="mt-5">
             <div className="bg-black">

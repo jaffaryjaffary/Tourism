@@ -11,7 +11,7 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
  
 
 
-export default async function ApprovedVisitor(){
+export default async function ApprovedVisitorPage(){
     
    const sessionUser = await requireSessionUser();
    const identifier = getUserIdentifier(sessionUser);

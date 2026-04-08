@@ -12,7 +12,7 @@ function getInitials(name) {
   return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
 }
 
-export default function NavTopBar({ ProfileInfo, sessionUser }){
+export default function NavTopBarPage({ ProfileInfo, sessionUser }){
     
     const [openToggle, setOpenToggle] = useState(false)
     const displayName = ProfileInfo?.userInfo?.fname
@@ -67,12 +67,7 @@ export default function NavTopBar({ ProfileInfo, sessionUser }){
 
            
         </div>
-         {/* <div className="absolute left-330 right-0 bottom-0 top-17">
-                    <span className="bg-white w-50 shadow-lg flex items-center gap-2 p-4">
-                        <MdLogout color="black"  size={24} onClick={()=> signOut()}/>
-                      <p className="hidden lg:flex ">{session?.user?.email}</p>
-                    </span>
-                </div> */}
+        
 
      
         {openToggle && (

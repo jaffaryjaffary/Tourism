@@ -4,7 +4,7 @@ import { loginAction } from "./actions";
 import { getSessionUser } from "../lib/auth";
 import { redirect } from "next/navigation";
 
-export default async function Login({ searchParams }) {
+export default async function LoginPage({ searchParams }) {
   const user = await getSessionUser();
   if (user) redirect("/Admin_Dashboard");
 

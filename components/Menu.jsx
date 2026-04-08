@@ -9,7 +9,7 @@ import { FaPhone } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { IoMdHelp } from "react-icons/io";
-export default function Menu(){
+export default function MenuPage(){
 const pathname = usePathname();
 
   

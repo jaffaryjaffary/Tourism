@@ -3,7 +3,6 @@ import GetUser from "../../../components/GetUser";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
 import {   FetchCreateUserSystemProfileAction, GetUserDetailByIdAction } from "../../Actions";
-import { redirect } from "next/navigation";
 import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
 
 
@@ -11,7 +10,7 @@ import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
  
 
 
-export default async function View({params}){
+export default async function ViewPage({params}){
 const { id } = await params;
 
    const sessionUser = await requireSessionUser();

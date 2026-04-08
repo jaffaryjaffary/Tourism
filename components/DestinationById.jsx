@@ -7,7 +7,7 @@ import { redirect } from "next/navigation"
 
 
 
-export default function Upload({GetDestinationByid}){
+export default function UploadPage({GetDestinationByid}){
 // const [successMessage,setSuccessMessage] = useState(false)
 
     const handleUpdate = async (formData) => {

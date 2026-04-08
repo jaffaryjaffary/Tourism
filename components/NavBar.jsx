@@ -45,7 +45,7 @@ const menu=[
     },
 
 ]
-export default function NavBar(){
+export default function NavBarpage(){
     const [openToogle, setOpenToogle] = useState(false)
     const router = useRouter()
     const pathname = usePathname()

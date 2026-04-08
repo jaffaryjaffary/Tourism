@@ -15,7 +15,7 @@ const initialValue ={
     travellars:'',
     destination:''
 }
-export default function VisitorForm({ProfileInfo,FetchDestination }){
+export default function VisitorFormPage({ProfileInfo,FetchDestination }){
 
     const [formData, setFormData] = useState(initialValue)
     // const [error, setError] = useState(false)

@@ -13,7 +13,7 @@ const initialValue ={
 
 }
 
-export default function Upload(){
+export default function UploadPage(){
  const [formData,setFormData] = useState(initialValue)
 
 

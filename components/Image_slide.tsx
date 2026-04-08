@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Banner from '../components/Banner'
 import { useRouter } from "next/navigation";
-export default function ImageSlider() {
+export default function ImageSliderPage() {
 
   const images = [
     "/images/picture1.jpeg",

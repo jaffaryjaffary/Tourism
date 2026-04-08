@@ -2,7 +2,7 @@
 import { CgProfile } from "react-icons/cg";
 import { DeleteApproveVisitorAction } from "../app/Actions";
 import { redirect } from "next/navigation";
-export default function Profile({sessionUser, FetchApproveVisitorById}){
+export default function ProfilePage({sessionUser, FetchApproveVisitorById}){
 
     async function HandleDelete(currentId) {
 

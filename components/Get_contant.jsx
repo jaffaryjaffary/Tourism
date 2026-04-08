@@ -32,7 +32,7 @@ const InitialNumber={
 
 
 
-export default function GetContact({ FetchDestination}){
+export default function GetContactPage({ FetchDestination}){
   const [formData, setFormData] = useState(initialValues)
   const [error, setError] = useState()
   const [success,setSuccess] = useState(false)

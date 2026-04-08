@@ -5,7 +5,7 @@ import { AiOutlineSafety } from "react-icons/ai";
 import { BsPersonStanding } from "react-icons/bs";
 import { GiSelfLove } from "react-icons/gi";
 import Footer from "./Footer";
-export default function AboutUs(){
+export default function AboutUsPage(){
 
     const images = [
     "/images/picture15.jpeg",

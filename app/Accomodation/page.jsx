@@ -3,7 +3,7 @@ import Description from "../../components/Description";
 // import { currentUser } from '@clerk/nextjs/server'
 //  import { FetchCreateUserProfileByIdAction } from '../Actions'
 // import { redirect } from "next/navigation";
-export default async function Accomodation(){
+export default async function AccomodationPage(){
 
     //  const user = await currentUser()
             

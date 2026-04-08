@@ -3,10 +3,9 @@ import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from "../../components/Table";
 import {FetchCreateUserSystemProfileAction, FetchUserInfoAction } from "../Actions";
-import { redirect } from "next/navigation";
 import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
-export default async function Admin(){
+export default async function UserTablePage(){
     const sessionUser = await requireSessionUser();
     const identifier = getUserIdentifier(sessionUser);
     const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)

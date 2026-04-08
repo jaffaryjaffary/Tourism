@@ -6,7 +6,7 @@ import {  FetchApprovedVisitorByIdAction, SearchProfileAction } from "../app/Act
 import { useRouter } from "next/navigation";
 
 
-export default function LiveSearchTablePagination() {
+export default function LiveSearchTablePaginationPage() {
   const [keyword, setKeyword] = useState("");
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);

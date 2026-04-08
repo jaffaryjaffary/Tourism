@@ -17,7 +17,7 @@ import { RegisterAction } from "../app/Add_User/Actions";
 
 // }
 
- export default function AddedUser(){
+ export default function AddedUserPage(){
 
 //     // const [formData, setFormData] = useState(initialValue)
          const [success, setSuccess] = useState(false)

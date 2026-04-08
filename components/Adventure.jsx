@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import Footer from '../components/Footer'
-export default function Adventure(){
+export default function AdventurePage(){
     const router = useRouter()
     return(
        <div>
