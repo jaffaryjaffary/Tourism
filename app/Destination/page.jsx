@@ -4,12 +4,11 @@ import { FetchAllDestinationdAction } from "../Actions";
 
 
 export default async function DestinationPage() {
-  const sessionUser = await requireSessionUser();
-     const identifier = getUserIdentifier(sessionUser);
+  
 
  
 
-  const FetchDestination  = await FetchAllDestinationdAction( identifier) 
+  const FetchDestination  = await FetchAllDestinationdAction() 
   
   
   return (
