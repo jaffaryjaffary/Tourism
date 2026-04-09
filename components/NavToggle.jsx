@@ -4,6 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
+import { IoMdHelp } from "react-icons/io";
 
 import Link from "next/link";
 
@@ -45,6 +46,12 @@ export default function NavTogglePage({ sessionUser }){
                 path: '/12345UploadImg',
                 icon: <IoCloudUploadOutline />
             },
+
+            {         id:7,
+                    label: 'Help & Support',
+                    path: '/Help&Support',
+                    icon: <IoMdHelp />
+                },
    
 ]
     return(
