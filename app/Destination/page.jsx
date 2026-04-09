@@ -3,11 +3,13 @@ import DestinationBanner from '../../components/DestinationBanner'
 import { FetchAllDestinationdAction } from "../Actions";
 
 
-export default async function destinationPage() {
+export default async function DestinationPage() {
+  const sessionUser = await requireSessionUser();
+     const identifier = getUserIdentifier(sessionUser);
 
  
 
-  const FetchDestination  = await FetchAllDestinationdAction() 
+  const FetchDestination  = await FetchAllDestinationdAction( identifier) 
   
   
   return (
