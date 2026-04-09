@@ -123,7 +123,7 @@ export default function GetContactPage({ FetchDestination}){
                                <div className="flex items-center gap-3 mt-8">
                                 <span className="bg-amber-100 p-4 rounded-2xl"><AiOutlineWhatsApp  size={30} className="text-green-500"/></span>
                                 <div>
-                                  
+                                    <h1 className="text-xl font-bold">WhatsApp</h1>
                                   <p className="text-gray-400">+255 752598821/+255 653944565</p>
                                   
                                 </div>

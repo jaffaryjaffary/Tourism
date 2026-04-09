@@ -14,7 +14,7 @@ export default function AdventurePage(){
 
                         <div className="flex items-center justify-center mt-5">
                              <button onClick={()=> router.push('/Contact')}
-                              className="bg-white p-4 text-xl text-center cursor-pointer w-90 rounded-2xl ">Join Smilling Hours</button>
+                              className="bg-white p-4 text-xl text-center cursor-pointer w-90 rounded-2xl ">Join Smiling Hours</button>
                         </div>
 
                         

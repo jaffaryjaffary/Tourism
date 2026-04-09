@@ -439,3 +439,9 @@ export async function FetchHelpAction() {
   return JSON.parse(JSON.stringify(data)) 
 }
 
+export async function DeleteHelpAction(id,pathToRevalidate) {
+  await connectToDb()
+  await Help.findByIdAndDelete(id)
+  revalidatePath(pathToRevalidate)
+  return { success: true, message: "Deleted successfully" };
+}

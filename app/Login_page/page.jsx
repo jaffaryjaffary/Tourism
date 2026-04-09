@@ -12,7 +12,7 @@ export default async function LoginPage({ searchParams }) {
   const hasError = params?.error;
 
   return (
-    <div className="app-shell">
+    <div className="app-shell h-screen">
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
         <div className="flex items-center justify-center p-8 lg:p-16">
           <div className="glass-card w-full max-w-md rounded-3xl p-8">
@@ -46,7 +46,7 @@ export default async function LoginPage({ searchParams }) {
 
               {hasError && (
                 <p className="rounded-2xl bg-red-50 p-3 text-sm text-red-700">
-                  Username/email au password is incorrect! Try again.
+                  Username/email or password is incorrect! Try again.
                 </p>
               )}
 

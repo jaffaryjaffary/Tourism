@@ -11,6 +11,10 @@ export default function UploadPage({GetDestinationByid}){
 // const [successMessage,setSuccessMessage] = useState(false)
 
     const handleUpdate = async (formData) => {
+    const confirmUpdate = window.confirm("Are you sure you want to update this Destination?");
+    if(!confirmUpdate){
+          return;
+    }
     const res = await UpdateDestinationAction(formData);
       if(res.success){
         redirect('/Admin_Dashboard')
@@ -19,8 +23,12 @@ export default function UploadPage({GetDestinationByid}){
 }
 
    async function HandleDelete(getCurrentId) {
+     const confirmDelete = window.confirm("Are you sure you want to delete this Destination?");
+        if (!confirmDelete) {   
+            return; // Exit if the user cancels the deletion
+        }
 
-    await DeleteDestinationByIdActions(getCurrentId)
+         await DeleteDestinationByIdActions(getCurrentId)
         redirect('/Admin_Dashboard')
    }
 

@@ -10,7 +10,7 @@ export default function FormPage({FetchDestination}){
     return(
         <div>
              <div>
-                            <h1 className="text-2xl font-bold text-center text-yellow-300">Get Smilling by Register</h1>
+                            <h1 className="text-2xl font-bold text-center text-yellow-500">Get Smiling by Start Booking</h1>
                              <form action={CreateUserInfoAction}>
                                <div className="bg-white shadow-lg p-4 ">
 {/*                                    
@@ -148,7 +148,7 @@ export default function FormPage({FetchDestination}){
                                    <div className="flex flex-col mt-5">
                                  <button  type="submit" 
                                   className="bg-amber-400 p-3 cursor-pointer text-xl
-                                   rounded-2xl text-white font-bold hover:bg-amber-600">Smilling Now</button>
+                                   rounded-2xl text-white font-bold hover:bg-amber-600">Smiling Now</button>
                                 </div>
                                 </div>
                               </div>

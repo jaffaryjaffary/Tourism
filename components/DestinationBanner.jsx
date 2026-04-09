@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FaLocationDot } from "react-icons/fa6";
 import Footer from "./Footer";
 
 export default function DestinationPage({FetchDestination =[]}){
@@ -57,6 +58,7 @@ export default function DestinationPage({FetchDestination =[]}){
                                             className="rounded-lg"
                                         />
                                         <h2 className="text-2xl font-bold mt-2">{item.name}</h2>
+                                        <small className="text-gray-400 flex items-center text-xl"><FaLocationDot />{item?.location}</small>
                                         <p className="text-gray-300">{item?.description}</p>
 
                                        <div className="">

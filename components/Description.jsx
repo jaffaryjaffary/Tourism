@@ -32,7 +32,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -46,7 +46,7 @@ export default function DescriptionPage(){
 
                                    <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -60,7 +60,7 @@ export default function DescriptionPage(){
 
                                    <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                            
@@ -83,7 +83,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -96,7 +96,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -109,7 +109,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -122,7 +122,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -135,7 +135,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -148,7 +148,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                                 
@@ -172,7 +172,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                    className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -185,7 +185,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
                             <div className="bg-white shadow-lg w-100 p-4">
@@ -198,7 +198,7 @@ export default function DescriptionPage(){
                                  our price for African travel experience as reasonable as possible.</p>
                                  <div className="flex items-center justify-center m-5">
                                     <button onClick={()=> router.push('/Contact')}
-                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smilling Now</button>
+                                     className="bg-amber-400 p-3 cursor-pointer text-xl rounded-2xl">Get Smiling Now</button>
                                  </div>
                            </div>
 

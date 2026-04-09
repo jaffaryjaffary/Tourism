@@ -1,8 +1,23 @@
 'use client'
 
 
-
+import { FaHeadphones } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import { DeleteHelpAction } from "../app/Actions";
 export default function HelpPage({FetchHelp}){
+
+
+    async function HandleDelete(id){
+        const confirmDelete = window.confirm("Are you sure you want to delete this help request?");
+        if (!confirmDelete) {
+          return; // Exit if the user cancels the deletion
+        }
+        
+
+            await DeleteHelpAction(id,"/support")
+            alert("Help request deleted successfully.");
+       
+        }
   
    
     return(
@@ -12,7 +27,7 @@ export default function HelpPage({FetchHelp}){
             </h1>
             
         
-              <div className="bg-white shadow-lg p-4">
+              <div className="">
 
                     {FetchHelp && FetchHelp.length > 0 ?
                   
@@ -20,9 +35,28 @@ export default function HelpPage({FetchHelp}){
                           {FetchHelp.map(item =>
 
                          
-                        <button 
-                        className="bg-gray-400 p-2 text-white font-serif text-xl cursor-pointer
-                         hover:bg-gray-500" key={item?._id}>{item?.number}</button>
+                        <div
+                        className="border p-2  border-t-5 border-gray-400  text-xl cursor-pointer flex-col
+                         " key={item?._id}>
+                            
+                            <h1 className="text-xl font-semibold flex items-center gap-1"><span><FaHeadphones /></span>{item?.number}</h1>
+
+                             <p className="text-sm text-gray-500 mt-4"> {new Date(item?.createdAt).toLocaleString("en-US", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  })}</p>
+                        <button onClick={() => HandleDelete(item._id)}
+                         className="flex items-center cursor-pointer mt-5 gap-2 bg-red-500 text-white p-2 rounded hover:bg-red-600">
+                            <FaTrash /> Remove
+                        </button>
+                             </div>
+                        
+                      
+                         
                          )} 
 
                        </div>
