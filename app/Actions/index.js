@@ -289,7 +289,7 @@ export async function UploadUserImageAction(formData) {
 
 export async function FetchAllDestinationdAction() {
 
-  await connectToDb()
+  await connectToDb();
 
   const data = await Destination.find()
 
@@ -300,7 +300,7 @@ export async function FetchAllDestinationdAction() {
 
 export async function GetDestinationByIdAction(id) {
 
-  await connectToDb()
+  await connectToDb();
   const data = await Destination.findOne({_id:id})
   return JSON.parse(JSON.stringify(data))
     
