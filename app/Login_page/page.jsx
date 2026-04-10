@@ -24,7 +24,7 @@ export default async function LoginPage({ searchParams }) {
 
             <form action={loginAction} className="mt-6 grid gap-4">
               <label className="grid gap-2 text-sm font-medium">
-                Username or Email
+                 Email
                 <input
                   name="identifier"
                   type="text"
@@ -46,7 +46,7 @@ export default async function LoginPage({ searchParams }) {
 
               {hasError && (
                 <p className="rounded-2xl bg-red-50 p-3 text-sm text-red-700">
-                  Username/email or password is incorrect! Try again.
+                  Email or password is incorrect! Try again.
                 </p>
               )}
 
