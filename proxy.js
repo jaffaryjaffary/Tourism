@@ -69,6 +69,15 @@ const protectedMatchers = [
   "/Contact_Visitor",
   "/ViewUserDetails",
   "/User_Table",
+  "/12345",
+   "/1234567",
+  "/123456789",
+  "/12345UploadImg",
+  "/Help&Support",
+  "/Success",
+  "/Register_Error",
+   "/Upload_Success",
+   "/12345VdstId", 
 ];
 
 function isProtected(pathname) {
