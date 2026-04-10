@@ -10,6 +10,8 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 
 export default async function ContactVisitor(){
+
+   
     const sessionUser = await requireSessionUser();
     const identifier = getUserIdentifier(sessionUser);
     const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)

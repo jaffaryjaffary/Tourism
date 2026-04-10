@@ -26,15 +26,31 @@ function verify(token) {
   }
 }
 
+// export async function createSession(user) {
+//   const payload = Buffer.from(JSON.stringify(user)).toString("base64url");
+//   const token = sign(payload);
+//   const cookieStore = await cookies();
+//   cookieStore.set(COOKIE_NAME, token, {
+//     httpOnly: true,
+//     sameSite: "lax",
+//     secure: process.env.NODE_ENV === "production",
+//     path: "/",
+//   });
+// }
+
+
 export async function createSession(user) {
   const payload = Buffer.from(JSON.stringify(user)).toString("base64url");
   const token = sign(payload);
+
   const cookieStore = await cookies();
-  cookieStore.set(COOKIE_NAME, token, {
+
+  cookieStore.set("tourisim_admin_session", token, {
     httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: true, // muhimu kwa Vercel (HTTPS)
+    sameSite: "lax", // unaweza jaribu "strict" kama issue ipo
     path: "/",
+    maxAge: 60 * 60 * 24 * 7, // siku 7
   });
 }
 

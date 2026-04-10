@@ -60,7 +60,7 @@ Every safari trip we design reflects our commitment to authentic
                 <div className="flex flex-col">
                     <div className="flex items-center justify-center mt-5">  <Image src={'/images/picture44.jpeg'} alt="" width={200} height={100} className="rounded-full"/></div>
                       <h1 className="text-center mt-5 font-bold text-2xl">Our Founder</h1>
-                    <p className="text-xl p-4 rounded-2x font-serif text-center">
+                    <p className=" p-4 rounded-2x font-serif ">
                         Smiling hours african adventures is a family owned  local Tour operator based in Arusha Tanzania.
                          Founded by  Kassim Ally/ Junga  very experienced Tour  guide.
                           and Operator  with 20 years in Tourism industry in Tanzania. Our guides

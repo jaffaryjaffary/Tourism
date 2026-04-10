@@ -17,7 +17,7 @@ export default function NavTopBarPage({ ProfileInfo, sessionUser }){
     const [openToggle, setOpenToggle] = useState(false)
     const displayName = ProfileInfo?.userInfo?.fname
       ? `${ProfileInfo?.userInfo?.fname} ${ProfileInfo?.userInfo?.lname || ""}`.trim()
-      : sessionUser?.username || sessionUser?.email || "Admin";
+      : sessionUser?.fname || sessionUser?.email || "Admin";
     const initials = getInitials(displayName);
     return(
 
@@ -52,7 +52,7 @@ export default function NavTopBarPage({ ProfileInfo, sessionUser }){
                      </div>
                      <div className="text-sm">
                        <p className="font-medium">{displayName}</p>
-                       <p className="text-xs text-gray-500">{ ProfileInfo?.email ||  ProfileInfo?.fname}</p>
+                       <p className="text-xs text-gray-500">{ sessionUser?.email ||  sessionUser?.fname}</p>
                      </div>
                      <Link
                        href="/logout"

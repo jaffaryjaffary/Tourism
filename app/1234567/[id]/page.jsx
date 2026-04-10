@@ -3,7 +3,6 @@ import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
 import Profile from "../../../components/Profile";
 import { FetchApprovedVisitorByIdAction, FetchCreateUserSystemProfileAction } from "../../Actions";
-import { redirect } from "next/navigation";
 import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
 
 
@@ -22,7 +21,7 @@ export default async function Admin({params}){
   
    
 
-
+    
 
     
     

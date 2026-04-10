@@ -1,4 +1,3 @@
-
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from "../../components/Table";
@@ -10,6 +9,10 @@ export default async function UserTablePage(){
     const identifier = getUserIdentifier(sessionUser);
     const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
     const FetchuserInfo = await FetchUserInfoAction()
+
+
+
+   
     
     
     

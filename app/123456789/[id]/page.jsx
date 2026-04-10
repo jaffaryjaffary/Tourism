@@ -5,6 +5,7 @@ import { FetchCreateUserSystemProfileAction, GetCreatedUserSystemByIdAction } fr
 import { getUserIdentifier, requireSessionUser } from '../../lib/auth'
 
 export default async function Pages({params}){
+    
 
 
 
@@ -15,7 +16,7 @@ export default async function Pages({params}){
    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
     const FetctAllCreateUserSystemById = await GetCreatedUserSystemByIdAction(id)
 
-   
+    
     
    
     return(

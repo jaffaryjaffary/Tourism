@@ -8,10 +8,12 @@ import ApproveTable from '../../components/ApproveTable'
 import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 
+
  
 
 
 export default async function ApprovedVisitorPage(){
+   
     
    const sessionUser = await requireSessionUser();
    const identifier = getUserIdentifier(sessionUser);
@@ -27,6 +29,7 @@ export default async function ApprovedVisitorPage(){
 
     
     
+            
     
     return(
        <div>

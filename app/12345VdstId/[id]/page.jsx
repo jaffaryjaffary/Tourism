@@ -4,6 +4,7 @@ import { FetchCreateUserSystemProfileAction, GetDestinationByIdAction, } from '.
 import { getUserIdentifier, requireSessionUser } from '../../lib/auth'
 import DestinationById from '../../../components/DestinationById'
 
+
 export default async function DestinationPage({params}){
 
 
@@ -16,7 +17,7 @@ export default async function DestinationPage({params}){
    const GetDestinationByid = await GetDestinationByIdAction(id)
    
     
-
+     
    
     
    

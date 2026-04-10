@@ -1,4 +1,3 @@
-
 import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
@@ -11,6 +10,7 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 
 export default async function AddVisitorPage(){
+    
 
     const sessionUser = await requireSessionUser();
     const identifier = getUserIdentifier(sessionUser);
@@ -29,6 +29,7 @@ export default async function AddVisitorPage(){
          const FetchDestination = await FetchAllDestinationdAction()
     
 
+        
 
     return(
        <div>
