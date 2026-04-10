@@ -26,45 +26,45 @@ function verify(token) {
   }
 }
 
-// export async function createSession(user) {
-//   const payload = Buffer.from(JSON.stringify(user)).toString("base64url");
-//   const token = sign(payload);
-//   const cookieStore = await cookies();
-//   cookieStore.set(COOKIE_NAME, token, {
-//     httpOnly: true,
-//     sameSite: "lax",
-//     secure: process.env.NODE_ENV === "production",
-//     path: "/",
-//   });
-// }
-
-// export async function clearSession() {
-//   const cookieStore = await cookies();
-//   cookieStore.set(COOKIE_NAME, "", {
-//     httpOnly: true,
-//     sameSite: "lax",
-//     secure: process.env.NODE_ENV === "production",
-//     path: "/",
-//     maxAge: 0,
-//   });
-// }
-
-
-
 export async function createSession(user) {
   const payload = Buffer.from(JSON.stringify(user)).toString("base64url");
   const token = sign(payload);
-
-  const cookieStore = cookies();
-
+  const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, token, {
     httpOnly: true,
-    secure: true, // muhimu production
-    sameSite: "lax", // unaweza jaribu "strict" kama bado issue
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: 60 * 60 * 24 * 7, // siku 7
   });
 }
+
+export async function clearSession() {
+  const cookieStore = await cookies();
+  cookieStore.set(COOKIE_NAME, "", {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    maxAge: 0,
+  });
+}
+
+
+
+// export async function createSession(user) {
+//   const payload = Buffer.from(JSON.stringify(user)).toString("base64url");
+//   const token = sign(payload);
+
+//   const cookieStore = cookies();
+
+//   cookieStore.set(COOKIE_NAME, token, {
+//     httpOnly: true,
+//     secure: true, // muhimu production
+//     sameSite: "lax", // unaweza jaribu "strict" kama bado issue
+//     path: "/",
+//     maxAge: 60 * 60 * 24 * 7, // siku 7
+//   });
+// }
 
 
 export async function getSessionUser() {
