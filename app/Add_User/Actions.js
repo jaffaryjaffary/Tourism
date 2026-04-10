@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import bcrypt from "bcryptjs";
 import { connectToDb } from "../server";
 import Admin from "../server/models/Admin";
-// import { createSession } from "../lib/auth";
+ import { createSession } from "../lib/auth";
 
 export async function RegisterAction(formData) {
   const fname = formData.get("fname");
@@ -34,7 +34,7 @@ export async function RegisterAction(formData) {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   // create user
- const res =  await Admin.create({
+ const newAdmin =  await Admin.create({
     fname,
     lname,
     email: normalizedEmail,
@@ -43,16 +43,15 @@ export async function RegisterAction(formData) {
     gender,
   });
 
-  if(res){
+ 
+
+   await createSession({
+     id: newAdmin._id.toString(),
+    email: newAdmin.email,
+    role: newAdmin.role,
+ });
+
+  if(newAdmin){
     redirect("/Success?success=1");
   }
-
-  // create session (auto login)
-  // await createSession({
-  //   id: newUser._id.toString(),
-  //   email: newUser.email,
-  //   role: newUser.role,
-  // });
-
- 
 }
