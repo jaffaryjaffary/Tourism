@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 
 
 export default  function LoginPage() {
+    const [Loading,setLoading] = useState(false)
     const [error, setError] = useState("");
 
   async function handleLogin(e) {
@@ -23,6 +24,7 @@ export default  function LoginPage() {
      if (res?.error) {
       setError(res.error);
     } else {
+        setLoading(true)
       redirect("/Admin_Dashboard"); // redirect to dashboard on success
     }
     
@@ -69,11 +71,11 @@ export default  function LoginPage() {
               )}
 
               <button
-                type="submit"
+                type="submit" 
                 className="accent-button mt-2 rounded-2xl px-6 py-3 text-sm font-semibold 
                 uppercase tracking-wide cursor-pointer hover:bg-gray-800"
               >
-                Login To Dashboard
+               {Loading ?'Loading!.......': 'Login To Dashboard'}
               </button>
 
                {/* <p className="mt-4 text-sm text-center text-[color:var(--muted)]">

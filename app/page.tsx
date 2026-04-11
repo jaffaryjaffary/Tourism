@@ -20,7 +20,7 @@ export default  function GetPage() {
   return (
     
   <div>
-    <div className="bg-[url('/images/picture36.jpeg')] bg-fixed bg-center h-screen">
+    <div className="bg-[url('/images/picture36.jpeg')] bg-fixed bg-center h-screen ">
 
 </div>
 </div>
