@@ -2,7 +2,7 @@
 import { CgProfile } from "react-icons/cg";
 import { DeleteApproveVisitorAction } from "../app/Actions";
 import { redirect } from "next/navigation";
-export default function ProfilePage({sessionUser, FetchApproveVisitorById}){
+export default function ProfilePage({ProfileInfo, FetchApproveVisitorById}){
 
     async function HandleDelete(currentId) {
 
@@ -21,8 +21,8 @@ export default function ProfilePage({sessionUser, FetchApproveVisitorById}){
                       
               </div>
                  
-                 <h1 className="font-bold mt-5">Approved By : {FetchApproveVisitorById?.approvedByuser} </h1>
-                  <span>Email: {FetchApproveVisitorById?.approvedByemail}</span>
+                 <h1 className="font-bold mt-5">Approved By : {FetchApproveVisitorById?.approvedByFname} {FetchApproveVisitorById?.approvedByLname}</h1>
+                  
                  <p className="text-sm text-gray-500"> {new Date(FetchApproveVisitorById?.createdAt).toLocaleString("en-US", {
     day: "2-digit",
     month: "short",
@@ -36,7 +36,7 @@ export default function ProfilePage({sessionUser, FetchApproveVisitorById}){
           <div  className=" h-screen w-[80%] px-10">
             <div className="border-b border-gray-400 p-4 lg:flex items-center justify-between"> 
                <h1 className="text-2xl font-bold">Profile Details</h1>
-               {sessionUser?.role === 'Admin' &&(
+               {ProfileInfo?.role === 'Admin' &&(
                 <button onClick={()=> HandleDelete(FetchApproveVisitorById?._id)} 
                className="bg-red-400 p-2 text-white font-bold cursor-pointer ">Remove Visitor</button>
 

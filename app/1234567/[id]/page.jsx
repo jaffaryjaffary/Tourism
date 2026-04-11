@@ -45,7 +45,7 @@ export default async function Admin({params}){
              <div className="h-screen w-full">
                 <NavTopBar ProfileInfo={ProfileInfo}/>
                 
-              <Profile   FetchApproveVisitorById={ FetchApproveVisitorById}/>
+              <Profile   FetchApproveVisitorById={ FetchApproveVisitorById} ProfileInfo={ProfileInfo}/>
 
                
              </div>

@@ -28,8 +28,9 @@ export default function GetViewPage({GetUserDetailsById,ProfileInfo}){
             destination:GetUserDetailsById?.destination,
             gender:GetUserDetailsById?.gender,
             visitDate:GetUserDetailsById?.visitDate,
-            approvedByuser:ProfileInfo?.username,
-            approvedByemail:ProfileInfo?.email,
+            approvedByFname:ProfileInfo?.fname,
+            approvedByLname:ProfileInfo?.lname,
+           
            
 
            

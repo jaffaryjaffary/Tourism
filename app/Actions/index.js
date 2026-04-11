@@ -3,15 +3,17 @@
 import { connectToDb } from "../server"
 import {revalidatePath} from "next/cache"
 import Profile from "../server/models/UserProfile";
-import UserApproved from "../server/models/Approved";
 import CreateUser from "../server/models/Users";
-import Admin from "../server/models/Admin";
 import Destination from "../server/models/Image";
 import cloudinary from "../lib/cloudinary";
 import { redirect } from "next/navigation";
 import Help from "../server/models/help";
 import bcrypt from "bcryptjs";
 import User from "../server/models/ProfileUser";
+import approve from "../server/models/ApprovedUser";
+
+
+
 
 
 
@@ -66,9 +68,9 @@ export async function SearchMethodAction(keyword, page) {
     ? { fname:  { $regex: keyword, $options: "i" } } 
     : {};
 
-  const users = await UserApproved.find(query).skip(skip).limit(limit);
+  const users = await approve.find(query).skip(skip).limit(limit);
 
-  const total = await UserApproved.countDocuments(query);
+  const total = await approve.countDocuments(query);
 
   return {
     users: JSON.parse(JSON.stringify(users)),
@@ -124,7 +126,7 @@ export async function DeleteUserAction(id,pathToRevalidate) {
     
     export async function UserApprovedAction(FormData,pathToRevalidate) {
         await connectToDb()
-        await UserApproved.create(FormData)
+        await approve.create(FormData)
         revalidatePath(pathToRevalidate)
 
          
@@ -135,7 +137,7 @@ export async function DeleteUserAction(id,pathToRevalidate) {
 
     export async function FetchApprovedUserAction() {
         await connectToDb()
-        const data = await UserApproved.find()
+        const data = await approve.find()
         return JSON.parse(JSON.stringify(data))
         
     }  
@@ -143,7 +145,7 @@ export async function DeleteUserAction(id,pathToRevalidate) {
     export async function FetchVisitorApproveAction() {
 
         await connectToDb()
-        const data = await UserApproved.find()
+        const data = await approve.find()
 
         return JSON.parse(JSON.stringify(data))
         
@@ -153,7 +155,7 @@ export async function DeleteUserAction(id,pathToRevalidate) {
     export async function FetchApprovedVisitorByIdAction(id) {
 
         await connectToDb()
-        const data = await UserApproved.findOne({_id:id})
+        const data = await approve.findOne({_id:id})
         return JSON.parse(JSON.stringify(data))
         
     }
@@ -161,7 +163,7 @@ export async function DeleteUserAction(id,pathToRevalidate) {
     export async function DeleteApproveVisitorAction(id,pathToRevalidate) {
 
         await connectToDb()
-        await UserApproved.findByIdAndDelete(id)
+        await approve.findByIdAndDelete(id)
         revalidatePath(pathToRevalidate)
     }
 

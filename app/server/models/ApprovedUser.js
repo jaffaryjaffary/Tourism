@@ -24,5 +24,5 @@ const userSchema = new mongoose.Schema({
     timestamps:true
 })
 
-const UserApproved = mongoose.models.UserApproved || mongoose.model('UserApproved',userSchema)
-export default UserApproved;
+const approve = mongoose.models.approve || mongoose.model('approve',userSchema)
+export default approve;
