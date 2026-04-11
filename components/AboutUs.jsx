@@ -83,7 +83,7 @@ Every safari trip we design reflects our commitment to authentic
                             <span><AiOutlineSafety size={50}  className="text-yellow-400"/></span>
                             <div>
                                 <h1 className="text-xl font-semibold">Safety First</h1>
-                                <p>Every adventure is thoroughly vetted with comprehensive insurance coverage</p>
+                                <p>Every adventure is thoroughly vetted with very good care</p>
                             </div>
                         </div>
                           <div className="flex items-center justify-center gap-5">

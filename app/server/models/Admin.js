@@ -2,10 +2,8 @@ import mongoose from "mongoose";
 
 const AdminSchema = new mongoose.Schema(
   {
-    fname: { type: String, trim: true },
-    lname: { type: String, trim: true },
+    username: { type: String, trim: true },
     email: { type: String, trim: true, lowercase: true },
-    gender: { type: String, trim: true, lowercase: true },
     passwordHash: { type: String, required: true },
     role: { type: String },
   },

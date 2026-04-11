@@ -11,7 +11,7 @@ import { FcApprove } from "react-icons/fc";
 
 
 
-export default function GetViewPage({GetUserDetailsById,   ProfileInfo}){
+export default function GetViewPage({GetUserDetailsById,ProfileInfo}){
     const [notify, setNotify] = useState(false)
    
     
@@ -28,8 +28,9 @@ export default function GetViewPage({GetUserDetailsById,   ProfileInfo}){
             destination:GetUserDetailsById?.destination,
             gender:GetUserDetailsById?.gender,
             visitDate:GetUserDetailsById?.visitDate,
-            approvedByFname: ProfileInfo?.fname,
-            approvedBylname: ProfileInfo?.lname,
+            approvedByuser:ProfileInfo?.username,
+            approvedByemail:ProfileInfo?.email,
+           
 
            
             

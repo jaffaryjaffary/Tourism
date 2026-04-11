@@ -18,7 +18,7 @@ const { id } = await params;
     const  GetUserDetailsById = await GetUserDetailByIdAction(id)   
     const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
     
-   
+   console.log(ProfileInfo)
     
     
     return(

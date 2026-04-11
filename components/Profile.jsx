@@ -20,7 +20,9 @@ export default function ProfilePage({sessionUser, FetchApproveVisitorById}){
                       <span className="flex items-center gap-2"><CgProfile size={35} color=""/><h1 className="">Profile</h1></span>
                       
               </div>
-                 <h1 className="font-bold mt-5">Approved By : {FetchApproveVisitorById?.approvedByFname} {FetchApproveVisitorById?.approvedBylname}</h1>
+                 
+                 <h1 className="font-bold mt-5">Approved By : {FetchApproveVisitorById?.approvedByuser} </h1>
+                  <span>Email: {FetchApproveVisitorById?.approvedByemail}</span>
                  <p className="text-sm text-gray-500"> {new Date(FetchApproveVisitorById?.createdAt).toLocaleString("en-US", {
     day: "2-digit",
     month: "short",

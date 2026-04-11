@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     
-    userId:String,
+    
     fname:String,
     lname:String,
     email:String,
@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema({
     default: [], // 🔥 muhimu sana
   },
        
-    approvedByFname:String,
-    approvedBylname:String,
+    approvedByuser:String,
+    approvedByemail:String,
 
     
 

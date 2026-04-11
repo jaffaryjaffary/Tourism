@@ -57,6 +57,13 @@ export default async function LoginPage({ searchParams }) {
               >
                 Login To Dashboard
               </button>
+
+               <p className="mt-4 text-sm text-center text-[color:var(--muted)]">
+              Noy yet a member?{" "}
+              <a href="/Register" className="text-blue-600 underline">
+                Register
+              </a>
+            </p>
             </form>
           </div>
         </div>
