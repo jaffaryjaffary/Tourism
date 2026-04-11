@@ -1,3 +1,4 @@
+'use client'
 import { IoHome } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa";
  import { FaUserPlus } from "react-icons/fa6";
@@ -5,10 +6,11 @@ import { MdVerified } from "react-icons/md";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import { IoMdHelp } from "react-icons/io";
+import { signOut } from "next-auth/react";
 
 import Link from "next/link";
 
-export default function NavTogglePage({ sessionUser }){
+export default function NavTogglePage({ ProfileInfo }){
     const menu =[
     {
          id:1,
@@ -65,10 +67,13 @@ export default function NavTogglePage({ sessionUser }){
                 )}
             </div>
             <div className="mt-4 flex items-center justify-between rounded-xl bg-gray-50 p-3 text-xs">
-                <span>{sessionUser?.email || sessionUser?.username}</span>
-                <Link className="font-semibold text-[color:var(--accent-dark)]" href="/logout">
+                <span>{ProfileInfo?.email || ProfileInfo?.fname || ProfileInfo?.lname}</span>
+                <button
+                  className="font-semibold text-[color:var(--accent-dark)]"
+                  onClick={() => signOut({ callbackUrl: "/Login" })}
+                >
                   Logout
-                </Link>
+                </button>
             </div>
         </div>
     )

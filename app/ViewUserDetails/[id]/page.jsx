@@ -3,7 +3,9 @@ import GetUser from "../../../components/GetUser";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
 import {   FetchCreateUserSystemProfileAction, GetUserDetailByIdAction } from "../../Actions";
-import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
 
 
@@ -11,14 +13,17 @@ import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
 
 
 export default async function ViewPage({params}){
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      redirect("/login");
+    }
 const { id } = await params;
 
-   const sessionUser = await requireSessionUser();
-   const identifier = getUserIdentifier(sessionUser);
+ 
     const  GetUserDetailsById = await GetUserDetailByIdAction(id)   
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
     
-   console.log(ProfileInfo)
+   
     
     
     return(
@@ -35,7 +40,7 @@ const { id } = await params;
             
           
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
+                <NavTopBar ProfileInfo={ProfileInfo} />
                 {/* <Cards FetchUserInfo={FetchUserInfo}/> */}
                 
                <GetUser GetUserDetailsById={GetUserDetailsById} 

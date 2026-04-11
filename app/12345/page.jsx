@@ -3,7 +3,9 @@ import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import UserSystem from '../../components/UserSystem'
 import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchHelpAction, FetchUserInfoAction } from "../Actions";
-import { getUserIdentifier, requireSessionUser } from "../lib/auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
 
 
@@ -11,17 +13,21 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 
 export default async function Admin(){
+    const session = await getServerSession(authOptions);
+    
+  if (!session) {
+    redirect("/login");
+  }
     
    
 
    
-    const sessionUser = await requireSessionUser();
-    const identifier = getUserIdentifier(sessionUser);
+    
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
     const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
-     const FetchAllDestination = await FetchAllDestinationdAction(identifier)
+     const FetchAllDestination = await FetchAllDestinationdAction(session.id)
       const FetchHelp = await FetchHelpAction()
 
    
@@ -38,14 +44,14 @@ export default async function Admin(){
 
            </div>
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
+                <NavTopBar ProfileInfo={ProfileInfo} />
                 <Cards FetchUserInfo={FetchUserInfo} FetchApprovedUser={FetchApprovedUser} 
                 FetctAllCreateUserSystem={FetctAllCreateUserSystem}
                  FetchAllDestination={FetchAllDestination} FetchHelp={FetchHelp}
                 />
                
               
-                <UserSystem ProfileInfo={ProfileInfo}  sessionUser={sessionUser}/>
+                <UserSystem ProfileInfo={ProfileInfo} />
               
 
                

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 
 
-export default function LiveSearchTablePaginationPages({sessionUser}) {
+export default function LiveSearchTablePaginationPages({ProfileInfo}) {
   const [keyword, setKeyword] = useState("");
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
@@ -136,7 +136,7 @@ export default function LiveSearchTablePaginationPages({sessionUser}) {
 
       </div>
 
-       {sessionUser?.role === 'Admin' &&(
+       {ProfileInfo?.role === 'Admin' &&(
           <div className="flex items-center justify-center">
             <button onClick={()=> router.push('/Add_User')}
             className="bg-gray-400 p-4 cursor-pointer rounded-2xl"><FaPlus  size={25} color="white"/></button>

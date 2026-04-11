@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema({
     default: [], // 🔥 muhimu sana
   },
        
-    approvedByuser:String,
-    approvedByemail:String,
+    approvedByFname:String,
+    approvedByLname:String,
 
     
 

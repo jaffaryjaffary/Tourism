@@ -3,21 +3,27 @@ import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
 import Profile from "../../../components/Profile";
 import { FetchApprovedVisitorByIdAction, FetchCreateUserSystemProfileAction } from "../../Actions";
-import { getUserIdentifier, requireSessionUser } from "../../lib/auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+
 
 
  
 
 
 export default async function Admin({params}){
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      redirect("/login");
+    }
 
     const {id} = await params
-    const sessionUser = await requireSessionUser();
-    const identifier = getUserIdentifier(sessionUser);
+   
     
 
     const FetchApproveVisitorById = await FetchApprovedVisitorByIdAction(id)
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
   
    
 
@@ -37,9 +43,9 @@ export default async function Admin({params}){
 
            </div>
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
+                <NavTopBar ProfileInfo={ProfileInfo}/>
                 
-              <Profile   FetchApproveVisitorById={ FetchApproveVisitorById} sessionUser={sessionUser}/>
+              <Profile   FetchApproveVisitorById={ FetchApproveVisitorById}/>
 
                
              </div>

@@ -1,15 +1,33 @@
+'use client'
 import Image from "next/image";
 import Footer from "../../components/Footer";
-import { loginAction } from "./actions";
-import { getSessionUser } from "../lib/auth";
+import { signIn } from "next-auth/react";
+import { useState } from "react";
 import { redirect } from "next/navigation";
 
-export default async function LoginPage({ searchParams }) {
-  const user = await getSessionUser();
-  if (user) redirect("/Admin_Dashboard");
 
-  const params = await searchParams;
-  const hasError = params?.error;
+export default  function LoginPage() {
+    const [error, setError] = useState("");
+
+  async function handleLogin(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const res = await signIn("credentials", {
+      email: formData.get("email"),
+      password: formData.get("password"),
+      redirect: false,
+    });
+
+     if (res?.error) {
+      setError(res.error);
+    } else {
+      redirect("/Admin_Dashboard"); // redirect to dashboard on success
+    }
+    
+  }
+ 
 
   return (
     <div className="app-shell h-screen">
@@ -22,11 +40,11 @@ export default async function LoginPage({ searchParams }) {
               Login to access the admin panel and manage your tours, bookings, and more.
             </p>
 
-            <form action={loginAction} className="mt-6 grid gap-4">
+            <form onSubmit={handleLogin} className="mt-6 grid gap-4">
               <label className="grid gap-2 text-sm font-medium">
                  Email
                 <input
-                  name="identifier"
+                  name="email"
                   type="text"
                   placeholder="admin@smilinghours.com"
                   className="rounded-2xl border border-transparent bg-white/90 p-3 shadow-sm outline-none ring-1 ring-transparent focus:ring-[color:var(--ring)]"
@@ -44,7 +62,7 @@ export default async function LoginPage({ searchParams }) {
                 />
               </label>
 
-              {hasError && (
+              {error && (
                 <p className="rounded-2xl bg-red-50 p-3 text-sm text-red-700">
                   Email or password is incorrect! Try again.
                 </p>
@@ -58,12 +76,12 @@ export default async function LoginPage({ searchParams }) {
                 Login To Dashboard
               </button>
 
-               <p className="mt-4 text-sm text-center text-[color:var(--muted)]">
+               {/* <p className="mt-4 text-sm text-center text-[color:var(--muted)]">
               Noy yet a member?{" "}
               <a href="/Register" className="text-blue-600 underline">
                 Register
               </a>
-            </p>
+            </p> */}
             </form>
           </div>
         </div>

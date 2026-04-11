@@ -15,3 +15,7 @@ AdminSchema.index({ email: 1 }, { unique: true, sparse: true });
 
 const Admin = mongoose.models.Admin || mongoose.model("Admin", AdminSchema);
 export default Admin;
+
+
+
+

@@ -2,7 +2,7 @@
  import { useEffect, useState } from "react"
 
 import { IoMdCheckmark } from "react-icons/io";
-import { RegisterAction } from "../app/Add_User/Actions";
+import { registerAction } from "../app/Actions";
 
 
  export default function AddedUserPage(){
@@ -43,7 +43,7 @@ import { RegisterAction } from "../app/Add_User/Actions";
             <div>
                
                 <h1 className="text-2xl font-semibold">Fill Your Profile Information</h1>
-                 <form action={RegisterAction}   className="mt-6">
+                 <form action={registerAction}   className="mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
                     
                     <div className="flex flex-col">

@@ -3,8 +3,10 @@ import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Upload from "../../components/Upload";
 import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction,  FetchCreateUserSystemProfileAction,  FetchHelpAction,  FetchUserInfoAction } from "../Actions";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
-import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 
  
@@ -12,16 +14,15 @@ import { getUserIdentifier, requireSessionUser } from "../lib/auth";
 
 export default async function ApprovedVisitorPage(){
     
-   const sessionUser = await requireSessionUser();
-   const identifier = getUserIdentifier(sessionUser);
+      const session = await getServerSession(authOptions);
 
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
     
    
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
      const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
-      const FetchAllDestination = await FetchAllDestinationdAction(identifier)
+      const FetchAllDestination = await FetchAllDestinationdAction(session.id)
       const FetchHelp = await FetchHelpAction()
 
 
@@ -41,7 +42,7 @@ export default async function ApprovedVisitorPage(){
                       </div>
                        
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
+                <NavTopBar ProfileInfo={ProfileInfo} />
                 <Cards FetchUserInfo={FetchUserInfo} FetchApprovedUser={FetchApprovedUser}
                  FetctAllCreateUserSystem={FetctAllCreateUserSystem}
                  FetchAllDestination={FetchAllDestination} FetchHelp={FetchHelp}

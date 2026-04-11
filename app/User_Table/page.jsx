@@ -2,12 +2,17 @@ import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from "../../components/Table";
 import {FetchCreateUserSystemProfileAction, FetchUserInfoAction } from "../Actions";
-import { getUserIdentifier, requireSessionUser } from "../lib/auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
 export default async function UserTablePage(){
-    const sessionUser = await requireSessionUser();
-    const identifier = getUserIdentifier(sessionUser);
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      redirect("/login");
+    }
+    
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
     const FetchuserInfo = await FetchUserInfoAction()
 
 
@@ -28,7 +33,7 @@ export default async function UserTablePage(){
                                   </div>
                                 
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
+                <NavTopBar ProfileInfo={ProfileInfo}/>
                  <Table FetchuserInfo={FetchuserInfo}/> 
                
              </div>

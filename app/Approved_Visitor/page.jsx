@@ -5,26 +5,27 @@ import {  FetchAllCreatUserSystemAction, FetchApprovedUserAction,
     FetchCreateUserSystemProfileAction,  FetchUserInfoAction, FetchVisitorApproveAction,FetchAllDestinationdAction, 
     FetchHelpAction} from "../Actions";
 import ApproveTable from '../../components/ApproveTable'
-import { getUserIdentifier, requireSessionUser } from "../lib/auth";
-
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
 
  
 
 
 export default async function ApprovedVisitorPage(){
+        const session = await getServerSession(authOptions);
    
     
-   const sessionUser = await requireSessionUser();
-   const identifier = getUserIdentifier(sessionUser);
+   
 
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
     
     const FetchVisitorApprove = await FetchVisitorApproveAction()
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
      const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
-      const FetchAllDestination = await FetchAllDestinationdAction(identifier)
+      const FetchAllDestination = await FetchAllDestinationdAction(session.id)
       const FetchHelp = await FetchHelpAction()
 
     
@@ -43,7 +44,7 @@ export default async function ApprovedVisitorPage(){
                       </div>
                        
              <div className="h-screen w-full">
-                <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
+                <NavTopBar ProfileInfo={ProfileInfo}/>
                 <Cards FetchUserInfo={FetchUserInfo} FetchApprovedUser={FetchApprovedUser}
                  FetctAllCreateUserSystem={FetctAllCreateUserSystem}
                  FetchAllDestination={FetchAllDestination} FetchHelp={FetchHelp}

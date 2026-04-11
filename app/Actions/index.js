@@ -10,6 +10,9 @@ import Destination from "../server/models/Image";
 import cloudinary from "../lib/cloudinary";
 import { redirect } from "next/navigation";
 import Help from "../server/models/help";
+import bcrypt from "bcryptjs";
+import User from "../server/models/ProfileUser";
+
 
 
 export async function CreateUserInfoAction(formData) {
@@ -174,25 +177,26 @@ export async function CreateUserSystemProfileAction(FormData,pathToRevalidate) {
 
 
 export async function FetchCreateUserSystemProfileAction(id) {
-
   await connectToDb();
+
   if (!id) return null;
-  const data = await Admin.findOne({
+
+  // ✅ ikiwa ni object, ichukue email au id
+  if (typeof id === "object") {
+    id = id?.user?.email || id?.user?.id;
+  }
+
+  const data = await User.findOne({
     $or: [{ _id: id }, { email: id }],
   });
 
-
- 
-
-  return JSON.parse(JSON.stringify(data))
-
-   
+  return JSON.parse(JSON.stringify(data));
 }
 
 export async function FetchAllCreatUserSystemAction() {
 
   await connectToDb()
-  const data = await Admin.find()
+  const data = await User.find()
   return JSON.parse(JSON.stringify(data))
   
 }
@@ -208,9 +212,9 @@ export async function SearchCreateUserSystem(keyword, page) {
     ? { fname:  { $regex: keyword, $options: "i" } } 
     : {};
 
-  const users = await Admin.find(query).skip(skip).limit(limit);
+  const users = await User.find(query).skip(skip).limit(limit);
 
-  const total = await Admin.countDocuments(query);
+  const total = await User.countDocuments(query);
 
   return {
     users: JSON.parse(JSON.stringify(users)),
@@ -224,7 +228,7 @@ export async function GetCreatedUserSystemByIdAction(id) {
 
     await connectToDb()
 
- const  data = await Admin.findOne({_id:id})
+ const  data = await User.findOne({_id:id})
 
  return JSON.parse(JSON.stringify(data))
     
@@ -444,4 +448,54 @@ export async function DeleteHelpAction(id,pathToRevalidate) {
   await Help.findByIdAndDelete(id)
   revalidatePath(pathToRevalidate)
   return { success: true, message: "Deleted successfully" };
+}
+
+// app/actions/registerAction.js
+
+
+
+
+
+export async function registerAction(formData) {
+  try {
+    await connectToDb();
+
+    const fname = formData.get("fname");
+    const lname = formData.get("lname");
+    const email = formData.get("email");
+    const gender = formData.get("gender");
+    const role = formData.get("role");
+    const password = formData.get("password");
+
+    // validation
+    if (!fname || !lname || !email || !password) {
+      return { error: "All required fields must be filled" };
+    }
+
+    // check if user exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      redirect("/Register_Error?error=2")
+    }
+
+    // hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // create user
+    await User.create({
+      fname,
+      lname,
+      email,
+      gender,
+      role,
+      password: hashedPassword,
+    });
+
+    // return { success: "User registered successfully" };
+     redirect("/Success?success=1");
+
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong" };
+  }
 }

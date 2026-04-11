@@ -3,6 +3,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import NavToggle from "./NavToggle";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 
 function getInitials(name) {
@@ -12,12 +13,12 @@ function getInitials(name) {
   return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
 }
 
-export default function NavTopBarPage({ ProfileInfo, sessionUser }){
+export default function NavTopBarPage({ ProfileInfo }){
     
     const [openToggle, setOpenToggle] = useState(false)
-    const displayName = ProfileInfo?.userInfo?.fname
-      ? `${ProfileInfo?.userInfo?.fname} ${ProfileInfo?.userInfo?.lname || ""}`.trim()
-      : sessionUser?.fname || sessionUser?.email || "Admin";
+    const displayName = ProfileInfo?.fname && ProfileInfo?.lname
+      ? `${ProfileInfo?.fname} ${ProfileInfo?.lname || ""}`.trim()
+      : ProfileInfo?.fname || ProfileInfo?.email || "Admin";
     const initials = getInitials(displayName);
     return(
 
@@ -52,14 +53,15 @@ export default function NavTopBarPage({ ProfileInfo, sessionUser }){
                      </div>
                      <div className="text-sm">
                        <p className="font-medium">{displayName}</p>
-                       <p className="text-xs text-gray-500">{ sessionUser?.email ||  sessionUser?.fname}</p>
+                       <p className="text-xs text-gray-500">{ ProfileInfo?.email ||  ProfileInfo?.fname || ProfileInfo?.lname} </p>
                      </div>
-                     <Link
-                       href="/logout"
-                       className="rounded-full border border-[color:var(--accent)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[color:var(--accent-dark)]"
+                     <button
+                        onClick={() => signOut({ callbackUrl: "/Login" })}
+                       className="rounded-full border cursor-pointer border-[color:var(--accent)] px-3 py-1 text-xs
+                        font-semibold uppercase tracking-wide text-[color:var(--accent-dark)]"
                      >
                        Logout
-                     </Link>
+                     </button>
                    </div>
             </div>
 
@@ -71,7 +73,7 @@ export default function NavTopBarPage({ ProfileInfo, sessionUser }){
 
      
         {openToggle && (
-             <NavToggle sessionUser={sessionUser}/>
+             <NavToggle ProfileInfo={ProfileInfo}/>
 
         )}
           

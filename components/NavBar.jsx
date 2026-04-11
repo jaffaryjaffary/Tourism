@@ -40,7 +40,7 @@ const menu=[
     },
      {
         label: 'Admin Login',
-        path: '/Login_page',
+        path: '/Login',
         icon:<IoMdLogIn />
     },
 

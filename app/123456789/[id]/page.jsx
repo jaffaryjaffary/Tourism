@@ -2,18 +2,24 @@ import Menu from '../../../components/Menu'
 import NavTopBar from '../../../components/NavTopBar'
 import UserSystemProfile from '../../../components/UserSystemProfile'
 import { FetchCreateUserSystemProfileAction, GetCreatedUserSystemByIdAction } from '../../Actions'
-import { getUserIdentifier, requireSessionUser } from '../../lib/auth'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '../../api/auth/[...nextauth]/route'
+import { redirect } from 'next/navigation'
+
 
 export default async function Pages({params}){
     
-
+const session = await getServerSession(authOptions);
+    
+     if (!session) {
+    redirect("/login");
+  }
 
 
       const {id} = await params
     
-   const sessionUser = await requireSessionUser()
-   const identifier = getUserIdentifier(sessionUser)
-   const ProfileInfo = await FetchCreateUserSystemProfileAction(identifier)
+  
+   const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
     const FetctAllCreateUserSystemById = await GetCreatedUserSystemByIdAction(id)
 
     
@@ -28,7 +34,7 @@ export default async function Pages({params}){
         
                    </div>
                      <div className="h-screen w-full">
-                        <NavTopBar ProfileInfo={ProfileInfo} sessionUser={sessionUser}/>
+                        <NavTopBar ProfileInfo={ProfileInfo} />
                       
                         
                      
