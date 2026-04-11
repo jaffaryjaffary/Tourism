@@ -17,7 +17,7 @@ export default async function ContactVisitor(){
     const session = await getServerSession(authOptions);
     
   if (!session) {
-    redirect("/login");
+    redirect("/Login");
   }
     // const sessionUser = await requireSessionUser();
     // const identifier = getUserIdentifier(sessionUser);

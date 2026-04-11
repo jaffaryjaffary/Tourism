@@ -169,13 +169,6 @@ export async function DeleteUserAction(id,pathToRevalidate) {
 
 
 
-export async function CreateUserSystemProfileAction(FormData,pathToRevalidate) {
-
-  await connectToDb();
-  await CreateUser.create(FormData)
-  revalidatePath(pathToRevalidate)
-  
-}
 
 
 export async function FetchCreateUserSystemProfileAction(id) {
@@ -404,16 +397,16 @@ export async function UpdateCreateUserSystemAction(formData) {
 
 
 
-  const existing = await Admin.findById(id);
+  const existing = await User.findById(id);
 
   if (!existing) {
     return { success: false, message: "Data not found" };
   }  
-  const EmailExist = await Admin.findOne({ email, _id: { $ne: id } });
+  const EmailExist = await User.findOne({ email, _id: { $ne: id } });
   if(EmailExist){
     redirect("/Register_Error?error=2")
   }
-  await Admin.findByIdAndUpdate(id, {
+  await User.findByIdAndUpdate(id, {
     fname,
     lname,
     email, 
@@ -427,7 +420,7 @@ export async function UpdateCreateUserSystemAction(formData) {
 
 export async function DeleteCreateUserSystemAction(id,pathToRevalidate) {
   await connectToDb();
-   await Admin.findByIdAndDelete(id)
+   await User.findByIdAndDelete(id)
    revalidatePath(pathToRevalidate)
   return { success: true, message: "Deleted successfully" };
 }
@@ -459,7 +452,7 @@ export async function DeleteHelpAction(id,pathToRevalidate) {
 
 
 export async function registerAction(formData) {
-  try {
+  
     await connectToDb();
 
     const fname = formData.get("fname");
@@ -484,7 +477,7 @@ export async function registerAction(formData) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // create user
-    await User.create({
+   const res = await User.create({
       fname,
       lname,
       email,
@@ -494,10 +487,10 @@ export async function registerAction(formData) {
     });
 
     // return { success: "User registered successfully" };
-     redirect("/Success?success=1");
 
-  } catch (error) {
-    console.log(error);
-    return { error: "Something went wrong" };
-  }
+    if(res){    
+     redirect("/Success?success=1");
+    }
+  
+    
 }

@@ -17,6 +17,9 @@ export default async function ApprovedVisitorPage(){
         const session = await getServerSession(authOptions);
    
     
+   if (!session) {
+    redirect("/Login");
+  }
    
 
     const FetchUserInfo = await FetchUserInfoAction()

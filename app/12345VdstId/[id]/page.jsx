@@ -11,7 +11,7 @@ export default async function DestinationPage({params}){
     const session = await getServerSession(authOptions);
     
      if (!session) {
-    redirect("/login");
+    redirect("/Login");
   }
 
 

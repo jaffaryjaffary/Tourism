@@ -17,7 +17,10 @@ export default async function Help(){
         const session = await getServerSession(authOptions);
    
     
-  
+  if (!session) {
+    redirect("/Login");
+  }
+   
 
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()

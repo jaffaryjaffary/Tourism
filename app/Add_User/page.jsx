@@ -17,7 +17,7 @@ export default async function AddUserPage(){
     const session = await getServerSession(authOptions);
     
   if (!session) {
-    redirect("/login");
+    redirect("/Login");
   }
 
    

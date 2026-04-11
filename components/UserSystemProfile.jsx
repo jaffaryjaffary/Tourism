@@ -12,6 +12,10 @@ export default function SystemPage({FetctAllCreateUserSystemById, ProfileInfo}){
 
     
     const  HanleUpdate=async(formData)=>{
+    const confirmUpdate = window.confirm("Are you sure you want to update this user?");
+    if(!confirmUpdate){
+          return;
+    }
     const res = await UpdateCreateUserSystemAction(formData)
     if(res.success){
         redirect('/12345')
@@ -20,6 +24,11 @@ export default function SystemPage({FetctAllCreateUserSystemById, ProfileInfo}){
   }  
 
   const HandleDelete=async(id)=>{
+    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+        if (!confirmDelete) {   
+            return; // Exit if the user cancels the deletion
+        }
+
     await DeleteCreateUserSystemAction(id,'/123456789')
     redirect('/12345')
   }

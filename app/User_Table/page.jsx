@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 export default async function UserTablePage(){
     const session = await getServerSession(authOptions);
     if (!session) {
-      redirect("/login");
+      redirect("/Login");
     }
     
     const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)

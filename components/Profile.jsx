@@ -5,7 +5,10 @@ import { redirect } from "next/navigation";
 export default function ProfilePage({ProfileInfo, FetchApproveVisitorById}){
 
     async function HandleDelete(currentId) {
-
+        const confirmDelete = window.confirm("Are you sure you want to delete this Visitor?");
+        if (!confirmDelete) {   
+            return; // Exit if the user cancels the deletion
+        }
         await DeleteApproveVisitorAction(currentId,'/1234567')
         redirect('/Approved_Visitor')
         

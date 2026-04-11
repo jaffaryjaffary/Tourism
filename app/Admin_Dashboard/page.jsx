@@ -9,7 +9,7 @@ import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprov
     FetchCreateUserSystemProfileAction,   FetchHelpAction,   FetchUserInfoAction } from "../Actions";
 import { redirect } from "next/navigation";
 
-// import { getUserIdentifier, requireSessionUser } from "../lib/auth";
+
 
 
 
@@ -20,8 +20,7 @@ export default async function AdminDashboard(){
     const session = await getServerSession(authOptions);
     
     
-//    const sessionUser = await requireSessionUser();
-//    const identifier = getUserIdentifier(sessionUser);
+   
 
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
@@ -34,7 +33,7 @@ export default async function AdminDashboard(){
 
 
   if (!session) {
-    redirect("/login");
+    redirect("/Login");
   }
         
     

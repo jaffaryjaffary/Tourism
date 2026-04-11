@@ -15,7 +15,7 @@ import { redirect } from "next/navigation";
 export default async function Admin({params}){
     const session = await getServerSession(authOptions);
     if (!session) {
-      redirect("/login");
+      redirect("/Login");
     }
 
     const {id} = await params
