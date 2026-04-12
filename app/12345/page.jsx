@@ -1,8 +1,7 @@
-import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import UserSystem from '../../components/UserSystem'
-import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchHelpAction, FetchUserInfoAction } from "../Actions";
+import { FetchCreateUserSystemProfileAction } from "../Actions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
@@ -23,12 +22,9 @@ export default async function Admin(){
 
    
     
-    const FetchUserInfo = await FetchUserInfoAction()
-    const FetchApprovedUser = await FetchApprovedUserAction()
+    
     const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
-    const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
-     const FetchAllDestination = await FetchAllDestinationdAction(session.id)
-      const FetchHelp = await FetchHelpAction()
+    
 
    
             
@@ -45,11 +41,7 @@ export default async function Admin(){
            </div>
              <div className="h-screen w-full">
                 <NavTopBar ProfileInfo={ProfileInfo} />
-                <Cards FetchUserInfo={FetchUserInfo} FetchApprovedUser={FetchApprovedUser} 
-                FetctAllCreateUserSystem={FetctAllCreateUserSystem}
-                 FetchAllDestination={FetchAllDestination} FetchHelp={FetchHelp}
-                />
-               
+              
               
                 <UserSystem ProfileInfo={ProfileInfo} />
               

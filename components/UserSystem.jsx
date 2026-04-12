@@ -46,9 +46,9 @@ export default function LiveSearchTablePaginationPages({ProfileInfo}) {
   // }
    
   return (
-    <div className="overflow-auto">
+    <div className="overflow-auto bg-white shadow-lg p-3">
 
-        <div className="mt-0 lg:flex justify-between items-center p-4">
+        <div className="lg:flex justify-between items-center p-4">
 
             <h2 className="text-xl font-bold">System User Management</h2>
        <div>
@@ -67,7 +67,7 @@ export default function LiveSearchTablePaginationPages({ProfileInfo}) {
         </div>
       
 
-      <table className="w-full mt-5 ">
+      <table className="w-full mt-2 ">
         <thead className="bg-gray-300">
           <tr>
            <th className="p-2">S/N</th>

@@ -61,7 +61,7 @@ export async function SearchMethodAction(keyword, page) {
     
     await connectToDb();
 
-   const limit = 5;
+   const limit = 10;
   const skip = (page - 1) * limit;
 
   const query = keyword
@@ -84,7 +84,7 @@ export async function SearchMethodAction(keyword, page) {
 export async function SearchProfileAction(keyword, page) {
       await connectToDb();
 
-   const limit = 5;
+   const limit = 10;
   const skip = (page - 1) * limit;
 
   const query = keyword
@@ -200,7 +200,7 @@ export async function FetchAllCreatUserSystemAction() {
 export async function SearchCreateUserSystem(keyword, page) {
       await connectToDb();
 
-   const limit = 5;
+   const limit = 10;
   const skip = (page - 1) * limit;
 
   const query = keyword

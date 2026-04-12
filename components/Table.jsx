@@ -40,7 +40,7 @@ export default function LiveSearchTablePaginationPage() {
   //  }
 
   return (
-    <div className="overflow-x-scroll">
+    <div className="overflow-x-scroll bg-white shadow-lg p-3">
 
         <div className="lg:flex justify-between items-center mt-5 p-4">
 
@@ -61,7 +61,7 @@ export default function LiveSearchTablePaginationPage() {
         </div>
       
 
-      <table className="w-full mt-3">
+      <table className="w-full mt-2">
         <thead className="bg-gray-300">
           <tr>
            <th className="p-2">S/N</th>

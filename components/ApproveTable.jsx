@@ -40,9 +40,9 @@ export default function LiveSearchTablePagination() {
   // }
 
   return (
-    <div className="overflow-auto">
+    <div className="overflow-auto bg-white shadow-lg p-3">
 
-        <div className="mt-5 lg:flex justify-between items-center p-4">
+        <div className="mt-0 lg:flex justify-between items-center p-4">
 
             <h2 className="text-xl font-bold">Approved Visitors Information</h2>
        <div>
