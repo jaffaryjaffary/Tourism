@@ -2,13 +2,14 @@
 import Image from "next/image"
 import {  DeleteDestinationByIdActions, UpdateDestinationAction } from "../app/Actions"
 import { redirect } from "next/navigation"
+import {  useState } from "react"
 
 
 
 
 
 export default function UploadPage({GetDestinationByid}){
-// const [successMessage,setSuccessMessage] = useState(false)
+const [loading,setLoading] = useState(false)
 
     const handleUpdate = async (formData) => {
     const confirmUpdate = window.confirm("Are you sure you want to update this Destination?");
@@ -17,6 +18,7 @@ export default function UploadPage({GetDestinationByid}){
     }
     const res = await UpdateDestinationAction(formData);
       if(res.success){
+        setLoading(true)
         redirect('/Admin_Dashboard')
   }
 
@@ -29,8 +31,11 @@ export default function UploadPage({GetDestinationByid}){
         }
 
          await DeleteDestinationByIdActions(getCurrentId)
+         setLoading(true)
         redirect('/Admin_Dashboard')
    }
+
+   
 
     return(
         <div className="p-4 mt-0">
@@ -102,11 +107,15 @@ export default function UploadPage({GetDestinationByid}){
 
                 <div className="flex gap-4">
                      <button type="submit"  className="mt-4 px-4 
-                py-  2 bg-indigo-600 p-3 cursor-pointer text-white rounded-md hover:bg-indigo-700">Update</button>
+                py-  2 bg-indigo-600 p-3 cursor-pointer text-white rounded-md hover:bg-indigo-700">
+                    {loading ? 'Please Wait Page Loading' : 'Update'}
+                </button>
                  
                    <button type="submit"  onClick={()=> HandleDelete(GetDestinationByid?._id)}
                     className="mt-4 px-4 
-                py-  2 bg-red-400 p-3 cursor-pointer text-white rounded-md hover:bg-red-500">Delete</button>
+                py-  2 bg-red-400 p-3 cursor-pointer text-white rounded-md hover:bg-red-500">
+                    {loading ? 'Please Wait Page Loading' : 'Delete'}
+                </button>
 
                 </div>
               

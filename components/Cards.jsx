@@ -13,7 +13,7 @@ export default function CardsPage({FetchUserInfo,FetchApprovedUser,FetctAllCreat
               
 
                   <div className="mt-10 px-5">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             <div className="glass-card rounded-3xl p-5">
                 <p className="text-sm uppercase tracking-wide text-[color:var(--muted)]">Contact Visitors</p>
                 <div className="mt-4 flex items-center gap-4">

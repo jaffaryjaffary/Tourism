@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { UserApprovedAction } from "../app/Actions";
 import { useForm } from "react-hook-form";
@@ -20,6 +20,7 @@ export default function VisitorFormPage({ProfileInfo,FetchDestination }){
     const [formData, setFormData] = useState(initialValue)
     // const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
+    
     const {
     register,
     handleSubmit,
@@ -39,7 +40,7 @@ export default function VisitorFormPage({ProfileInfo,FetchDestination }){
         // setError(false)
         if(result.success){
            
-      
+       
         setSuccess(true)
           setFormData(initialValue)
            reset();
@@ -62,15 +63,8 @@ export default function VisitorFormPage({ProfileInfo,FetchDestination }){
         
     
 
-    // const  HandleForm=(e)=> {
-    //   e.preventDefault()
-        
-    // }
-    useEffect(()=>{
-        setTimeout(()=>{
-         setSuccess(false)
-        },40000)
-    })
+   
+   
 
     return(
         <div className="p-4">

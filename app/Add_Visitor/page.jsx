@@ -46,14 +46,14 @@ export default async function AddVisitorPage(){
 
 
            
-              <div className="hidden h-screen  bg-blue-400  w-[20%] lg:flex">
+              <div className="hidden  h-[1000px]  bg-blue-400  w-[20%] lg:flex">
             
                <Menu/>
 
            </div>
             
            
-             <div className="h-screen w-full">
+             <div className=" h-[1000px] w-full">
                 <NavTopBar ProfileInfo={ProfileInfo}/>
                 <Cards FetchUserInfo={FetchUserInfo} FetchApprovedUser={FetchApprovedUser} 
                 FetctAllCreateUserSystem={FetctAllCreateUserSystem}

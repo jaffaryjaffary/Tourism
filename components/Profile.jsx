@@ -2,7 +2,9 @@
 import { CgProfile } from "react-icons/cg";
 import { DeleteApproveVisitorAction } from "../app/Actions";
 import { redirect } from "next/navigation";
+import { useState } from "react";
 export default function ProfilePage({ProfileInfo, FetchApproveVisitorById}){
+    const[loading,setLoading] = useState(false)
 
     async function HandleDelete(currentId) {
         const confirmDelete = window.confirm("Are you sure you want to delete this Visitor?");
@@ -10,6 +12,7 @@ export default function ProfilePage({ProfileInfo, FetchApproveVisitorById}){
             return; // Exit if the user cancels the deletion
         }
         await DeleteApproveVisitorAction(currentId,'/1234567')
+        setLoading(true)
         redirect('/Approved_Visitor')
         
     }
@@ -41,7 +44,7 @@ export default function ProfilePage({ProfileInfo, FetchApproveVisitorById}){
                <h1 className="text-2xl font-bold">Profile Details</h1>
                {ProfileInfo?.role === 'Admin' &&(
                 <button onClick={()=> HandleDelete(FetchApproveVisitorById?._id)} 
-               className="bg-red-400 p-2 text-white font-bold cursor-pointer ">Remove Visitor</button>
+               className="bg-red-400 p-2 text-white font-bold cursor-pointer ">{loading ? 'Please Wait Page Loading' : 'Remove Visitor'}</button>
 
                )}
                

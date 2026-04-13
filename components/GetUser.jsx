@@ -13,6 +13,7 @@ import { FcApprove } from "react-icons/fc";
 
 export default function GetViewPage({GetUserDetailsById,ProfileInfo}){
     const [notify, setNotify] = useState(false)
+    const [loading, setLoading] = useState(false)
    
     
    
@@ -39,6 +40,7 @@ export default function GetViewPage({GetUserDetailsById,ProfileInfo}){
         await DeleteUserAction(GetCurrentId,'ViewUserDetails')
 
         setNotify(true)
+        setLoading(true)
         redirect('/Contact_Visitor')
     }
 
@@ -50,6 +52,7 @@ export default function GetViewPage({GetUserDetailsById,ProfileInfo}){
     }
 useEffect(()=>{
     setTimeout(()=>{
+      setLoading(false)
         setNotify(false)
     }, 40000)
 })
@@ -154,10 +157,10 @@ useEffect(()=>{
                 className="text-white flex items-center  bg-red-500 p-2 cursor-pointer "
                  onClick={()=>HandleDelete(GetUserDetailsById?._id)}>
                       <span><FaRegTrashCan  color="white"/></span>
-                     Delete</button>
+                    {loading ? 'Please Wait Page Loading' : 'Delete'}</button>
                  <button type="submit" onClick={()=>HandleSubmit(GetUserDetailsById?._id)}
                   className="flex items-center justify-center  bg-blue-400 text-white cursor-pointer p-2">
-                    <span><FcApprove color="white"/></span>Approved</button>
+                    <span><FcApprove color="white"/></span>  {loading ? 'Please Wait Page Loading' : 'Approve'}</button>
             </div>
                 {notify &&(
                   <SuccessNotify/>

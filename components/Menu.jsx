@@ -67,7 +67,7 @@ const pathname = usePathname();
 ]
 
     return(
-        <div className="p-4 text-white">
+        <div className="p-4 text-white ">
             <div className="flex items-center gap-3">
                 <Image src={'/images/picture36.jpeg'} alt="" width={48} height={48} className="rounded-2xl"/>
                 <div>
@@ -76,7 +76,7 @@ const pathname = usePathname();
                 </div>
             </div>
 
-            <div>
+            <div className="">
                 {menu.map(item => 
                     <ul key={item.label} className="mt-4">
                            
