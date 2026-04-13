@@ -4,7 +4,7 @@ import NavToggle from "./NavToggle";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { signOut } from "next-auth/react";
-import Link from "next/link";
+
 
 function getInitials(name) {
   if (!name) return "AD";

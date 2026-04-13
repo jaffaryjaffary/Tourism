@@ -75,7 +75,7 @@ export default  function LoginPage() {
                 className="accent-button mt-2 rounded-2xl px-6 py-3 text-sm font-semibold 
                 uppercase tracking-wide cursor-pointer hover:bg-gray-800"
               >
-               {Loading ?'Loading!.......': 'Login To Dashboard'}
+               {Loading ?'Please Wait Page Loading!': 'Login To Dashboard'}
               </button>
 
                {/* <p className="mt-4 text-sm text-center text-[color:var(--muted)]">

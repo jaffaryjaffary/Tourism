@@ -34,10 +34,7 @@ export default function LiveSearchTablePagination() {
     
   }
 
-  // async function HandleDelete(currentId) {
-  //   await DeleteApproveVisitorAction(currentId,'/Approved_Visitor')
-    
-  // }
+  
 
   return (
     <div className="overflow-auto bg-white shadow-lg p-3">
