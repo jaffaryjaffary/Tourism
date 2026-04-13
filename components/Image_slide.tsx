@@ -55,8 +55,8 @@ export default function ImageSliderPage() {
         <div className="flex items-center justify-center">
 
          <div className="flex flex-col">
-          <h1 className="text-3xl font-bold text-center">Adventure Awaits, Smiles<br/> Guaranteed</h1>
-        <p className="text-center text-2xl mt-2 font-serif">Discover the world with personalized adventures designed to create lasting memories</p>
+          <h1 className="text-4xl font-bold text-center">Adventure Awaits, Smiles<br/> Guaranteed</h1>
+        <p className="text-center text-3xl mt-2 font-serif">Discover the world with personalized adventures designed to create lasting memories</p>
 
           
         <div className="mt-0 flex items-center justify-center gap-5 p-3">
