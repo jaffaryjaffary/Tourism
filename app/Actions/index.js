@@ -67,6 +67,9 @@ export async function SearchMethodAction(keyword, page) {
   const query = keyword
     ? { fname:  { $regex: keyword, $options: "i" } } 
     : {};
+   
+   
+   
 
   const users = await approve.find(query).skip(skip).limit(limit);
 

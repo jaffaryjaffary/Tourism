@@ -46,7 +46,7 @@ import { registerAction } from "../app/Actions";
                         <input type="password" name="password" placeholder="Enter Password" className="mt-1 block w-full 
                     rounded-md
                      border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
-                       
+                       minLength={6}
                         required
                         />
                       

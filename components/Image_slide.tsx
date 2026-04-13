@@ -55,15 +55,15 @@ export default function ImageSliderPage() {
         <div className="flex items-center justify-center">
 
          <div className="flex flex-col">
-          <h1 className="text-5xl font-bold text-center">Adventure Awaits, Smiles<br/> Guaranteed</h1>
-        <p className="text-center text-4xl mt-2 font-serif">Discover the world with personalized adventures designed to create lasting memories</p>
+          <h1 className="text-3xl font-bold text-center">Adventure Awaits, Smiles<br/> Guaranteed</h1>
+        <p className="text-center text-2xl mt-2 font-serif">Discover the world with personalized adventures designed to create lasting memories</p>
 
           
         <div className="mt-0 flex items-center justify-center gap-5 p-3">
           <button onClick={()=> router.push('/Contact')}
-          className="bg-amber-400 p-2 text-white  font-bold cursor-pointer rounded-2xl hover:bg-transparent border lg:p-4">GET START WITH SMILING</button>
+          className="bg-amber-400 p-1 text-white  font-bold cursor-pointer rounded-2xl hover:bg-transparent border lg:p-4">GET START WITH SMILING</button>
           <button onClick={()=> router.push('/Destination')}
-          className="bg-amber-400  font-bold cursor-pointer rounded-2xl text-white p-2 hover:bg-transparent border lg:p-4">EXPLORE DESTINATIONS</button>
+          className="bg-amber-400  font-bold cursor-pointer rounded-2xl text-white p-1 hover:bg-transparent border lg:p-4">EXPLORE DESTINATIONS</button>
         </div>
          </div>
      
