@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function FooterPage(){
     return(
         <div className="mt-5">
-            <div className="bg-black">
+            <div className="bg-black w-full">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3"> 
                 <div className="mt-10 px-20">
                     <Image src={'/images/picture36.jpeg'} alt="" width={100} height={90}/>
