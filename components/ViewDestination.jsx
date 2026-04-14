@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from "next/navigation"
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function ViewDestinationPage({FetchAllDestination}){
      const router = useRouter()
@@ -13,9 +14,10 @@ export default function ViewDestinationPage({FetchAllDestination}){
         <div className="p-4"> 
             <h1 className="text-2xl font-bold mb-4"></h1>
             {/* Add your view destination content or component here */}         
-            <p>This is the View Destination page. You can display the details of a specific destination here.</p>
+            {/* <p>This is the View Destination page. You can display the details of a specific destination here.</p> */}
         
               <div className="bg-white shadow-lg p-4">
+                <h1 className="text-2xl font-semibold">Available Destinations</h1>
 
                     {FetchAllDestination && FetchAllDestination.length > 0 ?
                   
@@ -24,7 +26,10 @@ export default function ViewDestinationPage({FetchAllDestination}){
 
                          
                         <button onClick={()=>HandleView(item?._id)}
-                        className="bg-gray-400 p-2 text-white font-serif text-xl cursor-pointer hover:bg-gray-500" key={item?._id}>{item?.name}</button>
+                        className="bg-gray-400 p-2 text-white font-serif text-xl flex items-center justify-between
+                        cursor-pointer hover:bg-gray-500" key={item?._id}>{item?.name}
+                        <FaArrowRightLong />
+                        </button>
                          )} 
 
                        </div>
