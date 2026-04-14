@@ -4,6 +4,7 @@ import { FcApprove } from "react-icons/fc";
 import { FaUsers } from "react-icons/fa";
  import { useRouter } from "next/navigation";
 import { FaHandPointer } from "react-icons/fa";
+import { FaPersonCircleQuestion } from "react-icons/fa6";
 
 export default function CardsPage({FetchUserInfo,FetchApprovedUser,FetctAllCreateUserSystem,FetchAllDestination,FetchHelp}){
      const router = useRouter()
@@ -64,7 +65,7 @@ export default function CardsPage({FetchUserInfo,FetchApprovedUser,FetctAllCreat
                 <p className="text-sm uppercase tracking-wide text-[color:var(--muted)]">Help && Support</p>
                 <div className="mt-4 flex items-center gap-4">
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
-                      <FaHandPointer size={24} />
+                      <FaPersonCircleQuestion size={24} />
                     </span>
                     <h1 className="text-2xl font-semibold text-[color:var(--ink)]">{FetchHelp?.length} Total</h1>
                     <button onClick={()=>router.push('/Help&Support')}
