@@ -33,7 +33,7 @@ import { registerAction } from "../app/Actions";
                      
                     <div className="flex flex-col">
                         <label htmlFor="">Email Address</label>
-                        <input type="tel" name="email" placeholder="Enter Email address" className="mt-1 block w-full 
+                        <input type="email" name="email" placeholder="Enter Email address" className="mt-1 block w-full 
                     rounded-md
                      border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-4"
                        
