@@ -163,6 +163,8 @@ export default function GetContactPage({ FetchDestination}){
                                     </button>
 
                                   </div>
+
+                                  <h1 className="text-xl px-4 font-semibold mt-5">--------OR--------</h1>
                                    
                                 <div><button onClick={()=> setGetPhone(true)}
                                 className="bg-amber-500 text-white py-2 px-4 rounded-2xl cursor-pointer mt-5 hover:bg-amber-700">
