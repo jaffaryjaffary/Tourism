@@ -152,9 +152,9 @@ export default function GetContactPage({ FetchDestination}){
                                  <h1 className="mt-5 text-gray-500">Follow us for adventure inspiration, 
                                   travel tips, and exclusive member updates</h1>
 
-                                  <div className="flex items-center gap-2 mt-5">
+                                  <div className="flex items-center gap-2 mt-5 bg-white  w-80 p-4 rounded-2xl">
                                     <span><CgProfile size={35}  color="green" className=""/><h1 className="text-green-400 text-sm text-center">
-                                       Active</h1></span>
+                                       online</h1></span>
                                      <button 
                                         onClick={handleWhatsAppClick}
                                      className="bg-green-500 text-white px-4 py-2 rounded cursor-pointer"
