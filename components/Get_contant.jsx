@@ -4,13 +4,13 @@ import { FaAddressBook } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
-// import "react-phone-input-2/lib/style.css"
-// import PhoneInput from "react-phone-input-2"
+import { CgProfile } from "react-icons/cg";
 
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import Success from "./Success";
 import Form from "./Form";
+import { FaPersonBooth } from "react-icons/fa6";
 import { GetHelpAction } from "../app/Actions";
 
 const initialValues ={
@@ -66,7 +66,14 @@ export default function GetContactPage({ FetchDestination}){
     }, 40000)
   })
 
-  
+      const handleWhatsAppClick = () => {
+    const phoneNumber = "255752598821"; // your number
+    const message = "Hello, I want to book a tour";
+    
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    window.open(url, "_blank");
+  };
   
     return(
         <div className="h-screen">
@@ -119,6 +126,17 @@ export default function GetContactPage({ FetchDestination}){
 
                                 
                               </div>
+                               <div className="flex items-center gap-3 mt-8">
+                                <span className="bg-amber-100 p-4 rounded-2xl"><FaPersonBooth  size={30} className="text-yellow-400"/></span>
+                                <div>
+                                  <h1 className="text-xl font-bold">Our Oversees Representatives</h1>
+                                  <p className="text-gray-400">355N.Rob Way Anaheim CA 92801 USA</p>
+                                  <h1>Tell #714 300-4559</h1>
+                                  
+                                </div>
+
+                                
+                              </div>
 
                                <div className="flex items-center gap-3 mt-8">
                                 <span className="bg-amber-100 p-4 rounded-2xl"><AiOutlineWhatsApp  size={30} className="text-green-500"/></span>
@@ -134,6 +152,18 @@ export default function GetContactPage({ FetchDestination}){
                                  <h1 className="mt-5 text-gray-500">Follow us for adventure inspiration, 
                                   travel tips, and exclusive member updates</h1>
 
+                                  <div className="flex items-center gap-2 mt-5">
+                                    <span><CgProfile size={35}  color="green" className=""/><h1 className="text-green-400 text-sm text-center">
+                                       Active</h1></span>
+                                     <button 
+                                        onClick={handleWhatsAppClick}
+                                     className="bg-green-500 text-white px-4 py-2 rounded cursor-pointer"
+                                          >
+                                  Chat on WhatsApp
+                                    </button>
+
+                                  </div>
+                                   
                                 <div><button onClick={()=> setGetPhone(true)}
                                 className="bg-amber-500 text-white py-2 px-4 rounded-2xl cursor-pointer mt-5 hover:bg-amber-700">
                                   Ask a Question && Get any Help</button>
