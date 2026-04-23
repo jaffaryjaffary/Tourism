@@ -60,7 +60,7 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   title: "Smiling Hours African Adventures",
-  description: "Safari travel experiences and admin system",
+  description: "Tourism services in Tanzania",
 };
 
 export default function RootLayout({

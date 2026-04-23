@@ -5,7 +5,6 @@ import { IoLocationOutline } from "react-icons/io5";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import Success from "./Success";
@@ -66,7 +65,7 @@ export default function GetContactPage({ FetchDestination}){
     }, 40000)
   })
 
-      const handleWhatsAppClick = () => {
+    const handleWhatsAppClick = () => {
     const phoneNumber = "255752598821"; // your number
     const message = "Hello, I want to book a tour";
     

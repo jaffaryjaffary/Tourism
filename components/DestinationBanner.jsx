@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaLocationDot } from "react-icons/fa6";
 import Footer from "./Footer";
 
 export default function DestinationPage({FetchDestination =[]}){

@@ -1,6 +1,5 @@
 "use client";
 import { RxEyeOpen } from "react-icons/rx";
-// import { FaTrashAlt } from "react-icons/fa";
 import { useState, useEffect, useTransition } from "react";
 import { FetchApprovedVisitorByIdAction, SearchMethodAction } from "../app/Actions";
 import { useRouter } from "next/navigation";
