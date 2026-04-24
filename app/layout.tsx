@@ -61,6 +61,13 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Smiling Hours African Adventures",
   description: "Tourism services in Tanzania",
+  keywords:[
+    'tourism Tanzania',
+    'smillinghours',
+    'african tourism',
+    'Zanzibar tourism',
+    'Ngorongoro creater'
+  ]
 };
 
 export default function RootLayout({
