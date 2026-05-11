@@ -5,6 +5,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import connectToDb from "../../../server";
 import User from "../../../server/models/ProfileUser";
+import GithubProvider from "next-auth/providers/github";
+
 
 export const authOptions = {
   providers: [
@@ -60,10 +62,20 @@ export const authOptions = {
     },
   },
 
-  secret: process.env.AUTH_SECRET,
+
+
+  providers: [
+  GithubProvider({
+
+   secret: process.env.AUTH_SECRET,
    clientSecret: process.env.NEXTAUTH_URL,
    clientId:process.env.GITHUB_ID,
    GITHUB_SECRET: process.env.GITHUB_SECRET
+   
+  }),
+]
+
+ 
 };
 
 const handler = NextAuth(authOptions);

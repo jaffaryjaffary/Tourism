@@ -3,14 +3,14 @@ import Image from "next/image";
 import Footer from "../../components/Footer";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 
 
 export default  function LoginPage() {
     const [Loading,setLoading] = useState(false)
     const [error, setError] = useState("");
-    const router = useRouter()
+  
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -27,7 +27,7 @@ export default  function LoginPage() {
       setError(res.error);
     } else {
         setLoading(true)
-      router.push("/Admin_Dashboard"); // redirect to dashboard on success
+      redirect("/Admin_Dashboard"); // redirect to dashboard on success
     }
     
   }
