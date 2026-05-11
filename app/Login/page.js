@@ -3,6 +3,7 @@ import Image from "next/image";
 import Footer from "../../components/Footer";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 
