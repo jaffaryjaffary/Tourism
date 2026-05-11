@@ -61,6 +61,8 @@ export const authOptions = {
   },
 
   secret: process.env.AUTH_SECRET,
+   clientSecret: process.env.NEXTAUTH_URL,
+
 };
 
 const handler = NextAuth(authOptions);
