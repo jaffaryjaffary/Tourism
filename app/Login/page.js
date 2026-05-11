@@ -3,7 +3,7 @@ import Image from "next/image";
 import Footer from "../../components/Footer";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 
 
 
