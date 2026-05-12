@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { IoMdCheckmark } from "react-icons/io";
 import Footer from "./Footer";
 
 export default function DestinationPage({FetchDestination =[]}){
@@ -159,6 +160,119 @@ export default function DestinationPage({FetchDestination =[]}){
                     </div>
                         
                 </div>
+
+                    <div className="flex items-center justify-center mt-10">
+                        <div className="flex flex-col">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                                <div>
+                                   <Image src={'/images/picture50.jpeg'} alt="" width={400} height={600}/> 
+                                   <div className="bg-amber-600 p-4">
+                                     <h1 className="text-center font-bold  text-white">Why in Tanzania?</h1>
+                                     <p className=" text-white font-serif">Tanzania is home to some Africans most Ionic<br/> destination 
+                                      including the Serengeti National<br/>
+                                       Park, Mount Kilimanjaro, and the Zanzibar<br/> Archipelago.
+                                       With over 30% of it is land<br/> dedicated to conservation,
+                                         Tanzania offers<br/> some of the best wildlife viewing<br/> opportunities in the World.
+                                      </p>
+                                       <ul className="mt-6">
+                                                                    <li className="flex items-center gap-2 text-white font-serif">
+                                                                      <IoMdCheckmark size={30} color="orange"/> World is Largest Mammal Migration</li>
+                                                                       <li className="flex items-center gap-2 text-white font-serif">
+                                                                      <IoMdCheckmark size={30} color="orange"/>African is Highest Mountain</li>
+                                                                       <li className="flex items-center gap-2 text-white font-serif">
+                                                                      <IoMdCheckmark size={30} color="orange"/>Pristine Indian Ocean Beaches</li>
+                                                                       <li className="flex items-center gap-2 text-white font-serif">
+                                                                      <IoMdCheckmark size={30} color="orange"/>UNESCO World Heritage Sites</li>
+                                                                       <li className="flex items-center gap-2 text-white font-serif">
+                                                                      <IoMdCheckmark size={30} color="orange"/>Rich Cultural Diversity</li>
+                                                                       <li className="flex items-center gap-2 text-white font-serif">
+                                                                      <IoMdCheckmark size={30} color="orange"/>Year-Round Wildlife Viewing</li>
+                                                                   </ul>
+                                   </div>
+
+                                   
+                                </div>
+
+                                 <div>
+                                   <Image src={'/images/picture48.jpeg'} alt="" width={400} height={600}/> 
+                                   <div className="bg-amber-600 p-4">
+                                     <h1 className="text-center font-bold  text-white">4 Days in flyTanzania Adventure </h1>
+                                     <p className=" text-white font-serif">Tanzania is home to some Africans most Ionic<br/> destination 
+                                       Enjoy a 4 days in Tanzania Safari<br/> exploring Central Serengeti with luxury stays<br/> and Big Five Game drives.
+                                      </p>
+                                       
+                                   </div>
+
+                                   
+                                </div>
+
+                                 <div>
+                                   <Image src={'/images/picture45.jpeg'} alt="" width={400} height={600}/> 
+                                   <div className="bg-amber-600 p-4">
+                                     
+                                     <p className=" text-white font-serif">
+                                      8- 10 Days Smiling hours Wildebeest Migration<br/>
+                                       Luxury Safari.Expirence Tarangire National<br/>
+                                       park,Ngorongoro Crater,Serengeti Southern <br/>and Northern. 
+                                      </p>
+                                       
+                                   </div>
+
+                                   
+                                </div>
+
+                                 <div>
+                                   <Image src={'/images/picture49.jpeg'} alt="" width={400} height={600}/> 
+                                   <div className="bg-amber-600 p-4">
+                                     
+                                     <p className=" text-white font-serif">
+                                        3 Days Tanzania Elefants Safari exploring Tarangire<br/>
+                                        and Ngorongoro  Crater with Big five wildlife<br/> experiences.
+                                      </p>
+                                       
+                                   </div>
+
+                                   
+                                </div>
+                                   
+
+                                
+
+                                  <div>
+                                   <Image src={'/images/picture46.jpeg'} alt="" width={400} height={600}/> 
+                                   <div className="bg-amber-600 p-4">
+                                     
+                                     <p className=" text-white font-serif">
+                                        5 days Tanzania Safari. Enjoy Ngorongoro Crater<br/> Safari
+                                          and exploring Southern Serengeti plains<br/>for Predators actions.
+                                      </p>
+                                       
+                                   </div>
+
+                                   
+                                </div>
+
+                                 <div>
+                                   <Image src={'/images/picture47.jpeg'} alt="" width={400} height={600}/> 
+                                   <div className="bg-amber-600 p-4">
+                                      <h1 className="text-center font-bold  text-white">6 Days Tanzania in style Wildlife Safari.</h1>
+                                     <p className=" text-white font-serif">
+                                        Discover  Northern Tanzania on a 6 day safari<br/>
+                                         Visiting Tarangire, Serengeti, Ngorongoro Crater, <br/>Lake eyas( Bushmens)
+                                      </p>
+                                       
+                                   </div>
+
+                                   
+                                </div>
+
+                          
+                               
+                               
+
+                            </div>
+                        </div>
+                    </div>
                  <div className="flex items-center justify-center gap-5 mt-5">
                                     <div className="flex flex-col">
                                         <h1 className="text-4xl font-serif text-center">Our Means Of Transportation</h1>

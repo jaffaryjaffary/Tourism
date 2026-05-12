@@ -42,6 +42,9 @@ export default function BannerPage(){
                          </div>
                     </div>
 
+
+                  
+
                      <div className="bg-white shadow-lg w-90 p-4">
                          <IoShieldOutline  size={60} className="text-yellow-600"/>
                          <div>

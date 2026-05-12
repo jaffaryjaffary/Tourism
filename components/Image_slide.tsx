@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Banner from '../components/Banner'
 import { useRouter } from "next/navigation";
+import { IoMdCheckmark } from "react-icons/io";
 export default function ImageSliderPage() {
 
   const images = [
@@ -18,6 +19,7 @@ export default function ImageSliderPage() {
          "/images/picture41.jpg",
            "/images/picture42.jpg",
              "/images/picture14.jpeg",
+               "/images/picture50.jpeg",
        
   ];
 
@@ -94,6 +96,35 @@ export default function ImageSliderPage() {
        
        
        </div>
+
+         <div className="flex items-center justify-center p-10 bg-amber-600">
+                        <div className="flex flex-col">
+                             <h1 className="text-2xl font-bold text-white text-center">Why Tanzania?</h1>
+                             <p className=" text-white font-serif">Tanzania is the home to some of Africans most iconic destination, 
+                              including the Serengeti National
+                              Park, Mount Kilimanjaro, and the Zanzibar Archipelago.
+                               With over 30% of it is land dedicated to conservation,
+                              Tanzania offers some of the best wildlife viewing opportunities in the World.
+
+                             </p>
+                             <ul className="mt-6">
+                              <li className="flex items-center gap-2 text-white font-serif">
+                                <IoMdCheckmark size={30} color="orange"/> World is Largest Mammal Migration</li>
+                                 <li className="flex items-center gap-2 text-white font-serif">
+                                <IoMdCheckmark size={30} color="orange"/>African is Highest Mountain</li>
+                                 <li className="flex items-center gap-2 text-white font-serif">
+                                <IoMdCheckmark size={30} color="orange"/>Pristine Indian Ocean Beaches</li>
+                                 <li className="flex items-center gap-2 text-white font-serif">
+                                <IoMdCheckmark size={30} color="orange"/>UNESCO World Heritage Sites</li>
+                                 <li className="flex items-center gap-2 text-white font-serif">
+                                <IoMdCheckmark size={30} color="orange"/>Rich Cultural Diversity</li>
+                                 <li className="flex items-center gap-2 text-white font-serif">
+                                <IoMdCheckmark size={30} color="orange"/>Year-Round Wildlife Viewing</li>
+                             </ul>
+
+                        </div>
+                      
+                    </div>
 
        <Banner/>
 
