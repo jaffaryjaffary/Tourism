@@ -1,17 +1,17 @@
+import { redirect } from "next/navigation";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from "../../components/Table";
-import {FetchCreateUserSystemProfileAction, FetchUserInfoAction } from "../Actions";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import {FetchCreateUserSystemProfileAction, FetchUserInfoAction, FetchUserRegisterAction } from "../Actions";
+
 
 export default async function UserTablePage(){
-    const session = await getServerSession(authOptions);
-    if (!session) {
-      redirect("/Login");
-    }
+
+    if(!currentUser?.success){
+            redirect('/Login')
+        }
     
+    const currentUser = FetchUserRegisterAction(currentUser?.data?._id)
     const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
     const FetchuserInfo = await FetchUserInfoAction()
 

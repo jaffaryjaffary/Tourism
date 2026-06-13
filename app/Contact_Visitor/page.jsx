@@ -1,11 +1,9 @@
+import { redirect } from "next/navigation";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from '../../components/Table'
-import { FetchCreateUserSystemProfileAction } from "../Actions";
+import { FetchCreateUserSystemProfileAction, FetchUserRegisterAction } from "../Actions";
 // import { getUserIdentifier, requireSessionUser } from "../lib/auth";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
 
 
  
@@ -13,15 +11,13 @@ import { redirect } from "next/navigation";
 
 export default async function ContactVisitor(){
 
-    const session = await getServerSession(authOptions);
+    const currentUser = await FetchUserRegisterAction()
     
-  if (!session) {
-    redirect("/Login");
-  }
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
     
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
-    
-
+  if(!currentUser?.success){
+            redirect('/Login')
+        }
 
 
     

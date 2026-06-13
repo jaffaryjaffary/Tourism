@@ -1,11 +1,9 @@
 // import Cards from "../../../components/Cards";
+import { redirect } from "next/navigation";
 import GetUser from "../../../components/GetUser";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
-import {   FetchCreateUserSystemProfileAction, GetUserDetailByIdAction } from "../../Actions";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import {   FetchCreateUserSystemProfileAction, FetchUserRegisterAction, GetUserDetailByIdAction } from "../../Actions";
 
 
 
@@ -13,15 +11,14 @@ import { redirect } from "next/navigation";
 
 
 export default async function ViewPage({params}){
-    const session = await getServerSession(authOptions);
-    if (!session) {
-      redirect("/Login");
-    }
+   const currentUser = await FetchUserRegisterAction() 
 const { id } = await params;
 
- 
+       if(!currentUser?.success){
+            redirect('/Login')
+        }
     const  GetUserDetailsById = await GetUserDetailByIdAction(id)   
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.Data?._id)
     
    
     

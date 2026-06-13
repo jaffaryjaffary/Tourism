@@ -3,7 +3,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import NavToggle from "./NavToggle";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { signOut } from "next-auth/react";
+import { LogoutAction } from "../app/Actions";
 
 
 function getInitials(name) {
@@ -14,6 +14,12 @@ function getInitials(name) {
 }
 
 export default function NavTopBarPage({ ProfileInfo }){
+
+  async function HandleLogout() {
+
+    await LogoutAction()
+    
+  }
     
     const [openToggle, setOpenToggle] = useState(false)
     const displayName = ProfileInfo?.fname && ProfileInfo?.lname
@@ -56,12 +62,14 @@ export default function NavTopBarPage({ ProfileInfo }){
                        <p className="text-xs text-gray-500">{ ProfileInfo?.email ||  ProfileInfo?.fname || ProfileInfo?.lname} </p>
                      </div>
                      <button
-                        onClick={() => signOut({ callbackUrl: "/Login" })}
+                        onClick={HandleLogout}
                        className="rounded-full border cursor-pointer border-[color:var(--accent)] px-3 py-1 text-xs
                         font-semibold uppercase tracking-wide text-[color:var(--accent-dark)]"
                      >
                        Logout
                      </button>
+
+                    
                    </div>
             </div>
 

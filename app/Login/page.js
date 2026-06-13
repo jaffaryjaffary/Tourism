@@ -1,36 +1,32 @@
 'use client'
 import Image from "next/image";
 import Footer from "../../components/Footer";
-import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { redirect } from "next/navigation";
+import {  useRouter } from "next/navigation";
+import { UserLoginActions } from "../Actions";
 
+const initialValues={
+  email:'',
+  password:''
+}
 
 
 export default  function LoginPage() {
     const [Loading,setLoading] = useState(false)
     const [error, setError] = useState("");
+    const [formData, setFormData] = useState(initialValues)
+    const router = useRouter()
   
+async function handleLogin(e) {
+  e.preventDefault()
+ await UserLoginActions(formData)
+ setError(false)
+ setLoading(true)
+ router.replace('/Admin_Dashboard')  
 
-  async function handleLogin(e) {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-
-    const res = await signIn("credentials", {
-      email: formData.get("email"),
-      password: formData.get("password"),
-      redirect: false,
-    });
-
-     if (res?.error) {
-      setError(res.error);
-    } else {
-        setLoading(true)
-      redirect("/Admin_Dashboard"); // redirect to dashboard on success
-    }
-    
-  }
+  
+}
+ 
  
 
   return (
@@ -53,6 +49,7 @@ export default  function LoginPage() {
                   placeholder="admin@smilinghours.com"
                   className="rounded-2xl border border-transparent bg-white/90 p-3 shadow-sm outline-none ring-1 ring-transparent focus:ring-[color:var(--ring)]"
                   required
+                  onChange={(e)=>setFormData({...formData,email:e.target.value})}
                 />
               </label>
               <label className="grid gap-2 text-sm font-medium">
@@ -63,6 +60,8 @@ export default  function LoginPage() {
                   placeholder="••••••••"
                   className="rounded-2xl border border-transparent bg-white/90 p-3 shadow-sm outline-none ring-1 ring-transparent focus:ring-[color:var(--ring)]"
                   required
+
+                    onChange={(e)=>setFormData({...formData,password:e.target.value})}
                 />
               </label>
 

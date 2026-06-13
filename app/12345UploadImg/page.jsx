@@ -1,11 +1,9 @@
+import { redirect } from "next/navigation";
 import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Upload from "../../components/Upload";
-import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction,  FetchCreateUserSystemProfileAction,  FetchHelpAction,  FetchUserInfoAction } from "../Actions";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction,  FetchCreateUserSystemProfileAction,  FetchHelpAction,  FetchUserInfoAction, FetchUserRegisterAction } from "../Actions";
 
 
 
@@ -13,19 +11,20 @@ import { redirect } from "next/navigation";
 
 
 export default async function ApprovedVisitorPage(){
-    
-      const session = await getServerSession(authOptions);
-       if (!session) {
-          redirect("/Login");
-        }
 
+    if(!currentUser?.success){
+            redirect('/Login')
+        }
+    
+      
+    const currentUser = await FetchUserRegisterAction()
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
     
    
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
      const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
-      const FetchAllDestination = await FetchAllDestinationdAction(session.id)
+      const FetchAllDestination = await FetchAllDestinationdAction(currentUser?.data?._id)
       const FetchHelp = await FetchHelpAction()
 
 

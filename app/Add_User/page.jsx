@@ -4,24 +4,22 @@ import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 
-import { FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchHelpAction, FetchUserInfoAction} from "../Actions";
+import { FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchHelpAction, FetchUserInfoAction, FetchUserRegisterAction} from "../Actions";
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 
 
  
 
   
 export default async function AddUserPage(){
-    const session = await getServerSession(authOptions);
-    
-  if (!session) {
-    redirect("/Login");
-  }
+
+  const currentUser = await FetchUserRegisterAction()
+      if(!currentUser?.success){
+            redirect('/Login')
+        }
 
    
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
 
     
   
@@ -33,7 +31,7 @@ export default async function AddUserPage(){
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
     const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
-     const FetchAllDestination = await FetchAllDestinationdAction(session.id)
+     const FetchAllDestination = await FetchAllDestinationdAction(currentUser?.data?._id)
       const FetchHelp = await FetchHelpAction()
    
     

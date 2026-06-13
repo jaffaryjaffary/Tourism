@@ -1,11 +1,9 @@
 
+import { redirect } from "next/navigation";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
 import Profile from "../../../components/Profile";
-import { FetchApprovedVisitorByIdAction, FetchCreateUserSystemProfileAction } from "../../Actions";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import { FetchApprovedVisitorByIdAction, FetchCreateUserSystemProfileAction, FetchUserRegisterAction } from "../../Actions";
 
 
 
@@ -13,17 +11,15 @@ import { redirect } from "next/navigation";
 
 
 export default async function Admin({params}){
-    const session = await getServerSession(authOptions);
-    if (!session) {
-      redirect("/Login");
-    }
-
-    const {id} = await params
-   
     
+    const {id} = await params
+   const currentUser = await FetchUserRegisterAction()
+    if(!currentUser?.success){
+            redirect('/Login')
+        }
 
     const FetchApproveVisitorById = await FetchApprovedVisitorByIdAction(id)
-    const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
+    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
   
    
 

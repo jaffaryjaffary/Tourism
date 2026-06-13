@@ -1,25 +1,24 @@
+import { redirect } from 'next/navigation'
 import Menu from '../../../components/Menu'
 import NavTopBar from '../../../components/NavTopBar'
 import UserSystemProfile from '../../../components/UserSystemProfile'
-import { FetchCreateUserSystemProfileAction, GetCreatedUserSystemByIdAction } from '../../Actions'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '../../api/auth/[...nextauth]/route'
-import { redirect } from 'next/navigation'
+import { FetchCreateUserSystemProfileAction, FetchUserRegisterAction, GetCreatedUserSystemByIdAction } from '../../Actions'
+
 
 
 export default async function Pages({params}){
     
-const session = await getServerSession(authOptions);
-    
-     if (!session) {
-    redirect("/Login");
-  }
+
 
 
       const {id} = await params
-    
+
+      const currentUser = await FetchUserRegisterAction()
+    if(!currentUser?.success){
+            redirect('/Login')
+        }
   
-   const ProfileInfo = await FetchCreateUserSystemProfileAction(session.user.id)
+   const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
     const FetctAllCreateUserSystemById = await GetCreatedUserSystemByIdAction(id)
 
     

@@ -1,6 +1,7 @@
 'use server'
 
 import { connectToDb } from "../server"
+
 import {revalidatePath} from "next/cache"
 import Profile from "../server/models/UserProfile";
 import CreateUser from "../server/models/Users";
@@ -11,6 +12,8 @@ import Help from "../server/models/help";
 import bcrypt from "bcryptjs";
 import User from "../server/models/ProfileUser";
 import approve from "../server/models/ApprovedUser";
+import jwt from 'jsonwebtoken'
+import { cookies } from "next/headers";
 
 
 
@@ -496,4 +499,155 @@ export async function registerAction(formData) {
     }
   
     
+}
+
+
+
+// export async function RegisterUserActins(formData) {
+
+//   try {
+//     await connectToDb();
+
+//     const {fname,lname,email,gender, password, role} = await formData;
+
+//     const CheckUserExist = await User.findOne({email})
+
+//     if(CheckUserExist){
+//       return{
+//         success:false,
+//         message:"User already exist ! try different email"
+//       }
+//     }
+
+//     const HashedPassord = await bcrypt.hash(password, 10)
+
+//     const NewUserCreated = new User({
+//       fname,
+//       lname,
+//       email,
+//       gender,
+//       password:HashedPassord,
+//       role
+//     })
+//    const saveUser = await NewUserCreated.save()
+
+//    if(saveUser){
+//     return{
+//       success:true,
+//       data:JSON.parse(JSON.stringify(saveUser))
+//     }
+//    }
+    
+//   } catch (error) {
+//     console.log(error)
+//     return{
+//       success:false,
+//       message:'Something went wrong'
+//     }
+    
+//   }
+  
+// }
+
+
+export async function UserLoginActions(formData) {
+
+ try {
+  await connectToDb();
+   const {email,password} = await formData;
+
+   const CheckUser = await User.findOne({email})
+   if(!CheckUser){
+    return{
+      success:false,
+      message:"Invalid email address"
+    }
+   }
+
+   const CheckPassword = await bcrypt.compare(
+      password,
+      CheckUser.password
+    );
+
+    if (!CheckPassword) {
+      return {
+        success: false,
+        message: "Invalid password",
+      };
+    }
+
+   const CreateUserToken={
+    id:CheckUser._id,
+    fname:CheckUser.fname,
+    lname:CheckUser.lname,
+    email:CheckUser.email,
+    gender:CheckUser.gender,
+    role:CheckUser.role
+
+   }
+
+ const token = jwt.sign(CreateUserToken, process.env.JWT_SECRET,{expiresIn:'1d'}) 
+ 
+ const cookieStore = await cookies()
+ cookieStore.set('token', token)
+  
+ return{
+  success:false,
+  message:'Login successfully'
+ }
+  
+ } catch (error) {
+  console.log(error)
+  return{
+    success:false,
+    message:'Something went wrong ! try again'
+  }
+  
+ }
+  
+}
+
+
+
+
+
+export async function FetchUserRegisterAction() {
+
+    await connectToDb();
+  try {
+   const cookieStore = await cookies();
+   const token = cookieStore.get('token')?.value || '';
+   if(token ===''){
+    return{
+      success:false,
+      message:'invalid token'
+    }
+   }
+   const decodeToken = jwt.verify(token,  process.env.JWT_SECRET)
+   const getUserInfo = await User.findOne({_id:decodeToken.id})
+  if(getUserInfo){
+    return{
+      success:true,
+      data:JSON.parse(JSON.stringify(getUserInfo))
+    }
+  }
+    
+  } catch (error) {
+    console.log(error)
+    return{
+      success:false,
+      message:'Some error occured'
+    }
+    
+  }
+  
+}
+
+export async function LogoutAction() {
+    const cookieStore = await cookies();
+
+    cookieStore.set("token", "", {
+        path: "/",
+        maxAge: 0,
+    });
 }
