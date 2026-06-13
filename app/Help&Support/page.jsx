@@ -9,7 +9,7 @@ import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprov
 
 
  
-
+export const dynamic = "force-dynamic";
 
 export default async function Help(){
        

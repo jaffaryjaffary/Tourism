@@ -10,7 +10,7 @@ import { FetchAllCreatUserSystemAction, FetchAllDestinationdAction,
 
  
 
-
+export const dynamic = "force-dynamic";
 export default async function AddVisitorPage(){
    
    const currentUser = await FetchUserRegisterAction()

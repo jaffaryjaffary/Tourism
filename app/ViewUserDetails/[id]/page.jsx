@@ -8,7 +8,7 @@ import {   FetchCreateUserSystemProfileAction, FetchUserRegisterAction, GetUserD
 
 
  
-
+export const dynamic = "force-dynamic";
 
 export default async function ViewPage({params}){
    const currentUser = await FetchUserRegisterAction() 

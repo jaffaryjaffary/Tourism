@@ -8,7 +8,7 @@ import { FetchApprovedVisitorByIdAction, FetchCreateUserSystemProfileAction, Fet
 
 
  
-
+export const dynamic = "force-dynamic";
 
 export default async function Admin({params}){
     

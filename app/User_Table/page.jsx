@@ -4,7 +4,7 @@ import NavTopBar from "../../components/NavTopBar";
 import Table from "../../components/Table";
 import {FetchCreateUserSystemProfileAction, FetchUserInfoAction, FetchUserRegisterAction } from "../Actions";
 
-
+export const dynamic = "force-dynamic";
 export default async function UserTablePage(){
 
     if(!currentUser?.success){

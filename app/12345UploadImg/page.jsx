@@ -9,17 +9,18 @@ import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprov
 
  
 
-
+export const dynamic = "force-dynamic";
 export default async function ApprovedVisitorPage(){
 
-    if(!currentUser?.success){
-            redirect('/Login')
         }
     
       
     const currentUser = await FetchUserRegisterAction()
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()
+    
+    if(!currentUser?.success){
+            redirect('/Login')
     
    
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)

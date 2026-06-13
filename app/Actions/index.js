@@ -550,21 +550,80 @@ export async function registerAction(formData) {
 // }
 
 
+// export async function UserLoginActions(formData) {
+
+//  try {
+//   await connectToDb();
+//    const {email,password} = await formData;
+
+//    const CheckUser = await User.findOne({email})
+//    if(!CheckUser){
+//     return{
+//       success:false,
+//       message:"Invalid email address"
+//     }
+//    }
+
+//    const CheckPassword = await bcrypt.compare(
+//       password,
+//       CheckUser.password
+//     );
+
+//     if (!CheckPassword) {
+//       return {
+//         success: false,
+//         message: "Invalid password",
+//       };
+//     }
+
+//    const CreateUserToken={
+//     id:CheckUser._id,
+//     fname:CheckUser.fname,
+//     lname:CheckUser.lname,
+//     email:CheckUser.email,
+//     gender:CheckUser.gender,
+//     role:CheckUser.role
+
+//    }
+
+//  const token = jwt.sign(CreateUserToken, process.env.JWT_SECRET,{expiresIn:'1d'}) 
+ 
+//  const cookieStore = await cookies()
+//  cookieStore.set('token', token)
+  
+//  return{
+//   success:false,
+//   message:'Login successfully'
+//  }
+  
+//  } catch (error) {
+//   console.log(error)
+//   return{
+//     success:false,
+//     message:'Something went wrong ! try again'
+//   }
+  
+//  }
+  
+// }
+
+
 export async function UserLoginActions(formData) {
+  try {
+    await connectToDb();
 
- try {
-  await connectToDb();
-   const {email,password} = await formData;
+    const { email, password } = formData;
 
-   const CheckUser = await User.findOne({email})
-   if(!CheckUser){
-    return{
-      success:false,
-      message:"Invalid email address"
+    const CheckUser = await User.findOne({ email });
+
+    if (!CheckUser) {
+      return {
+        success: false,
+        message: "Invalid email address",
+      };
     }
-   }
 
-   const CheckPassword = await bcrypt.compare(
+    const CheckPassword = await bcrypt.compare(
       password,
       CheckUser.password
     );
@@ -576,37 +635,43 @@ export async function UserLoginActions(formData) {
       };
     }
 
-   const CreateUserToken={
-    id:CheckUser._id,
-    fname:CheckUser.fname,
-    lname:CheckUser.lname,
-    email:CheckUser.email,
-    gender:CheckUser.gender,
-    role:CheckUser.role
+    const token = jwt.sign(
+      {
+        id: CheckUser._id.toString(),
+        fname: CheckUser.fname,
+        lname: CheckUser.lname,
+        email: CheckUser.email,
+        gender: CheckUser.gender,
+        role: CheckUser.role,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
 
-   }
+    const cookieStore = await cookies();
 
- const token = jwt.sign(CreateUserToken, process.env.JWT_SECRET,{expiresIn:'1d'}) 
- 
- const cookieStore = await cookies()
- cookieStore.set('token', token)
-  
- return{
-  success:false,
-  message:'Login successfully'
- }
-  
- } catch (error) {
-  console.log(error)
-  return{
-    success:false,
-    message:'Something went wrong ! try again'
+    cookieStore.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      maxAge: 60 * 60 * 24,
+    });
+
+    return {
+      success: true,
+      message: "Login successfully",
+    };
+
+  } catch (error) {
+    console.log(error);
+
+    return {
+      success: false,
+      message: "Something went wrong! Try again.",
+    };
   }
-  
- }
-  
 }
-
 
 
 
