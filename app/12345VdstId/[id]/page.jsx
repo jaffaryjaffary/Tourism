@@ -3,7 +3,6 @@ import NavTopBar from '../../../components/NavTopBar'
 import { FetchCreateUserSystemProfileAction, FetchUserRegisterAction, GetDestinationByIdAction, } from '../../Actions'
 // import { getUserIdentifier, requireSessionUser } from '../../lib/auth'
 import DestinationById from '../../../components/DestinationById'
-import { redirect } from 'next/navigation'
 
 export const dynamic = "force-dynamic";
 export default async function DestinationPage({params}){
@@ -12,7 +11,7 @@ export default async function DestinationPage({params}){
 const currentUser = await FetchUserRegisterAction()
       const {id} = await params
       if(!currentUser?.success){
-            redirect('/Login')
+             return null
         }
 
    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)

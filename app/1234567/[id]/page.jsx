@@ -1,5 +1,3 @@
-
-import { redirect } from "next/navigation";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
 import Profile from "../../../components/Profile";
@@ -15,7 +13,7 @@ export default async function Admin({params}){
     const {id} = await params
    const currentUser = await FetchUserRegisterAction()
     if(!currentUser?.success){
-            redirect('/Login')
+            return null
         }
 
     const FetchApproveVisitorById = await FetchApprovedVisitorByIdAction(id)

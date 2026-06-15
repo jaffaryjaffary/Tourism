@@ -15,7 +15,7 @@ export default async function Help(){
        
    const currentUser = await FetchUserRegisterAction()
    if(!currentUser?.success){
-            redirect('/Login')
+            return null
         }
 
     const FetchUserInfo = await FetchUserInfoAction()

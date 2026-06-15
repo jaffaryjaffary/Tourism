@@ -21,7 +21,7 @@ export default async function AdminDashboard(){
   const currentUser = await FetchUserRegisterAction()
     
     if(!currentUser?.success){
-            redirect('/Login')
+             return null
         }
    
 

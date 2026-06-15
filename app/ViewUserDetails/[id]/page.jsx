@@ -1,5 +1,4 @@
 // import Cards from "../../../components/Cards";
-import { redirect } from "next/navigation";
 import GetUser from "../../../components/GetUser";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
@@ -15,7 +14,7 @@ export default async function ViewPage({params}){
 const { id } = await params;
 
        if(!currentUser?.success){
-            redirect('/Login')
+            return null
         }
     const  GetUserDetailsById = await GetUserDetailByIdAction(id)   
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.Data?._id)

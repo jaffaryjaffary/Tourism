@@ -20,7 +20,7 @@ export default async function ApprovedVisitorPage(){
     const FetchApprovedUser = await FetchApprovedUserAction()
     
     if(!currentUser?.success){
-            redirect('/Login')
+            return null
     }
    
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)

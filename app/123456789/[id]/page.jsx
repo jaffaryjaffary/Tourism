@@ -1,4 +1,3 @@
-import { redirect } from 'next/navigation'
 import Menu from '../../../components/Menu'
 import NavTopBar from '../../../components/NavTopBar'
 import UserSystemProfile from '../../../components/UserSystemProfile'
@@ -15,7 +14,7 @@ export default async function Pages({params}){
 
       const currentUser = await FetchUserRegisterAction()
     if(!currentUser?.success){
-            redirect('/Login')
+           return null
         }
   
    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)

@@ -15,7 +15,7 @@ export default async function AddUserPage(){
 
   const currentUser = await FetchUserRegisterAction()
       if(!currentUser?.success){
-            redirect('/Login')
+             return null
         }
 
    
