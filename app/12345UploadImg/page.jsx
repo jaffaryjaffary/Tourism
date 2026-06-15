@@ -21,7 +21,7 @@ export default async function ApprovedVisitorPage(){
     
     if(!currentUser?.success){
             redirect('/Login')
-    
+    }
    
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
      const FetctAllCreateUserSystem = await FetchAllCreatUserSystemAction()
@@ -60,5 +60,4 @@ export default async function ApprovedVisitorPage(){
         </div>
     
     )
-}
 }
