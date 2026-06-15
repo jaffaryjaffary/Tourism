@@ -4,15 +4,15 @@ import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Upload from "../../components/Upload";
 import {  FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction,  FetchCreateUserSystemProfileAction,  FetchHelpAction,  FetchUserInfoAction, FetchUserRegisterAction } from "../Actions";
-
+export const dynamic = "force-dynamic";
 
 
  
 
-export const dynamic = "force-dynamic";
+
 export default async function ApprovedVisitorPage(){
 
-        }
+        
     
       
     const currentUser = await FetchUserRegisterAction()
@@ -60,4 +60,5 @@ export default async function ApprovedVisitorPage(){
         </div>
     
     )
+}
 }
