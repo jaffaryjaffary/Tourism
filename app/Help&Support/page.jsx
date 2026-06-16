@@ -14,9 +14,9 @@ export const dynamic = "force-dynamic";
 export default async function Help(){
        
    const currentUser = await FetchUserRegisterAction()
-//    if (!currentUser?.success) {
-//     return redirect('/Login');
-// }
+   if (!currentUser?.success) {
+    return redirect('/Login');
+}
 
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()

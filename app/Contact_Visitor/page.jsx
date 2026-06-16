@@ -15,9 +15,9 @@ export default async function ContactVisitor(){
     
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
     
-//   if (!currentUser?.success) {
-//     return redirect('/Login');
-// }
+  if (!currentUser?.success) {
+    return redirect('/Login');
+}
 
 
     

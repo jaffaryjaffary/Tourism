@@ -11,9 +11,9 @@ export default async function ApprovedVisitorPage(){
        
    const currentUser = await FetchUserRegisterAction()
 
-//    if (!currentUser?.success) {
-//     return redirect('/Login');
-// }
+   if (!currentUser?.success) {
+    return redirect('/Login');
+}
     const FetchVisitorApprove = await FetchVisitorApproveAction()
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
     
