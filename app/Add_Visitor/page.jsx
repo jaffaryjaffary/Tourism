@@ -15,9 +15,9 @@ export default async function AddVisitorPage(){
    
    const currentUser = await FetchUserRegisterAction()
 
-       if(!currentUser?.success){
-             return null
-        }
+      if(!currentUser?.success){
+                   redirect('/Login')
+              }
 
      const FetchUserInfo = await FetchUserInfoAction()
     

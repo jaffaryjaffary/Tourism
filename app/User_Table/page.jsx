@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from "../../components/Table";
@@ -5,9 +6,8 @@ import {FetchCreateUserSystemProfileAction, FetchUserInfoAction, FetchUserRegist
 
 export const dynamic = "force-dynamic";
 export default async function UserTablePage(){
-
-    if(!currentUser?.success){
-             return null
+if(!currentUser?.success){
+             redirect('/Login')
         }
     
     const currentUser = FetchUserRegisterAction(currentUser?.data?._id)
