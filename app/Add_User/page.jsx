@@ -14,9 +14,9 @@ import { redirect } from "next/navigation";
 export default async function AddUserPage(){
 
   const currentUser = await FetchUserRegisterAction()
-     if(!currentUser?.success){
-                  redirect('/Login')
-             }
+     if (!currentUser?.success) {
+    return redirect('/Login');
+}
 
    
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)

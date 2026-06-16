@@ -13,9 +13,9 @@ export default async function Admin({params}){
     
     const {id} = await params
    const currentUser = await FetchUserRegisterAction()
-    if(!currentUser?.success){
-                 redirect('/Login')
-            }
+    if (!currentUser?.success) {
+    return redirect('/Login');
+}
 
     const FetchApproveVisitorById = await FetchApprovedVisitorByIdAction(id)
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
