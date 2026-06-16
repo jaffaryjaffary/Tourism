@@ -14,9 +14,9 @@ export default async function ViewPage({params}){
    const currentUser = await FetchUserRegisterAction() 
 const { id } = await params;
 
-      if (!currentUser?.success) {
-    return redirect('/Login');
-}
+//       if (!currentUser?.success) {
+//     return redirect('/Login');
+// }
     const  GetUserDetailsById = await GetUserDetailByIdAction(id)   
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.Data?._id)
     
