@@ -31,14 +31,35 @@ export default function FooterPage(){
                     <h1 className=" text-white text-xl">Social Platform</h1>
 
                       <ul className="mt-3  list-none">
-                    <li className=" text-gray-500 flex items-center gap-2"><span><SiFacebook color="blue " size={20} /></span>Facebook.com</li>
-                     <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><FaInstagram color="red" size={20}/></span>Instagram.com</li>
-                     <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safaribookings.com</li>
-                      <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.TripAdvisor.com.com</li>
-                       <li className=" text-gray-500 mt-3  flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safarigo.com</li>
-                        <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safarisource</li>
-                         <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><AiOutlineGlobal size={20} color="white"/></span>www.smilinghoursafricanadventure.com</li>
-                          <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><BsEnvelopeAt size={20} color="white" /></span>info@smilinghoursadventures.com</li>
+                        <Link href={'/facebook.com'}>
+                        <li className=" text-gray-500 flex items-center gap-2"><span><SiFacebook color="blue " size={20} /></span>Facebook.com</li>
+                        </Link>
+                    <Link href={'/Instagram.com'}>
+                         <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><FaInstagram color="red" size={20}/></span>Instagram.com</li>
+                    </Link>
+                     
+                         <Link href={'/www.safaribookings.com'}>
+                               <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safaribookings.com</li>
+                         </Link>
+                          
+                          <Link href={'/www.TripAdvisor.com'}>
+                              <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.TripAdvisor.com.com</li>
+                          </Link>
+                          <Link href={'/www.Safarigo.com'}>
+                           <li className=" text-gray-500 mt-3  flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safarigo.com</li>
+                          </Link>
+                          <Link href={'/www.Safarisource'}>
+                          <li className=" text-gray-500 mt-3 flex items-center gap-2"><span><AiOutlineGlobal size={20} color="white"/></span>www.Safarisource</li>
+                          </Link>
+
+                          <Link href={'/smilinghoursafricanadventure.com'}>
+                           <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><AiOutlineGlobal size={20} color="white"/></span>www.smilinghoursafricanadventure.com</li>
+                          </Link>
+                        
+                        <Link href={'/info@smilinghoursadventures.com'}>
+                        <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><BsEnvelopeAt size={20} color="white" /></span>info@smilinghoursadventures.com</li>
+                        </Link>
+                          
                     </ul>
                    
                 </div>
