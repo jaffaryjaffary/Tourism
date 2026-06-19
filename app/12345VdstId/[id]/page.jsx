@@ -4,7 +4,6 @@ import { FetchCreateUserSystemProfileAction, FetchUserRegisterAction, GetDestina
 // import { getUserIdentifier, requireSessionUser } from '../../lib/auth'
 import DestinationById from '../../../components/DestinationById'
 import { redirect } from 'next/navigation';
-
 export const dynamic = "force-dynamic";
 export default async function DestinationPage({params}){
     

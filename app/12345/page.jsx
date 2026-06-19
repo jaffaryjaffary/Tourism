@@ -4,11 +4,7 @@ import NavTopBar from "../../components/NavTopBar";
 import UserSystem from '../../components/UserSystem'
 import { FetchCreateUserSystemProfileAction, FetchUserRegisterAction } from "../Actions";
 
-
-
- 
 export const dynamic = "force-dynamic";
-
 export default async function Admin(){
     
    

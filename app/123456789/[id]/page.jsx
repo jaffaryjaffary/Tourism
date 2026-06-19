@@ -5,7 +5,7 @@ import UserSystemProfile from '../../../components/UserSystemProfile'
 import { FetchCreateUserSystemProfileAction, FetchUserRegisterAction, GetCreatedUserSystemByIdAction } from '../../Actions'
 
 
-export const dynamic = "force-dynamic";
+ export const dynamic = "force-dynamic";
 export default async function Pages({params}){
     
 
