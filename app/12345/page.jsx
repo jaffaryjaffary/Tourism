@@ -1,4 +1,4 @@
-// import { redirect } from "next/navigation";
+ import { redirect } from "next/navigation";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import UserSystem from '../../components/UserSystem'
@@ -12,9 +12,9 @@ export default async function Admin(){
    
     const currentUser = await FetchUserRegisterAction()
 
-//    if (!currentUser?.success) {
-//     return redirect('/Login');
-// }
+   if (!currentUser?.success) {
+     redirect('/Login');
+}
     
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
     

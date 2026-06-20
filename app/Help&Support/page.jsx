@@ -1,4 +1,4 @@
-// import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
@@ -14,9 +14,9 @@ export const dynamic = "force-dynamic";
 export default async function Help(){
        
    const currentUser = await FetchUserRegisterAction()
-//    if (!currentUser?.success) {
-//     return redirect('/Login');
-// }
+   if (!currentUser?.success) {
+     redirect('/Login');
+}
 
     const FetchUserInfo = await FetchUserInfoAction()
     const FetchApprovedUser = await FetchApprovedUserAction()

@@ -14,9 +14,9 @@ import { FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprove
 export default async function AddUserPage(){
 
   const currentUser = await FetchUserRegisterAction()
-//      if (!currentUser?.success) {
-//     return redirect('/Login');
-// }
+     if (!currentUser?.success) {
+     redirect('/Login');
+}
 
    
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
