@@ -31,7 +31,7 @@ export default function FooterPage(){
                     <h1 className=" text-white text-xl">Social Platform</h1>
 
                       <ul className="mt-3  list-none">
-                        <Link href={'/facebook.com'}>
+                        <Link href={'https://www.facebook.com/profile.php?id=61577714894045'}>
                         <li className=" text-gray-500 flex items-center gap-2"><span><SiFacebook color="blue " size={20} /></span>Facebook.com</li>
                         </Link>
                     <Link href={'/Instagram.com'}>
