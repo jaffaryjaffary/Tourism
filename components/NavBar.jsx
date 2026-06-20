@@ -39,7 +39,7 @@ const menu=[
         icon:<FaPhoneAlt />
     },
      {
-        label: 'Admin',
+        label: 'Login',
         path: '/Login',
         icon:<IoMdLogIn />
     },

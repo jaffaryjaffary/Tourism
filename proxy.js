@@ -91,11 +91,11 @@ export function proxy(req) {
     }
 
     // User not logged in
-    if (!isPublicPath && !token) {
-        return NextResponse.redirect(
-            new URL('/Login', req.url)
-        );
-    }
+    // if (!isPublicPath && !token) {
+    //     return NextResponse.redirect(
+    //         new URL('/Login', req.url)
+    //     );
+    // }
 
     return NextResponse.next();
 }
@@ -103,7 +103,7 @@ export function proxy(req) {
 export const config = {
     matcher: [
         '/',
-        '/Login',
+        
         '/Admin_Dashboard/:path*',
     ],
 };
