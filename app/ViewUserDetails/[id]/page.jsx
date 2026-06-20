@@ -1,5 +1,5 @@
 // import Cards from "../../../components/Cards";
-//  import { redirect } from "next/navigation";
+  import { redirect } from "next/navigation";
 import GetUser from "../../../components/GetUser";
 import Menu from "../../../components/Menu";
 import NavTopBar from "../../../components/NavTopBar";
@@ -12,9 +12,9 @@ export const dynamic = "force-dynamic";
 
 export default async function ViewPage({params}){
    const currentUser = await FetchUserRegisterAction() 
-const { id } = await params;
+   const { id } = await params;
 
-      if (!currentUser?.success) {
+       if (!currentUser?.success) {
      redirect('/Login');
 }
     const  GetUserDetailsById = await GetUserDetailByIdAction(id)   
