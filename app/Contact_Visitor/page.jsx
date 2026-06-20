@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import Table from '../../components/Table'
@@ -15,9 +15,9 @@ export default async function ContactVisitor(){
     
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
     
-  if (!currentUser?.success) {
-    return redirect('/Login');
-}
+//   if (!currentUser?.success) {
+//     return redirect('/Login');
+// }
 
 
     

@@ -716,3 +716,42 @@ export async function LogoutAction() {
         maxAge: 0,
     });
 }
+
+
+
+
+
+
+
+
+// export async function FetchUserRegisterAction() {
+
+//    await connectionToDb()
+//   try {
+//    const cookieStore = await cookies();
+//    const token = cookieStore.get('token')?.value || '';
+//    if(token ===''){
+//     return{
+//       success:false,
+//       message:'invalid token'
+//     }
+//    }
+//    const decodeToken = jwt.verify(token,  process.env.JWT_SECRET)
+//    const getUserInfo = await User.findOne({_id:decodeToken.id})
+//   if(getUserInfo){
+//     return{
+//       success:true,
+//       data:JSON.parse(JSON.stringify(getUserInfo))
+//     }
+//   }
+    
+//   } catch (error) {
+//     console.log(error)
+//     return{
+//       success:false,
+//       message:'Some error occured'
+//     }
+    
+//   }
+  
+// }

@@ -2,7 +2,7 @@ import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 import { FetchCreateUserSystemProfileAction, FetchUserRegisterAction, FetchVisitorApproveAction} from "../Actions";
 import ApproveTable from '../../components/ApproveTable'
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
  
 export const dynamic = "force-dynamic";
@@ -11,9 +11,9 @@ export default async function ApprovedVisitorPage(){
        
    const currentUser = await FetchUserRegisterAction()
 
-   if (!currentUser?.success) {
-    return redirect('/Login');
-}
+//    if (!currentUser?.success) {
+//     return redirect('/Login');
+// }
     const FetchVisitorApprove = await FetchVisitorApproveAction()
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
     

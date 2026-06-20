@@ -5,7 +5,7 @@ import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
 
 import { FetchAllCreatUserSystemAction, FetchAllDestinationdAction, FetchApprovedUserAction, FetchCreateUserSystemProfileAction, FetchHelpAction, FetchUserInfoAction, FetchUserRegisterAction} from "../Actions";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 
  
@@ -14,9 +14,9 @@ import { redirect } from "next/navigation";
 export default async function AddUserPage(){
 
   const currentUser = await FetchUserRegisterAction()
-     if (!currentUser?.success) {
-    return redirect('/Login');
-}
+//      if (!currentUser?.success) {
+//     return redirect('/Login');
+// }
 
    
     const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)
