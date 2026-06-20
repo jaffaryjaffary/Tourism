@@ -34,7 +34,7 @@ export default function FooterPage(){
                         <Link href={'https://www.facebook.com/profile.php?id=61577714894045'}>
                         <li className=" text-gray-500 flex items-center gap-2"><span><SiFacebook color="blue " size={20} /></span>Facebook.com</li>
                         </Link>
-                    <Link href={'/Instagram.com'}>
+                    <Link href={'https://www.instagram.com/smillinghoursafrican?igsh=YzljYT1ODg3Zg%3D%3D'}>
                          <li className=" text-gray-500 flex items-center gap-2 mt-3"><span><FaInstagram color="red" size={20}/></span>Instagram.com</li>
                     </Link>
                      

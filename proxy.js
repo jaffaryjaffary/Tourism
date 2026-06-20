@@ -93,7 +93,7 @@ export function proxy(req) {
     // User not logged in
     if (!isPublicPath && !token) {
         return NextResponse.redirect(
-            new URL('/Sign-in', req.url)
+            new URL('/Admin_Dashboard', req.url)
         );
     }
 
