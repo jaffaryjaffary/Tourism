@@ -16,7 +16,11 @@ export const metadata: Metadata = {
     'african tourism',
     'Zanzibar tourism',
     'Ngorongoro creater'
-  ]
+  ],
+
+  icons:{
+    icon: '/images/picture36.jpeg'
+  }
 };
 
 export default async function RootLayout({

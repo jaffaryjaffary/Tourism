@@ -6,8 +6,9 @@ import {FetchCreateUserSystemProfileAction, FetchUserInfoAction, FetchUserRegist
 
 export const dynamic = "force-dynamic";
 export default async function UserTablePage(){
-if (!currentUser?.success) {
-     redirect('/Login');
+if (!currentUser) {
+      redirect('/Login');
+    
 }
     
     const currentUser = FetchUserRegisterAction(currentUser?.data?._id)

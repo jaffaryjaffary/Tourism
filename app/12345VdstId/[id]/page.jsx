@@ -10,8 +10,9 @@ export default async function DestinationPage({params}){
 
 const currentUser = await FetchUserRegisterAction()
       const {id} = await params
-     if (!currentUser?.success) {
-     redirect('/Login');
+     if (!currentUser) {
+      redirect('/Login');
+    
 }
 
    const ProfileInfo = await FetchCreateUserSystemProfileAction(currentUser?.data?._id)

@@ -1,4 +1,5 @@
-  import { redirect } from "next/navigation";
+  // import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import Cards from "../../components/Cards";
 import Menu from "../../components/Menu";
 import NavTopBar from "../../components/NavTopBar";
@@ -16,7 +17,8 @@ export default async function AdminDashboard(){
   const currentUser = await FetchUserRegisterAction()
     
     if (!currentUser?.success) {
-     redirect('/Login');
+      redirect('/Login');
+  
 }
    
 
