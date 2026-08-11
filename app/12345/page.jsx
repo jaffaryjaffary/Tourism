@@ -12,7 +12,7 @@ export default async function Admin(){
    
     const currentUser = await FetchUserRegisterAction()
 
-   if (!currentUser) {
+   if (!currentUser.success) {
      redirect('/Login');
     
 }
