@@ -690,7 +690,7 @@ export async function FetchUserRegisterAction() {
     }
    }
    const decodeToken = jwt.verify(token,  process.env.JWT_SECRET)
-   const getUserInfo = await User.findOne({_id:decodeToken.id})
+   const getUserInfo = await User.findById({_id:decodeToken.id})
   if(getUserInfo){
     return{
       success:true,
