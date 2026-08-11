@@ -682,7 +682,9 @@ export async function FetchUserRegisterAction() {
     await connectToDb();
   try {
    const cookieStore = await cookies();
-   const token = cookieStore.get('token')?.value || '';
+    const token = cookieStore.get('token')?.value || '';
+    // const token = request.cookies.get("token")?.value;
+
    if(token ===''){
     return{
       success:false,
@@ -690,7 +692,7 @@ export async function FetchUserRegisterAction() {
     }
    }
    const decodeToken = jwt.verify(token,  process.env.JWT_SECRET)
-   const getUserInfo = await User.findById(decodeToken.id)
+   const getUserInfo = await User.findById(decodeToken.id).select("-password")
   if(getUserInfo){
     return{
       success:true,
