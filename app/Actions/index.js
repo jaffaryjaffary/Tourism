@@ -677,14 +677,14 @@ export async function UserLoginActions(formData) {
 
 
 
-export async function FetchUserRegisterAction() {
+export async function FetchUserRegisterAction(req) {
 
     await connectToDb();
   try {
-   const cookieStore = await cookies();
-    const token = cookieStore.get('token')?.value;
+  //  const cookieStore = await cookies();
+  //   const token = cookieStore.get('token')?.value;
     //  const token = cookieStore.get('token')?.value || '';
-    // const token = request.cookies.get("token")?.value;
+     const token = req.cookies.get("token")?.value;
 
    if(token ===''){
     return{
