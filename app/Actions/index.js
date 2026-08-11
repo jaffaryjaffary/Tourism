@@ -677,40 +677,96 @@ export async function UserLoginActions(formData) {
 
 
 
-export async function FetchUserRegisterAction() {
+// export async function FetchUserRegisterAction() {
 
-    await connectToDb();
-  try {
-    const cookieStore = await cookies();
-     const token = cookieStore.get('token')?.value;
-    //  const token = cookieStore.get('token')?.value || '';
-    //  const token = req.cookies.get("token")?.value;
+//     await connectToDb();
+//   try {
+//     const cookieStore = await cookies();
+//      const token = cookieStore.get('token')?.value;
+   
 
-   if(!token){
-    return{
-      success:false,
-      message:'invalid token'
-    }
-   }
-   const decodeToken = jwt.verify(token,  process.env.JWT_SECRET)
-   const getUserInfo = await User.findById(decodeToken.id).select("-password")
-  if(getUserInfo){
-    return{
-      success:true,
-      data:JSON.parse(JSON.stringify(getUserInfo))
-    }
-  }
+//    if(!token){
+//     return{
+//       success:false,
+//       message:'invalid token'
+//     }
+//    }
+//    const decodeToken = jwt.verify(token,  process.env.JWT_SECRET)
+//    const getUserInfo = await User.findById(decodeToken.id).select("-password")
+//   if(getUserInfo){
+//     return{
+//       success:true,
+//       data:JSON.parse(JSON.stringify(getUserInfo))
+//     }
+//   }
     
-  } catch (error) {
-    console.log(error)
-    return{
-      success:false,
-      message:'Some error occured'
-    }
+//   } catch (error) {
+//     console.log(error)
+//     return{
+//       success:false,
+//       message:'Some error occured'
+//     }
     
-  }
+//   }
   
+// }
+
+
+export async function FetchUserRegisterAction() {
+  try {
+    await connectToDb();
+
+    const cookieStore = await cookies();
+
+    const token = cookieStore.get("token")?.value;
+
+    if (!token) {
+      return {
+        success: false,
+        message: "Authentication token not found",
+      };
+    }
+
+    if (!process.env.JWT_SECRET) {
+      console.error("JWT_SECRET is not configured");
+
+      return {
+        success: false,
+        message: "Server authentication configuration error",
+      };
+    }
+
+    const decodedToken = jwt.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+
+    const getUserInfo = await User.findById(
+      decodedToken.id
+    ).select("-password");
+
+    if (!getUserInfo) {
+      return {
+        success: false,
+        message: "User not found",
+      };
+    }
+
+    return {
+      success: true,
+      data: JSON.parse(JSON.stringify(getUserInfo)),
+    };
+
+  } catch (error) {
+    console.error("FetchUserRegisterAction error:", error);
+
+    return {
+      success: false,
+      message: "Invalid or expired token",
+    };
+  }
 }
+
 
 export async function LogoutAction() {
     const cookieStore = await cookies();
