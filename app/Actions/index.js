@@ -677,16 +677,16 @@ export async function UserLoginActions(formData) {
 
 
 
-export async function FetchUserRegisterAction(req) {
+export async function FetchUserRegisterAction() {
 
     await connectToDb();
   try {
-  //  const cookieStore = await cookies();
-  //   const token = cookieStore.get('token')?.value;
+    const cookieStore = await cookies();
+     const token = cookieStore.get('token')?.value;
     //  const token = cookieStore.get('token')?.value || '';
-     const token = req.cookies.get("token")?.value;
+    //  const token = req.cookies.get("token")?.value;
 
-   if(token ===''){
+   if(!token){
     return{
       success:false,
       message:'invalid token'
