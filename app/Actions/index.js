@@ -682,7 +682,8 @@ export async function FetchUserRegisterAction() {
     await connectToDb();
   try {
    const cookieStore = await cookies();
-    const token = cookieStore.get('token')?.value || '';
+    const token = cookieStore.get('token')?.value;
+    //  const token = cookieStore.get('token')?.value || '';
     // const token = request.cookies.get("token")?.value;
 
    if(token ===''){
